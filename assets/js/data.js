@@ -18,9 +18,10 @@ window.SITE = {
   },
 
   /* -- Hero -------------------------------------------------------------- */
-  /* Plays muted on load. "Play with sound" hands off to the bottom player. */
+  /* The photo is the hero. Set videoId to a YouTube id if you ever want a
+     muted ambient loop behind it instead; "" keeps the still photo clean. */
   hero: {
-    videoId: "hM8IRzdmU34",
+    videoId: "",
     image: "assets/img/hero.jpg",
     kicker: "Solo · i!i!o · Life and Sound · EDGE",
     line1: "Music that moves toward",
@@ -42,11 +43,14 @@ window.SITE = {
     ]
   },
 
-  /* -- Featured video ---------------------------------------------------- */
+  /* -- Featured track ---------------------------------------------------- */
+  /* Clicking this hands off to the bottom player rather than embedding, so
+     the music keeps going while the visitor reads the rest of the page. */
   featured: {
-    videoId: "hM8IRzdmU34",
-    title: "Improvisation — Solo Drums, Live",
-    meta: "Acoustic drums and electronics"
+    videoId: "3IXsqH7luTc",
+    title: "the REAL",
+    meta: "Alla Prima · 2022",
+    square: true          /* true for cover art, false for a 16:9 video still */
   },
 
   /* -- Work -------------------------------------------------------------- */
@@ -56,7 +60,7 @@ window.SITE = {
       name: "ALLOPHONE",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
-      videoId: "XbORdnoOofM",
+      videoId: "HHCQX0VbYiA",
       lineup: ["Gideok Moon — drums, no-input mixing board"],
       text: "An 'allophone' is a single linguistic root taking on different physical sounds depending on its environment. The drum — the most human of instruments — meets a no-input mixing board that generates sound from its own internal loops: identity and roots against an unfamiliar system.",
       status: "In development"
@@ -226,18 +230,18 @@ window.SITE = {
 
   /* Drop the original files into assets/img/press/ using these filenames. */
   photos: [
-    { label: "Press photo 01 — live",     file: "assets/img/press/gideok-moon-01.jpg", credit: "" },
-    { label: "Press photo 02 — portrait", file: "assets/img/press/gideok-moon-02.jpg", credit: "" },
-    { label: "Press photo 03 — solo set", file: "assets/img/press/gideok-moon-03.jpg", credit: "" }
+    { label: "Cymbal, solo set", file: "assets/img/press/gideok-moon-01.jpg", credit: "" },
+    { label: "Live at the kit",  file: "assets/img/press/gideok-moon-02.jpg", credit: "" }
   ],
 
   /* -- Bottom player ----------------------------------------------------- */
   player: [
-    { title: "Improvisation — Solo Drums",  project: "Solo",           videoId: "hM8IRzdmU34" },
-    { title: "Live at PROGR",               project: "i!i!o",          videoId: "so-H9T3kPa4" },
-    { title: "MoIM × LIQUID SOUND",         project: "Life and Sound", videoId: "5WSILESP-bE" },
-    { title: "SOund RE;search LAB",         project: "Yoonhwa Choi Trio", videoId: "NKE673GASb4" },
-    { title: "The Lake",                    project: "Seongmin Ahn Quartet", videoId: "J8XbOPTZLJ8" }
+    { title: "the REAL",            project: "Alla Prima",              videoId: "3IXsqH7luTc" },
+    { title: "rolls",               project: "Solo — improvisation",    videoId: "HHCQX0VbYiA" },
+    { title: "Live at PROGR",       project: "i!i!o",                   videoId: "so-H9T3kPa4" },
+    { title: "MoIM × LIQUID SOUND", project: "Life and Sound",          videoId: "5WSILESP-bE" },
+    { title: "SOund RE;search LAB", project: "Yoonhwa Choi Trio",       videoId: "NKE673GASb4" },
+    { title: "The Lake",            project: "Seongmin Ahn Quartet",    videoId: "J8XbOPTZLJ8" }
   ],
 
   /* -- Booking ----------------------------------------------------------- */

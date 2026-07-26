@@ -18,19 +18,28 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
   };
-  var ytThumb = function (id) { return "https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg"; };
+  /* maxresdefault is missing on plenty of uploads (Shorts especially), so
+     always keep hqdefault behind it. */
+  var ytThumb = function (id) {
+    return id ? ["https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg",
+                 "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg"] : [];
+  };
 
   /* Apply a background image only once it actually loads, so a missing file
-     falls back to the CSS gradient instead of showing a broken box. */
-  function setBg(node, url, fallback) {
-    if (!node || !url) { if (fallback) setBg(node, fallback); return; }
-    var probe = new Image();
-    probe.onload = function () {
-      node.style.backgroundImage = 'url("' + url + '")';
-      node.classList.add("has-img");
-    };
-    probe.onerror = function () { if (fallback) setBg(node, fallback); };
-    probe.src = url;
+     falls back to the next source, and finally to the CSS gradient. */
+  function setBg(node, sources) {
+    if (!node) return;
+    var list = [].concat(sources || []).filter(Boolean);
+    (function attempt(i) {
+      if (i >= list.length) return;
+      var probe = new Image();
+      probe.onload = function () {
+        node.style.backgroundImage = 'url("' + list[i] + '")';
+        node.classList.add("has-img");
+      };
+      probe.onerror = function () { attempt(i + 1); };
+      probe.src = list[i];
+    })(0);
   }
 
   /* ---------------------------------------------------------------- hero -- */
@@ -41,9 +50,7 @@
     $("#heroL2").textContent = h.line2;
     $("#heroRoles").textContent = a.roles;
     $("#heroBase").textContent = a.base;
-    /* No thumbnail fallback here on purpose: video title cards read as noise
-       behind the headline. Without hero.jpg the CSS gradient takes over. */
-    setBg($("#heroStill"), h.image);
+    setBg($("#heroStill"), [h.image]);
   }
 
   /* ----------------------------------------------------------- statement -- */
@@ -71,7 +78,7 @@
     var play  = el("div", "ytbox__play", "<i></i>");
     box.appendChild(thumb);
     box.appendChild(play);
-    setBg(thumb, poster || ytThumb(videoId), ytThumb(videoId));
+    setBg(thumb, [poster].concat(ytThumb(videoId)));
 
     box.setAttribute("role", "button");
     box.setAttribute("tabindex", "0");
@@ -96,11 +103,31 @@
     });
   }
 
+  /* The featured item is a track, not a clip: send it to the bottom player so
+     it keeps playing while the visitor scrolls on. */
   function renderFeatured() {
     var f = S.featured;
     $("#ftTitle").textContent = f.title;
     $("#ftMeta").textContent = f.meta;
-    buildYtBox($("#featuredVideo"), f.videoId, f.image);
+
+    var box = $("#featuredVideo");
+    if (!f.videoId) { box.remove(); return; }
+    if (f.square) box.closest(".feature").classList.add("feature--square");
+
+    var thumb = el("div", "ytbox__thumb");
+    box.appendChild(thumb);
+    box.appendChild(el("div", "ytbox__play", "<i></i>"));
+    setBg(thumb, [f.image].concat(ytThumb(f.videoId)));
+
+    box.setAttribute("role", "button");
+    box.setAttribute("tabindex", "0");
+    box.setAttribute("aria-label", "Play " + f.title);
+
+    var go = function () { Player.playById(f.videoId, f.title, f.meta); };
+    box.addEventListener("click", go);
+    box.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+    });
   }
 
   /* ---------------------------------------------------------------- work -- */
@@ -114,7 +141,7 @@
       media.appendChild(el("span", "work__num", "0" + (i + 1)));
       var img = el("div", "work__img");
       media.appendChild(img);
-      setBg(img, w.image, w.videoId ? ytThumb(w.videoId) : null);
+      setBg(img, [w.image].concat(ytThumb(w.videoId)));
 
       if (w.videoId) {
         media.style.cursor = "pointer";
@@ -159,7 +186,7 @@
     var img = el("div", "release__img");
     art.appendChild(img);
     art.appendChild(el("span", "release__go", "Listen ↗"));
-    setBg(img, r.image);
+    setBg(img, [r.image]);
 
     a.appendChild(art);
     a.appendChild(el("h4", "release__title", esc(r.title)));
@@ -255,7 +282,7 @@
       a.setAttribute("download", "");
 
       var t = el("span", "photo__thumb");
-      setBg(t, p.file);
+      setBg(t, [p.file]);
       a.appendChild(t);
 
       a.appendChild(el("span", "photo__b",

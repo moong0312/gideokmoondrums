@@ -321,6 +321,17 @@ a{ color:inherit; }
 .feature__cap h2{ font-family:var(--serif); font-weight:400; font-size:clamp(21px,4.2vw,29px); margin:0; letter-spacing:-.01em; }
 .feature__cap p{ margin:0; color:var(--ink-3); font-size:13px; }
 
+/* Cover art is square — pillarboxing it inside 16:9 looks like a mistake, so
+   the artwork sets the shape and the caption moves alongside it. */
+.feature--square .ytbox{ aspect-ratio:1; }
+.feature--square .feature__frame{ max-width:420px; }
+@media (min-width:860px){
+  .feature--square{ display:grid; grid-template-columns:minmax(0,420px) 1fr; gap:48px; align-items:center; }
+  .feature--square .feature__cap{ padding-top:0; display:block; }
+  .feature--square .feature__cap h2{ font-size:clamp(28px,3.4vw,44px); margin-bottom:10px; }
+  .feature--square .feature__cap p{ font-size:14px; }
+}
+
 /* --- work ----------------------------------------------------------------- */
 
 .works{ display:grid; gap:1px; background:var(--line); border-block:1px solid var(--line); }
