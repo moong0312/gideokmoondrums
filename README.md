@@ -50,22 +50,25 @@ lands in. Cover art goes in `assets/img/` at 640×640 or larger.
 Photos are referenced by filename. Drop the files in and they appear; leave a filename
 missing and the layout falls back to a duotone gradient rather than breaking.
 
-| Put the file at | Shows up as |
-| --- | --- |
-| `assets/img/hero.jpg` | full-bleed hero background (use ~2000px wide, landscape) |
-| `assets/img/work-solo.jpg` | ALLOPHONE card |
-| `assets/img/work-iio.jpg` | i!i!o card |
-| `assets/img/work-life-and-sound.jpg` | Life and Sound card |
-| `assets/img/work-edge.jpg` | EDGE card |
-| `assets/img/press/gideok-moon-01.jpg` | press download 1 |
-| `assets/img/press/gideok-moon-02.jpg` | press download 2 |
-| `assets/img/press/gideok-moon-03.jpg` | press download 3 |
+| Put the file at | Shows up as | Status |
+| --- | --- | --- |
+| `assets/img/hero.jpg` | full-bleed hero background (~2400px wide, landscape) | in |
+| `assets/img/press/gideok-moon-01.jpg` | press download 1 | in |
+| `assets/img/press/gideok-moon-02.jpg` | press download 2 | in |
+| `assets/img/work-solo.jpg` | ALLOPHONE card | falls back to video still |
+| `assets/img/work-iio.jpg` | i!i!o card | falls back to video still |
+| `assets/img/work-life-and-sound.jpg` | Life and Sound card | falls back to video still |
+| `assets/img/work-edge.jpg` | EDGE card | **gradient — no photo or video yet** |
 
-Work cards are 4:3. Press photos should be the **full-resolution originals** — they are
-served as direct downloads, so whatever you put there is what press receives. Add a
-photographer to the `credit` field in `data.js` and the credit line renders with it.
+Work cards are 4:3; a card with neither photo nor `videoId` shows a duotone gradient.
+Press photos are served as direct downloads, so whatever is in `press/` is exactly what
+press receives — keep them large. Set `credit` on each entry in `data.js` and the
+credit line renders under the label.
 
 Album covers are already in `assets/img/release-*.jpg`.
+
+Full-resolution originals live in `_originals/`, which is gitignored — regenerate the
+web sizes from there rather than re-compressing what's already in `assets/`.
 
 ## Design
 

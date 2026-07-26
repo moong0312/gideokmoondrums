@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "assets_img_release_alla_prima_cover",
+      "label": "Alla Prima (Release Cover Art)",
+      "file_type": "image",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_img_release_alla_prima_gideok_moon",
+      "label": "Gideok Moon",
+      "file_type": "concept",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_img_release_alla_prima_title",
+      "label": "Alla Prima (Release Title)",
+      "file_type": "concept",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "assets_img_release_alla_prima_cover",
+      "target": "assets_img_release_alla_prima_gideok_moon",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "assets_img_release_alla_prima_cover",
+      "target": "assets_img_release_alla_prima_title",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "assets_img_release_alla_prima_gideok_moon",
+      "target": "assets_img_release_alla_prima_title",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-alla-prima.jpg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

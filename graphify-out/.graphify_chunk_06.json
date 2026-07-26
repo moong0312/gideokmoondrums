@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "assets_img_release_kind_warmth_image",
+      "label": "release-kind-warmth.jpg (cover artwork)",
+      "file_type": "image",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_img_release_kind_warmth_release",
+      "label": "다정한 온기 (Kind Warmth) EP",
+      "file_type": "concept",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_img_release_kind_warmth_artist",
+      "label": "서보경 (Seo Bo-kyung)",
+      "file_type": "concept",
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "assets_img_release_kind_warmth_image",
+      "target": "assets_img_release_kind_warmth_release",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "assets_img_release_kind_warmth_release",
+      "target": "assets_img_release_kind_warmth_artist",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "assets_img_release_kind_warmth_image",
+      "target": "assets_img_release_kind_warmth_artist",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/jazkideok/Documents/Claude/Website/assets/img/release-kind-warmth.jpg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

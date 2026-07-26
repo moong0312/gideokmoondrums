@@ -229,9 +229,11 @@ window.SITE = {
   ],
 
   /* Drop the original files into assets/img/press/ using these filenames. */
+  /* Credits are the photographers named in each file's EXIF copyright tag —
+     confirm the spelling each one prefers before this goes out to press. */
   photos: [
-    { label: "Cymbal, solo set", file: "assets/img/press/gideok-moon-01.jpg", credit: "" },
-    { label: "Live at the kit",  file: "assets/img/press/gideok-moon-02.jpg", credit: "" }
+    { label: "Cymbal, solo set", file: "assets/img/press/gideok-moon-01.jpg", credit: "Seenjoong Keem" },
+    { label: "Live at the kit",  file: "assets/img/press/gideok-moon-02.jpg", credit: "Minhyuk Park" }
   ],
 
   /* -- Bottom player ----------------------------------------------------- */

@@ -179,7 +179,7 @@ a{ color:inherit; }
 .hero__still{
   position:absolute; inset:0;
   background:var(--bg-2) center/cover no-repeat;
-  filter:url(#duotone) contrast(1.06);
+  filter:url(#duotone-soft) contrast(1.04);
 }
 .hero__still.has-img{ background-image:var(--img); }
 
