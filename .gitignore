@@ -4,3 +4,6 @@ node_modules/
 
 # full-resolution originals, kept locally out of the repo
 _originals/
+
+# code-analysis output, not part of the site
+graphify-out/

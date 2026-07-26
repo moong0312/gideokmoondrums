@@ -1,6 +1,6 @@
 /* ===========================================================================
    Gideok Moon — EPK
-   Near-black base · narrow green accent · duotone photography
+   Near-black base · narrow green accent · photography in full colour
    Mobile-first. No build step.
    =========================================================================== */
 
@@ -179,7 +179,6 @@ a{ color:inherit; }
 .hero__still{
   position:absolute; inset:0;
   background:var(--bg-2) center/cover no-repeat;
-  filter:url(#duotone-soft) contrast(1.04);
 }
 .hero__still.has-img{ background-image:var(--img); }
 
@@ -204,7 +203,7 @@ a{ color:inherit; }
   width:100vw; height:56.25vw;
   min-height:100%; min-width:177.77vh;
   transform:translate(-50%,-50%);
-  border:0; filter:url(#duotone) contrast(1.05);
+  border:0;
 }
 
 .hero__veil{
@@ -293,10 +292,9 @@ a{ color:inherit; }
 .ytbox__thumb{
   position:absolute; inset:0;
   background:center/cover no-repeat var(--bg-2);
-  filter:url(#duotone) contrast(1.05);
-  transition:transform .7s var(--ease), filter .4s var(--ease);
+  transition:transform .7s var(--ease);
 }
-.ytbox:hover .ytbox__thumb{ transform:scale(1.03); filter:none; }
+.ytbox:hover .ytbox__thumb{ transform:scale(1.03); }
 .ytbox__play{
   position:absolute; inset:0; display:grid; place-items:center;
   background:linear-gradient(180deg, rgba(10,11,10,.10), rgba(10,11,10,.55));
@@ -351,10 +349,9 @@ a{ color:inherit; }
 .work__img{
   position:absolute; inset:0;
   background:center/cover no-repeat;
-  filter:url(#duotone) contrast(1.06);
-  transition:transform .8s var(--ease), filter .5s var(--ease);
+  transition:transform .8s var(--ease);
 }
-.work:hover .work__img{ transform:scale(1.04); filter:none; }
+.work:hover .work__img{ transform:scale(1.04); }
 .work__img:not(.has-img)::after{
   content:""; position:absolute; inset:0;
   background:
@@ -369,6 +366,7 @@ a{ color:inherit; }
 
 .work__head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
 .work__name{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,5.5vw,38px); margin:0; letter-spacing:-.015em; }
+.work__sub{ color:var(--ink-3); margin-left:.3em; }
 .work__kind{
   font-size:10px; letter-spacing:.15em; text-transform:uppercase;
   color:var(--green); border:1px solid var(--line-2);
@@ -401,10 +399,9 @@ a{ color:inherit; }
 }
 .release__img{
   position:absolute; inset:0; background:center/cover no-repeat;
-  transition:transform .7s var(--ease), filter .45s var(--ease);
-  filter:saturate(.55) contrast(1.05) brightness(.88);
+  transition:transform .7s var(--ease);
 }
-.release:hover .release__img{ transform:scale(1.05); filter:none; }
+.release:hover .release__img{ transform:scale(1.05); }
 .release__img:not(.has-img)::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(145deg,#121a14,#0a0b0a);
@@ -525,7 +522,7 @@ a.date__in:hover{ padding-left:12px; background:linear-gradient(90deg, var(--gre
 .photo:hover{ border-color:var(--green); background:var(--bg-3); }
 .photo__thumb{
   width:62px; height:62px; flex:none; background:var(--bg-3) center/cover no-repeat;
-  filter:url(#duotone); border:1px solid var(--line);
+  border:1px solid var(--line);
 }
 .photo__b{ min-width:0; flex:1; }
 .photo__b strong{ display:block; font-size:14px; font-weight:500; margin-bottom:2px; }

@@ -157,7 +157,8 @@
 
       var body = el("div", "work__body");
       var head = el("div", "work__head");
-      head.appendChild(el("h3", "work__name", esc(w.name)));
+      head.appendChild(el("h3", "work__name",
+        esc(w.name) + (w.nameSub ? ' <span class="work__sub">' + esc(w.nameSub) + "</span>" : "")));
       head.appendChild(el("span", "work__kind", esc(w.kind)));
       body.appendChild(head);
 
@@ -165,7 +166,7 @@
       w.lineup.forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
       body.appendChild(lu);
 
-      body.appendChild(el("p", "work__text", esc(w.text)));
+      if (w.text) body.appendChild(el("p", "work__text", esc(w.text)));
       if (w.status) body.appendChild(el("p", "work__status", esc(w.status)));
 
       card.appendChild(media);

@@ -57,12 +57,13 @@ window.SITE = {
   works: [
     {
       id: "solo",
-      name: "ALLOPHONE",
+      name: "Ieum",
+      nameSub: "이음",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "HHCQX0VbYiA",
       lineup: ["Gideok Moon — drums, no-input mixing board"],
-      text: "An 'allophone' is a single linguistic root taking on different physical sounds depending on its environment. The drum — the most human of instruments — meets a no-input mixing board that generates sound from its own internal loops: identity and roots against an unfamiliar system.",
+      text: "",                    /* description to come */
       status: "In development"
     },
     {
