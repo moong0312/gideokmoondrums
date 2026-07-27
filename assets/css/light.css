@@ -198,91 +198,93 @@ a{ color:inherit; }
   .nav__links{ display:flex; }
 }
 
-/* --- hero — hard asymmetric split ----------------------------------------- */
+/* --- hero — full-bleed photo, text laid over it ---------------------------- */
 
-.hero{ position:relative; overflow:hidden; padding:0 0 64px; }
+.hero{
+  position:relative; overflow:hidden;
+  min-height:100svh;
+  display:flex; align-items:flex-end;
+  padding:112px 0 56px;
+}
+
+.hero__media{ position:absolute; inset:0; z-index:0; background:var(--ink); }
+.hero__still{ position:absolute; inset:0; background:var(--paper-2) center/cover no-repeat; }
+.hero__still:not(.has-img)::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(150deg, var(--sage), var(--slate));
+}
+.hero__video{ position:absolute; inset:-2px; opacity:0; transition:opacity 1.2s var(--ease); pointer-events:none; }
+.hero__video.is-on{ opacity:.92; }
+.hero__video iframe{
+  position:absolute; top:50%; left:50%;
+  width:100vw; height:56.25vw; min-height:100%; min-width:177.77vh;
+  transform:translate(-50%,-50%); border:0;
+}
+
+/* dark scrim so paper-coloured type holds over whatever the photo is doing
+   underneath — heaviest where the text actually sits */
+.hero__veil{
+  position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(180deg, rgba(20,18,14,.16) 0%, rgba(20,18,14,0) 32%, rgba(20,18,14,.62) 78%, rgba(20,18,14,.9) 100%),
+    linear-gradient(92deg, rgba(20,18,14,.66) 0%, rgba(20,18,14,.1) 58%, transparent 100%);
+}
 
 .hero__score{
   position:absolute; inset:0; width:100%; height:100%;
-  pointer-events:none; z-index:0;
+  pointer-events:none; z-index:1; mix-blend-mode:screen; opacity:.7;
 }
 
 /* rotated rail up the left edge, poster-style */
-/* anchored at the top so a long string runs downward instead of off-canvas */
 .hero__rail{
   display:none;
-  position:absolute; left:13px; top:64px; z-index:3;
+  position:absolute; left:16px; top:88px; z-index:2;
   margin:0; writing-mode:vertical-rl;
   font-family:var(--mono); font-size:10px; letter-spacing:.3em;
-  text-transform:uppercase; color:var(--ink-3); white-space:nowrap;
+  text-transform:uppercase; color:rgba(242,239,230,.55); white-space:nowrap;
 }
 .hero__rail::after{
   content:""; display:block; width:1px; height:60px;
-  background:var(--line-2); margin:16px auto 0;
+  background:rgba(242,239,230,.3); margin:16px auto 0;
 }
 
-.hero__grid{ position:relative; z-index:2; display:grid; }
-
-.hero__text{ padding:52px var(--pad) 0; order:2; }
-
-.hero__media{ position:relative; order:1; padding:0 0 0 var(--pad); }
-.hero__block{
-  position:absolute; z-index:0;
-  top:22px; right:0; width:62%; height:100%;
-  background:var(--tone, var(--ox));
-  --tone:var(--ox);
-}
 /* A stamped emblem over the photo's top-left corner (dead background in the
    shot, never the face) — paper backing + hard shadow so it reads as an
-   object sitting on the image rather than a texture inside it. z-index
-   above .hero__frame is what makes that possible; same z-index would let
-   DOM order bury it under the photo. */
+   object sitting on the image, whatever the photo is doing behind it. */
 .hero__mark{
   position:absolute; z-index:2;
-  width:92px; height:92px;
-  top:-16px; left:14px;
+  width:80px; height:80px;
+  top:24px; left:var(--pad);
   background:var(--paper);
   border:1.5px solid var(--ink);
-  box-shadow:7px 7px 0 var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
 }
-.hero__frame{
-  position:relative; z-index:1;
-  aspect-ratio:4/3; overflow:hidden;
-  background:var(--paper-2);
-  border:1px solid var(--ink);
-}
-.hero__still{ position:absolute; inset:0; background:center/cover no-repeat; }
-.hero__still:not(.has-img)::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(150deg, var(--sage), var(--paper-2));
-}
-.hero__video{ position:absolute; inset:-2px; opacity:0; transition:opacity 1.2s var(--ease); pointer-events:none; }
-.hero__video.is-on{ opacity:.9; }
-.hero__video iframe{
-  position:absolute; top:50%; left:50%;
-  width:100%; height:56.25vw; min-height:100%; min-width:177.77%;
-  transform:translate(-50%,-50%); border:0;
+
+.hero__text{
+  position:relative; z-index:2; width:100%;
+  max-width:var(--max); margin:0 auto; padding:0 var(--pad);
 }
 
 .hero__kicker{
   font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;
-  color:var(--ox); margin:0 0 22px; font-weight:700;
+  color:var(--ochre); margin:0 0 22px; font-weight:700;
 }
 .hero__title{
   font-family:var(--serif); font-weight:400; text-transform:uppercase;
-  font-size:clamp(30px, 6.6vw, 58px);
-  line-height:1; letter-spacing:.003em;
+  font-size:clamp(32px, 9vw, 84px);
+  line-height:.98; letter-spacing:.003em;
   margin:0 0 26px; max-width:15ch;
+  color:var(--paper);
 }
 .hero__title em{
   display:block; font-style:normal;
-  color:var(--ox);
+  color:var(--ochre);
 }
 
 .hero__meta{
   display:grid; gap:4px;
   font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--ink-3); margin-bottom:30px;
+  color:rgba(242,239,230,.72); margin-bottom:30px;
 }
 .dot{ display:none; width:4px; height:4px; background:var(--ochre); }
 @media (min-width:560px){
@@ -291,29 +293,16 @@ a{ color:inherit; }
 }
 
 .hero__actions{ display:flex; flex-wrap:wrap; gap:12px; }
+/* the outline button needs paper-coloured ink over a dark photo instead of
+   the near-black it uses everywhere else on the page */
+.hero .btn--ghost{ color:var(--paper); border-color:rgba(242,239,230,.5); }
+.hero .btn--ghost:hover{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
 
 @media (min-width:900px){
-  .hero{ padding-bottom:96px; }
+  .hero{ padding:132px 0 88px; }
   .hero__rail{ display:block; }
-  .hero__grid{
-    grid-template-columns:minmax(0,47%) minmax(0,53%);
-    align-items:center; gap:0;
-    max-width:var(--max); margin:0 auto; padding:0 var(--pad);
-    min-height:78vh;
-  }
-  .hero__text{ order:1; padding:64px 48px 64px 40px; }
-  /* the photo breaks the grid and bleeds off the right edge */
-  .hero__media{
-    order:2; padding:0;
-    margin-right:calc(50% - 50vw); margin-top:-40px;
-  }
-  .hero__frame{ aspect-ratio:auto; height:78vh; min-height:520px; }
-  .hero__block{ top:-32px; right:auto; left:-34px; width:180px; height:calc(100% + 64px); }
-  .hero__mark{
-    width:150px; height:150px;
-    top:40px; left:34px; bottom:auto;
-    box-shadow:10px 10px 0 var(--ink);
-  }
+  .hero__mark{ width:120px; height:120px; top:96px; left:40px; box-shadow:9px 9px 0 var(--ink); }
+  .hero__title{ max-width:14ch; }
 }
 
 /* --- ticker --------------------------------------------------------------- */
@@ -345,13 +334,9 @@ a{ color:inherit; }
   margin:0 0 44px; max-width:20ch;
 }
 .cols{ display:grid; gap:34px; }
-.cols__body{
-  background:var(--paper-3);
-  border:1px solid var(--ink);
-  border-left:6px solid var(--tone);
-  padding:28px 26px; max-width:66ch;
-}
-.cols__body p{ margin:0 0 18px; color:var(--ink-2); }
+/* Anton reads fine straight on paper now — no panel needed. */
+.cols__body{ max-width:66ch; }
+.cols__body p{ margin:0 0 20px; color:var(--ink-2); font-size:16px; line-height:1.7; }
 .cols__body p:last-child{ margin-bottom:0; }
 
 .facts{ margin:0; display:grid; gap:0; align-content:start; }
@@ -364,7 +349,6 @@ a{ color:inherit; }
 
 @media (min-width:900px){
   .cols{ grid-template-columns:1.55fr 1fr; gap:64px; }
-  .cols__body{ padding:34px 34px; }
 }
 
 /* --- youtube box ---------------------------------------------------------- */
@@ -454,9 +438,7 @@ a{ color:inherit; }
 
 .work__text{
   margin:0 0 18px; color:var(--ink-2); max-width:58ch;
-  background:var(--paper-3); border:1px solid var(--line);
-  border-left:4px solid var(--tone);
-  padding:18px 20px; font-size:15px;
+  font-size:15.5px; line-height:1.65;
 }
 .work__status{
   font-family:var(--mono); font-size:10px; letter-spacing:.18em;
