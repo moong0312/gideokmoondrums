@@ -37,48 +37,49 @@
 
 <main id="top">
 
-<!-- hero — full-bleed photo, text laid over it -------------------------------- -->
+<!-- hero — text on paper, photo inset and feathered into the background ------ -->
 <section class="hero" id="hero">
-  <div class="hero__media">
-    <div class="hero__video" id="heroVideo"></div>
-    <div class="hero__still" id="heroStill"></div>
-    <div class="hero__veil" aria-hidden="true"></div>
-  </div>
-
   <canvas class="hero__score" id="scoreBg" aria-hidden="true"></canvas>
 
-  <!-- An original composition in the vocabulary of Kandinsky's Bauhaus-era
-       geometric abstraction (circle, triangle, crossing lines, a black
-       square) — not a reproduction of any specific painting. -->
-  <svg class="hero__mark" viewBox="0 0 200 200" aria-hidden="true">
-    <rect x="16" y="98" width="60" height="60" fill="#14120e"/>
-    <circle cx="130" cy="68" r="44" fill="none" stroke="#b8842a" stroke-width="3"/>
-    <circle cx="130" cy="68" r="5" fill="#b8842a"/>
-    <path d="M38 26 L176 160" stroke="#7a2820" stroke-width="2"/>
-    <path d="M14 160 L150 20" stroke="#46525a" stroke-width="1.6"/>
-    <polygon points="148,122 188,178 112,178" fill="none" stroke="#6f8154" stroke-width="3"/>
-    <circle cx="44" cy="128" r="4.5" fill="#14120e"/>
-  </svg>
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="hero__kicker mono" id="heroKicker"></p>
+      <h1 class="hero__title">
+        <span id="heroL1"></span>
+        <em id="heroL2"></em>
+      </h1>
 
-  <div class="hero__text">
-    <p class="hero__kicker mono" id="heroKicker"></p>
-    <h1 class="hero__title">
-      <span id="heroL1"></span>
-      <em id="heroL2"></em>
-    </h1>
+      <div class="hero__meta mono">
+        <span id="heroRoles"></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span id="heroBase"></span>
+      </div>
 
-    <div class="hero__meta mono">
-      <span id="heroRoles"></span>
-      <span class="dot" aria-hidden="true"></span>
-      <span id="heroBase"></span>
+      <div class="hero__actions">
+        <button class="btn btn--play" id="heroPlay" type="button">
+          <span class="btn__ico" aria-hidden="true"></span>
+          <span id="heroPlayLabel">Play with sound</span>
+        </button>
+        <a class="btn btn--ghost" href="#booking">Booking</a>
+      </div>
     </div>
 
-    <div class="hero__actions">
-      <button class="btn btn--play" id="heroPlay" type="button">
-        <span class="btn__ico" aria-hidden="true"></span>
-        <span id="heroPlayLabel">Play with sound</span>
-      </button>
-      <a class="btn btn--ghost" href="#booking">Booking</a>
+    <div class="hero__photo">
+      <div class="hero__video" id="heroVideo"></div>
+      <div class="hero__still" id="heroStill"></div>
+
+      <!-- An original composition in the vocabulary of Kandinsky's Bauhaus-era
+           geometric abstraction (circle, triangle, crossing lines, a black
+           square) — not a reproduction of any specific painting. -->
+      <svg class="hero__mark" viewBox="0 0 200 200" aria-hidden="true">
+        <rect x="16" y="98" width="60" height="60" fill="#14120e"/>
+        <circle cx="130" cy="68" r="44" fill="none" stroke="#b8842a" stroke-width="3"/>
+        <circle cx="130" cy="68" r="5" fill="#b8842a"/>
+        <path d="M38 26 L176 160" stroke="#7a2820" stroke-width="2"/>
+        <path d="M14 160 L150 20" stroke="#46525a" stroke-width="1.6"/>
+        <polygon points="148,122 188,178 112,178" fill="none" stroke="#6f8154" stroke-width="3"/>
+        <circle cx="44" cy="128" r="4.5" fill="#14120e"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -232,6 +233,13 @@
 </div>
 
 <script src="assets/js/data.js"></script>
+<script>
+  /* Light preview only — the dark, high-contrast stage shot sinks into a
+     paper background far better than the bright plaid/wood hero photo
+     used on the live site, so this preview swaps it without touching
+     data.js (the shared source both themes read from). */
+  window.SITE.hero.image = "assets/img/press/gideok-moon-02.jpg";
+</script>
 <script src="assets/js/live.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/score-bg.js"></script>
