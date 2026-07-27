@@ -26,7 +26,7 @@
 
   /* one quiet accent instead of a five-colour rotation — colour spent only
      where it earns its keep: links, the playing state, a live-date's "now". */
-  --accent:   #a9762f;
+  --accent:   #4f8a5e;
   --green:    #1f5c3d;
   --ochre:    #b8842a;
   --ox:       #7a2820;
@@ -96,7 +96,7 @@ a{ color:inherit; }
   padding:8px 18px;
 }
 .pvbar strong{ font-weight:700; }
-.pvbar a{ color:#d8b25e; text-decoration:none; border-bottom:1px solid currentColor; }
+.pvbar a{ color:#8fc9a0; text-decoration:none; border-bottom:1px solid currentColor; }
 .pvbar a:hover{ color:var(--paper); }
 
 /* --- shared type ---------------------------------------------------------- */
@@ -236,17 +236,16 @@ a{ color:inherit; }
 
 .hero__actions{ display:flex; flex-wrap:wrap; gap:12px; }
 
-/* the photo itself: bounded, never full-width, its edges feathered to
-   transparent so the paper shows through and the image reads as sinking
-   into the page rather than a pasted-on rectangle */
+/* the photo itself: bounded, never full-width — a plain hard-edged
+   rectangle, same as every photo elsewhere on the page (Work, Releases).
+   A feathered/vignette mask was tried here and read as a hazy smudge
+   against this particular high-contrast shot, so it's a clean crop instead. */
 .hero__photo{
   position:relative;
   aspect-ratio:4/5;
   max-width:420px;
   width:100%;
   margin:0 auto;
-  -webkit-mask-image:radial-gradient(ellipse 62% 60% at 50% 42%, #000 52%, transparent 100%);
-  mask-image:radial-gradient(ellipse 62% 60% at 50% 42%, #000 52%, transparent 100%);
 }
 .hero__still{
   position:absolute; inset:0;
