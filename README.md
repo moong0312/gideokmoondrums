@@ -95,14 +95,15 @@ Paper base, one restrained accent (a muted sage green), quiet Fraunces serif for
 headings with italic carrying emphasis instead of bold caps — reference point is
 colinvallon.com: no image runs edge-to-edge, buttons are thin-bordered text, nothing
 shouts. Space Mono for small functional labels (dates, tags), Inter for body copy.
-Mobile-first, with a persistent bottom player that stays dark regardless of theme.
+Mobile-first, with a persistent bottom player that follows the theme like everything
+else (on `--paper-3`, the elevated-surface tone, so it still reads as a raised bar).
 
 Light and dark share every rule in `style.css` — only the custom properties change,
-between `:root` and `:root[data-theme="dark"]`. The toggle in the nav (`theme.js`)
-flips `data-theme` on `<html>` and remembers the choice in `localStorage`; a small
-blocking script in each page's `<head>` applies it before first paint (falling back to
-`prefers-color-scheme`) so there's no flash of the wrong theme. To change the accent,
-edit `--accent` in both blocks in `style.css`.
+between `:root` and `:root[data-theme="dark"]`. Dark is the default for first-time
+visitors; the toggle in the nav (`theme.js`) flips `data-theme` on `<html>` and
+remembers the choice in `localStorage`. A small blocking script in each page's
+`<head>` applies it before first paint, so there's no flash of the wrong theme. To
+change the accent, edit `--accent` in both blocks in `style.css`.
 
 ## Deploying
 
