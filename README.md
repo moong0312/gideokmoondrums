@@ -4,10 +4,13 @@ One-page electronic press kit. Static HTML, CSS and JavaScript — no build step
 dependencies, no framework. Open `index.html` and it works.
 
 ```
-index.html              markup + section order
+index.html              front page — markup + section order
+performances.html       full performance archive
 assets/css/style.css    all styling
 assets/js/data.js       ← all content lives here
-assets/js/app.js        rendering + audio player
+assets/js/app.js        front-page rendering + audio player
+assets/js/performances.js  archive page
+assets/js/live.js       the live-date row, shared by both pages
 assets/img/             album covers, work images, hero
 assets/img/press/       downloadable press photos
 serve.js                local preview server
@@ -30,15 +33,28 @@ quotes, links, the player tracklist. Edit, save, reload. No rebuild.
 
 ### Adding a live date
 
-Add an entry at the top of `live.highlights`:
+Every performance is one entry in `live.dates` — there is no second list to keep in
+sync. Add it anywhere in the array; both pages sort by `date` themselves.
 
 ```js
 { date: "2026-09-12", label: "Sep 12, 2026", project: "EDGE",
-  venue: "Offy, Bern", video: "" }
+  venue: "Offy, Bern", players: "Lukas Mohl, Nil Flückiger, Mattia Facchini",
+  video: "", info: "", home: true }
 ```
 
-`label` is what's displayed, `date` is only for your own sorting. Set `video` to a URL
-to make the row a link with a “Video ↗” tag.
+| Field | |
+| --- | --- |
+| `date` | sorting and year grouping only, `YYYY-MM-DD`. For a run of nights, use the first. |
+| `label` | what actually gets printed — `"Mar 31 – Apr 4, 2026"`, `"2023"`, anything. |
+| `project` | the headline. |
+| `venue` | second line. |
+| `players` | who else was on stage. Archive page only. Optional. |
+| `video` | a URL adds a “Video ↗” link. Optional. |
+| `info` | a second link — festival page, event listing. Archive page only. Optional. |
+| `home` | `true` shows it on the front page. Keep it to about ten. |
+
+`performances.html` renders every entry, grouped by year, with a “Video only” filter.
+The front page shows the `home: true` ones and links across with a live count.
 
 ### Adding a release
 

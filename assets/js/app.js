@@ -207,27 +207,14 @@
   /* ---------------------------------------------------------------- live -- */
   function renderLive() {
     var host = $("#dates");
-    S.live.highlights.forEach(function (d) {
-      var li = el("li", "date rv");
-      var box = d.video ? el("a", "date__in") : el("div", "date__in");
-      if (d.video) { box.href = d.video; box.target = "_blank"; box.rel = "noopener"; }
-
-      box.appendChild(el("span", "date__when", esc(d.label)));
-      var mid = el("div");
-      mid.appendChild(el("p", "date__what", esc(d.project)));
-      mid.appendChild(el("p", "date__where", esc(d.venue)));
-      box.appendChild(mid);
-      if (d.video) box.appendChild(el("span", "date__vid", "Video ↗"));
-
-      li.appendChild(box);
-      host.appendChild(li);
+    var picked = S.live.dates.filter(function (d) { return d.home; });
+    window.liveByYear(picked).forEach(function (grp) {
+      grp[1].forEach(function (d) { host.appendChild(window.liveRow(d, "home")); });
     });
 
     var all = $("#allDates");
     all.href = S.live.allUrl;
-    all.target = "_blank";
-    all.rel = "noopener";
-    all.textContent = "All performances ↗";
+    all.textContent = "All " + S.live.dates.length + " performances →";
     $("#venues").textContent = S.live.venues;
   }
 

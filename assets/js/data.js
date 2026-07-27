@@ -176,20 +176,146 @@ window.SITE = {
   ],
 
   /* -- Live -------------------------------------------------------------- */
+  /* One list, newest first. Every date lives here exactly once.
+       date    — sorting only, YYYY-MM-DD. Use the first day of a run.
+       label   — what actually gets printed.
+       players — who else was on stage. Optional.
+       video   — a URL makes the row a link with a "Video ↗" tag. Optional.
+       info    — a second link (festival page, event listing). Optional.
+       home    — true puts the date on the front page. Keep it to ~10.
+     performances.html renders all of them, grouped by year, on its own. */
   live: {
-    highlights: [
-      { date: "2026-07-03", label: "Jul 3, 2026", project: "Low Current — Night 01", venue: "Cocoon, Berlin", video: "" },
-      { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival", venue: "PROGR, Bern", video: "" },
-      { date: "2026-05-22", label: "May 22, 2026", project: "i!i!o — Diploma Concert", venue: "PROGR 369, Bern", video: "" },
-      { date: "2026-05-06", label: "May 6, 2026", project: "EDGE", venue: "Offy, Bern", video: "" },
-      { date: "2026-04-04", label: "Mar 31–Apr 4, 2026", project: "IN WALKED INDIGO", venue: "BernJazzfest — Jazztent, Bern", video: "" },
-      { date: "2026-01-18", label: "Jan 18, 2026", project: "Composer's Night — Playtime Festival", venue: "HKB, Bern", video: "https://www.dropbox.com/scl/fi/tv4xyoiz6bceb9ul7co94/Insomnia-2.mov?rlkey=u7el9rsjj6fqotyokmvb6kk7s&st=777xqn37&dl=0" },
-      { date: "2025-09-29", label: "Sep 29, 2025", project: "The Music of Alice Coltrane", venue: "HKB, Bern", video: "" },
-      { date: "2025-07-11", label: "Jul 11, 2025", project: "Dotolim 213th Concert", venue: "Dotolim, Seoul", video: "https://youtu.be/8yBSWr8nqTk" },
-      { date: "2024-11-20", label: "Nov 20–21, 2024", project: "MoIM × LIQUID SOUND", venue: "Oil Tank Culture Park T4, Seoul", video: "https://youtu.be/5WSILESP-bE" },
-      { date: "2023-10-01", label: "2023", project: "Jarasum Jazz Festival", venue: "Gapyeong, Korea", video: "" }
+    dates: [
+      { date: "2026-07-03", label: "Jul 3, 2026", project: "Low Current — Night 01",
+        venue: "Cocoon, Berlin", home: true,
+        players: "Jung-Jae Kim, Laurie Rothwell, Ju Ray'm, Alper Elmaci, Elia Baioni, Justin Remfrey, Alessandro Rizzato" },
+
+      { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival",
+        venue: "PROGR, Bern", home: true,
+        players: "Lukas Mohl, Nil Flückiger, Mattia Facchini" },
+
+      { date: "2026-05-30", label: "May 30, 2026", project: "Moon / Milone / Martinez — HKB Pop-Up Festival",
+        venue: "PROGR, Bern",
+        players: "Juliette Milone, Anton Martinez" },
+
+      { date: "2026-05-22", label: "May 22, 2026", project: "i!i!o — Tobias Rüetschi Diploma Concert",
+        venue: "PROGR 369, Bern", home: true,
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-05-06", label: "May 6, 2026", project: "EDGE",
+        venue: "Offy, Bern", home: true,
+        players: "Lukas Mohl, Nil Flückiger, Mattia Facchini",
+        info: "https://www.instagram.com/offy_the.off.space/" },
+
+      { date: "2026-04-27", label: "Apr 27, 2026", project: "Too Much and Never Enough",
+        venue: "HKB Auditorium, Bern",
+        players: "Juliette Milone, Sonya Chernysh, Nataniel Edelman, Anton Martinez, Vadim Saukin, Maria Amor Oró, Matea Botella, Michael Cina" },
+
+      { date: "2026-04-10", label: "Apr 10, 2026", project: "i!i!o — OFFKULTURWOCHE",
+        venue: "Offy, Bern",
+        players: "Tobias Rüetschi, Jessie Chen",
+        info: "https://www.instagram.com/offy_the.off.space/" },
+
+      { date: "2026-03-31", label: "Mar 31 – Apr 4, 2026", project: "IN WALKED INDIGO",
+        venue: "BernJazzfest — Jazztent, Bern", home: true,
+        players: "Louis Waeber, Anton Martinez, Benjamin Jaton",
+        info: "https://www.mariansjazzroom.ch/jazzfestival-jazzzelt" },
+
+      { date: "2026-03-26", label: "Mar 26, 2026", project: "i!i!o — Chrut u Rüebe",
+        venue: "BeJazz, Bern",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-02-26", label: "Feb 26, 2026", project: "Literary Improvisation — Chrut u Rüebe",
+        venue: "BeJazz, Bern",
+        players: "Lukas Mohl" },
+
+      { date: "2026-01-20", label: "Jan 20, 2026", project: "Tuesday Jam",
+        venue: "5EmE Etage, Bern",
+        players: "Sonya Chernysh, Philipp Keifer, Benjamin Jaton" },
+
+      { date: "2026-01-18", label: "Jan 18, 2026", project: "Composer's Night — Playtime Festival",
+        venue: "HKB, Bern", home: true,
+        players: "Lukas Mohl",
+        video: "https://www.dropbox.com/scl/fi/tv4xyoiz6bceb9ul7co94/Insomnia-2.mov?rlkey=u7el9rsjj6fqotyokmvb6kk7s&st=777xqn37&dl=0" },
+
+      { date: "2026-01-14", label: "Jan 14, 2026", project: "Improvisation Night — Playtime Festival",
+        venue: "HKB, Bern",
+        players: "Amilcar, Tobias, Jessie, Beatriz",
+        video: "https://www.dropbox.com/scl/fi/j5zshj9zy1q18qwqj1ara/Jan-14-2026.mov?rlkey=gokutuuonfftrot30mkqz4mc6&st=dkitdt7a&dl=0" },
+
+      { date: "2025-09-29", label: "Sep 29, 2025", project: "The Music of Alice Coltrane",
+        venue: "HKB, Bern", home: true },
+
+      { date: "2025-07-29", label: "Jul 29, 2025", project: "Double Duo",
+        venue: "Mudaeruk, Seoul",
+        players: "Sangbeom Kim, Junyoung Song, Sunjae Lee",
+        video: "https://youtu.be/tYTp0qWtqRg" },
+
+      { date: "2025-07-11", label: "Jul 11, 2025", project: "Dotolim 213th Concert",
+        venue: "Dotolim, Seoul", home: true,
+        players: "Sunjae Lee, Sangtae Jin",
+        video: "https://youtu.be/8yBSWr8nqTk" },
+
+      { date: "2025-07-10", label: "Jul 10, 2025", project: "Seongmin Ahn Quartet",
+        venue: "Club Evans, Seoul",
+        video: "https://youtu.be/e8ivwRzo0n0" },
+
+      { date: "2025-04-11", label: "Apr 11, 2025", project: "Dotolim 203rd Concert",
+        venue: "Dotolim, Seoul",
+        players: "Sangbeom Kim, Yeji Kim, Joyul",
+        video: "https://youtu.be/aILOVxToonA" },
+
+      { date: "2025-01-22", label: "Jan 22, 2025", project: "Jimin Lee Quartet",
+        venue: "Club Evans, Seoul" },
+
+      { date: "2024-12-28", label: "Dec 28, 2024", project: "Sequence — Moremusic.site",
+        venue: "Moss, Seoul",
+        players: "Yunseon Yi, Sangbeom Kim",
+        video: "https://youtu.be/Axpbl1YfazE" },
+
+      { date: "2024-11-20", label: "Nov 20–21, 2024", project: "MoIM × LIQUID SOUND Improvisation Concert",
+        venue: "Oil Tank Culture Park T4, Seoul", home: true,
+        players: "Extended ensemble",
+        video: "https://youtu.be/5WSILESP-bE" },
+
+      { date: "2024-10-26", label: "Oct 26, 2024", project: "Life and Sound",
+        venue: "Munrae Record, Seoul",
+        players: "Minseok Choi" },
+
+      { date: "2024-10-24", label: "Oct 24, 2024", project: "Modern Jazz Chamber",
+        venue: "Banpo Simsan Art Hall, Seoul",
+        video: "https://youtu.be/2ane9Fu8BFY" },
+
+      { date: "2024-08-18", label: "Aug 18, 2024", project: "Composition Workshop Concert",
+        venue: "d/p, Seoul",
+        players: "Led by Okkyung Lee" },
+
+      { date: "2024-05-03", label: "May 3, 2024", project: "Gimhae Jazz Concert",
+        venue: "Gimhae Cultural Center" },
+
+      { date: "2024-03-30", label: "Mar 30, 2024", project: "24-Hour Project",
+        venue: "Seoul",
+        players: "Sangbeom Kim",
+        video: "https://youtu.be/mDZcsyY35eM" },
+
+      { date: "2023-10-06", label: "2023", project: "Jarasum Jazz Festival",
+        venue: "Gapyeong, Korea", home: true,
+        players: "Seongmin Ahn Guitar Quartet" },
+
+      { date: "2023-10-01", label: "Oct 1, 2023", project: "Life and Sound Vol. 1: “Again, Being”",
+        venue: "Yeonhui Art Theater, Seoul",
+        players: "Sangbeom Kim",
+        video: "https://youtu.be/yNSgjeVHoWc" },
+
+      { date: "2022-07-03", label: "Jul 3, 2022", project: "Seo Bokyung House Concert",
+        venue: "Ansan, Korea" },
+
+      { date: "2021-10-01", label: "2021", project: "Jazz Korea Festival",
+        venue: "Korean Cultural Centre, Germany",
+        players: "Yi Yunseon Trio",
+        video: "https://youtu.be/vr7PGfFp9g4" }
     ],
-    allUrl: "https://www.gideokmoondrums.com/home/performances",
+    allUrl: "performances.html",
     venues: "PROGR · BeJazz · Offy · Bern Jazz Festival · Cocoon Berlin · Jarasum Jazz Festival · Dotolim · Club Evans · Korean Cultural Centre Germany"
   },
 
