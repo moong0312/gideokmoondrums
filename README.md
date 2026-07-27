@@ -11,6 +11,7 @@ assets/js/data.js       ← all content lives here
 assets/js/app.js        front-page rendering + audio player
 assets/js/performances.js  archive page
 assets/js/live.js       the live-date row, shared by both pages
+assets/js/theme.js      light/dark toggle button
 assets/img/             album covers, work images, hero
 assets/img/press/       downloadable press photos
 serve.js                local preview server
@@ -68,7 +69,7 @@ missing and the layout falls back to a dark gradient rather than breaking.
 
 | Put the file at | Shows up as | Status |
 | --- | --- | --- |
-| `assets/img/hero.jpg` | full-bleed hero background (~2400px wide, landscape) | in |
+| `assets/img/press/gideok-moon-02.jpg` | hero photo (bounded, not full-bleed) | in |
 | `assets/img/press/gideok-moon-01.jpg` | press download 1 | in |
 | `assets/img/press/gideok-moon-02.jpg` | press download 2 | in |
 | `assets/img/work-solo.jpg` | Ieum (이음) card | falls back to video still |
@@ -90,12 +91,18 @@ web sizes from there rather than re-compressing what's already in `assets/`.
 
 ## Design
 
-Near-black `#0b0908` base, one warm orange accent `#e8813f` used sparingly, photography
-in full colour against it. Type is Instrument Serif for display and Inter for everything
-else, left-aligned throughout. Mobile-first, with a persistent bottom player.
+Paper base, one restrained accent (a muted sage green), quiet Fraunces serif for
+headings with italic carrying emphasis instead of bold caps — reference point is
+colinvallon.com: no image runs edge-to-edge, buttons are thin-bordered text, nothing
+shouts. Space Mono for small functional labels (dates, tags), Inter for body copy.
+Mobile-first, with a persistent bottom player that stays dark regardless of theme.
 
-To change the accent, edit `--accent` (and its `--accent-dim` / `--accent-bright` /
-`--accent-glow` / `--accent-ink` companions) in `style.css`.
+Light and dark share every rule in `style.css` — only the custom properties change,
+between `:root` and `:root[data-theme="dark"]`. The toggle in the nav (`theme.js`)
+flips `data-theme` on `<html>` and remembers the choice in `localStorage`; a small
+blocking script in each page's `<head>` applies it before first paint (falling back to
+`prefers-color-scheme`) so there's no flash of the wrong theme. To change the accent,
+edit `--accent` in both blocks in `style.css`.
 
 ## Deploying
 

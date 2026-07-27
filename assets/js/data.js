@@ -22,7 +22,7 @@ window.SITE = {
      muted ambient loop behind it instead; "" keeps the still photo clean. */
   hero: {
     videoId: "",
-    image: "assets/img/hero.jpg",
+    image: "assets/img/press/gideok-moon-02.jpg",
     kicker: "Solo · i!i!o · Life and Sound · EDGE",
     line1: "Music that moves toward",
     line2: "what resists explanation."

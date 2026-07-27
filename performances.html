@@ -5,17 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Performances — Gideok Moon</title>
 <meta name="description" content="Selected performance history of drummer and improviser Gideok Moon — Bern, Berlin, Seoul. Festivals, clubs and concert halls, with video where available.">
-<meta name="theme-color" content="#0b0908">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Performances — Gideok Moon">
 <meta property="og:description" content="Every date, newest first. Bern · Berlin · Seoul.">
-<meta property="og:image" content="assets/img/hero.jpg">
+<meta property="og:image" content="assets/img/press/gideok-moon-02.jpg">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Set before first paint so there's no flash of the wrong theme. -->
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("gm-theme");
+    var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="page">
@@ -24,14 +36,17 @@
 
 <!-- nav -------------------------------------------------------------------- -->
 <header class="nav is-stuck" id="nav">
-  <a class="nav__id" href="index.html"><span>Gideok Moon</span></a>
-  <nav class="nav__links" aria-label="Sections">
-    <a href="index.html#work">Work</a>
-    <a href="index.html#releases">Releases</a>
-    <a href="index.html#live">Live</a>
-    <a href="index.html#press">Press</a>
-    <a href="index.html#booking" class="nav__cta">Booking</a>
-  </nav>
+  <a class="nav__id" href="index.html">Gideok&nbsp;Moon</a>
+  <div class="nav__right">
+    <nav class="nav__links" aria-label="Sections">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#releases">Releases</a>
+      <a href="index.html#live">Live</a>
+      <a href="index.html#press">Press</a>
+      <a href="index.html#booking">Booking</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+  </div>
 </header>
 
 <main id="top">
@@ -68,14 +83,15 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
+  <div class="wrap foot__in mono">
     <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
-    <p class="foot__c">© <span id="yr"></span> Gideok Moon. All rights reserved.</p>
+    <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
   </div>
 </footer>
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/live.js"></script>
 <script src="assets/js/performances.js"></script>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>

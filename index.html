@@ -5,17 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gideok Moon — Drummer, Improviser, Composer</title>
 <meta name="description" content="Gideok Moon is a drummer, improviser and composer from Seoul, based in Bern. Solo, i!i!o, Life and Sound, EDGE. Press kit, releases, live dates and booking.">
-<meta name="theme-color" content="#0b0908">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gideok Moon — Drummer, Improviser, Composer">
 <meta property="og:description" content="Music that moves toward what resists explanation. Bern — Seoul.">
-<meta property="og:image" content="assets/img/hero.jpg">
+<meta property="og:image" content="assets/img/press/gideok-moon-02.jpg">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Set before first paint so there's no flash of the wrong theme. -->
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("gm-theme");
+    var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -24,47 +36,51 @@
 
 <!-- nav -------------------------------------------------------------------- -->
 <header class="nav" id="nav">
-  <a class="nav__id" href="#top"><span>Gideok Moon</span></a>
-  <nav class="nav__links" aria-label="Sections">
-    <a href="#work">Work</a>
-    <a href="#releases">Releases</a>
-    <a href="#live">Live</a>
-    <a href="#press">Press</a>
-    <a href="#booking" class="nav__cta">Booking</a>
-  </nav>
+  <a class="nav__id" href="#top">Gideok&nbsp;Moon</a>
+  <div class="nav__right">
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#releases">Releases</a>
+      <a href="#live">Live</a>
+      <a href="#press">Press</a>
+      <a href="#booking">Booking</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+  </div>
 </header>
 
 <main id="top">
 
-<!-- hero ------------------------------------------------------------------- -->
+<!-- hero — text on paper, photo inset and bounded ---------------------------- -->
 <section class="hero" id="hero">
-  <div class="hero__media">
-    <div class="hero__video" id="heroVideo"></div>
-    <div class="hero__still" id="heroStill"></div>
-    <div class="hero__veil"></div>
-  </div>
-
   <div class="hero__inner">
-    <p class="hero__kicker" id="heroKicker"></p>
-    <h1 class="hero__title">
-      <span id="heroL1"></span>
-      <em id="heroL2"></em>
-    </h1>
-    <div class="hero__meta">
-      <span id="heroRoles"></span>
-      <span class="dot" aria-hidden="true"></span>
-      <span id="heroBase"></span>
+    <div class="hero__text">
+      <p class="hero__kicker mono" id="heroKicker"></p>
+      <h1 class="hero__title">
+        <span id="heroL1"></span>
+        <em id="heroL2"></em>
+      </h1>
+
+      <div class="hero__meta mono">
+        <span id="heroRoles"></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span id="heroBase"></span>
+      </div>
+
+      <div class="hero__actions">
+        <button class="btn btn--play" id="heroPlay" type="button">
+          <span class="btn__ico" aria-hidden="true"></span>
+          <span id="heroPlayLabel">Play with sound</span>
+        </button>
+        <a class="btn btn--ghost" href="#booking">Booking</a>
+      </div>
     </div>
-    <div class="hero__actions">
-      <button class="btn btn--play" id="heroPlay" type="button">
-        <span class="btn__ico" aria-hidden="true"></span>
-        <span id="heroPlayLabel">Play with sound</span>
-      </button>
-      <a class="btn btn--ghost" href="#booking">Booking</a>
+
+    <div class="hero__photo">
+      <div class="hero__video" id="heroVideo"></div>
+      <div class="hero__still" id="heroStill"></div>
     </div>
   </div>
-
-  <div class="hero__scroll" aria-hidden="true"><span></span></div>
 </section>
 
 <!-- statement -------------------------------------------------------------- -->
@@ -74,7 +90,7 @@
     <p class="lead" id="stLead"></p>
     <div class="cols">
       <div class="cols__body" id="stBody"></div>
-      <dl class="facts" id="stFacts"></dl>
+      <dl class="facts mono" id="stFacts"></dl>
     </div>
   </div>
 </section>
@@ -83,13 +99,13 @@
 <section class="sec sec--featured" id="watch">
   <div class="wrap">
     <p class="eyebrow">Listen</p>
-    <div class="feature">
+    <div class="feature feature--square">
       <div class="feature__frame">
         <div class="ytbox" id="featuredVideo" data-video=""></div>
       </div>
       <div class="feature__cap">
         <h2 id="ftTitle"></h2>
-        <p id="ftMeta"></p>
+        <p class="mono" id="ftMeta"></p>
       </div>
     </div>
   </div>
@@ -125,7 +141,7 @@
     <h2 class="sec__h">Selected performances.</h2>
     <ul class="dates" id="dates"></ul>
     <div class="live__foot">
-      <a class="link" id="allDates" href="#">More</a>
+      <a class="link" id="allDates" href="performances.html">More</a>
       <p class="venues" id="venues"></p>
     </div>
   </div>
@@ -171,7 +187,7 @@
       <a class="bigmail" id="bkMail" href="#"></a>
       <div class="booking__side">
         <a class="btn btn--ghost" id="bkForm" href="#" target="_blank" rel="noopener">Booking form</a>
-        <ul class="social" id="social"></ul>
+        <ul class="social mono" id="social"></ul>
       </div>
     </div>
   </div>
@@ -180,9 +196,9 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
+  <div class="wrap foot__in mono">
     <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
-    <p class="foot__c">© <span id="yr"></span> Gideok Moon. All rights reserved.</p>
+    <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
   </div>
 </footer>
 
@@ -218,5 +234,6 @@
 <script src="assets/js/data.js"></script>
 <script src="assets/js/live.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>
