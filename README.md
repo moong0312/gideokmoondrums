@@ -74,9 +74,11 @@ missing and the layout falls back to a dark gradient rather than breaking.
 | `assets/img/work-solo.jpg` | Ieum (이음) card | falls back to video still |
 | `assets/img/work-iio.jpg` | i!i!o card | falls back to video still |
 | `assets/img/work-life-and-sound.jpg` | Life and Sound card | falls back to video still |
-| `assets/img/work-edge.jpg` | EDGE card | **gradient — no photo or video yet** |
+| `assets/img/work-edge.svg` | EDGE card | in — designed placeholder, no band photo yet |
 
 Work cards are 4:3; a card with neither photo nor `videoId` shows a dark gradient.
+EDGE currently uses a designed SVG placeholder (bold glitch-styled "EDGE" wordmark)
+instead — swap in a real band photo at the same path/aspect ratio whenever one exists.
 Press photos are served as direct downloads, so whatever is in `press/` is exactly what
 press receives — keep them large. Set `credit` on each entry in `data.js` and the
 credit line renders under the label.
@@ -88,11 +90,12 @@ web sizes from there rather than re-compressing what's already in `assets/`.
 
 ## Design
 
-Near-black `#0a0b0a` base, one green accent `#63b078` used sparingly, photography in
-full colour against it. Type is Instrument Serif for display and Inter for everything
+Near-black `#0b0908` base, one warm orange accent `#e8813f` used sparingly, photography
+in full colour against it. Type is Instrument Serif for display and Inter for everything
 else, left-aligned throughout. Mobile-first, with a persistent bottom player.
 
-To change the accent, edit `--green` in `style.css`.
+To change the accent, edit `--accent` (and its `--accent-dim` / `--accent-bright` /
+`--accent-glow` / `--accent-ink` companions) in `style.css`.
 
 ## Deploying
 

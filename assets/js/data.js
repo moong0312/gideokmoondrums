@@ -62,7 +62,7 @@ window.SITE = {
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "HHCQX0VbYiA",
-      lineup: ["Gideok Moon — drums, no-input mixing board"],
+      lineup: ["Gideok Moon — drums, no-input mixing board, Pure Data"],
       text: "",                    /* description to come */
       status: "In development"
     },
@@ -97,7 +97,7 @@ window.SITE = {
       id: "edge",
       name: "EDGE",
       kind: "Quartet",
-      image: "assets/img/work-edge.jpg",
+      image: "assets/img/work-edge.svg",
       videoId: "",
       lineup: [
         "Gideok Moon — drums",
