@@ -99,10 +99,11 @@ Mobile-first, with a persistent bottom player that follows the theme like everyt
 else (on `--paper-3`, the elevated-surface tone, so it still reads as a raised bar).
 
 Light and dark share every rule in `style.css` — only the custom properties change,
-between `:root` and `:root[data-theme="dark"]`. Dark is the default for first-time
-visitors; the toggle in the nav (`theme.js`) flips `data-theme` on `<html>` and
-remembers the choice in `localStorage`. A small blocking script in each page's
-`<head>` applies it before first paint, so there's no flash of the wrong theme. To
+between `:root` and `:root[data-theme="dark"]`. First-time visitors get whatever their
+system prefers (`prefers-color-scheme`), falling back to dark if that can't be read.
+The toggle in the nav (`theme.js`) flips `data-theme` on `<html>` and remembers the
+choice in `localStorage`. A small blocking script in each page's `<head>` applies it
+before first paint, so there's no flash of the wrong theme. To
 change the accent, edit `--accent` in both blocks in `style.css`.
 
 ## Deploying
