@@ -182,10 +182,11 @@ a{ color:inherit; }
 }
 .hero__media{ position:absolute; inset:0; z-index:0; background:var(--bg); }
 
+/* No brightness filter — the photograph is shown as shot, and the veil over
+   it does the work instead. */
 .hero__still{
   position:absolute; inset:0;
   background:var(--bg-2) center/cover no-repeat;
-  filter:brightness(1.5) saturate(1.06);
 }
 .hero__still.has-img{ background-image:var(--img); }
 
@@ -218,16 +219,16 @@ a{ color:inherit; }
 .hero__veil{
   position:absolute; inset:0;
   background:
-    linear-gradient(180deg, rgba(11,9,8,.38) 0%, rgba(11,9,8,0) 34%, rgba(11,9,8,.70) 82%, var(--bg) 100%),
-    linear-gradient(92deg, rgba(11,9,8,.64) 0%, rgba(11,9,8,.06) 58%, transparent 100%);
+    linear-gradient(180deg, rgba(11,9,8,.22) 0%, rgba(11,9,8,0) 30%, rgba(11,9,8,.58) 84%, var(--bg) 100%),
+    linear-gradient(92deg, rgba(11,9,8,.52) 0%, rgba(11,9,8,0) 54%, transparent 100%);
 }
 /* Narrow screens crop the photo to the bright sweater and stack the text
    over it, so the lower band needs to come back up. */
 @media (max-width:859px){
   .hero__veil{
     background:
-      linear-gradient(180deg, rgba(11,9,8,.34) 0%, rgba(11,9,8,0) 26%,
-                              rgba(11,9,8,.62) 52%, rgba(11,9,8,.88) 76%, var(--bg) 100%);
+      linear-gradient(180deg, rgba(11,9,8,.20) 0%, rgba(11,9,8,0) 24%,
+                              rgba(11,9,8,.52) 52%, rgba(11,9,8,.84) 78%, var(--bg) 100%);
   }
 }
 
