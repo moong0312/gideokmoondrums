@@ -326,7 +326,11 @@ a{ color:inherit; }
   transition:opacity .3s var(--ease);
 }
 .ytbox:hover{ opacity:.85; }
-.ytbox__thumb{ position:absolute; inset:0; background:center/cover no-repeat; }
+.ytbox__thumb{
+  position:absolute; inset:0; background:center/cover no-repeat;
+  filter:grayscale(1); transition:filter .5s var(--ease);
+}
+.ytbox:hover .ytbox__thumb{ filter:grayscale(0); }
 .ytbox__play{
   position:absolute; inset:0; display:grid; place-items:center;
   background:linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.28));
@@ -371,8 +375,11 @@ a{ color:inherit; }
 .work:hover{ background:var(--paper-3); }
 
 .work__media{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--paper-2); border:1px solid var(--img-edge); }
-.work__img{ position:absolute; inset:0; background:center/cover no-repeat; transition:transform .8s var(--ease); }
-.work:hover .work__img{ transform:scale(1.03); }
+.work__img{
+  position:absolute; inset:0; background:center/cover no-repeat;
+  filter:grayscale(1); transition:transform .8s var(--ease), filter .5s var(--ease);
+}
+.work:hover .work__img{ transform:scale(1.03); filter:grayscale(0); }
 .work__img:not(.has-img)::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(150deg, #6f8154, var(--paper-2));
@@ -429,7 +436,11 @@ a{ color:inherit; }
   transition:opacity .3s var(--ease);
 }
 .release:hover .release__art{ opacity:.85; }
-.release__img{ position:absolute; inset:0; background:center/cover no-repeat; }
+.release__img{
+  position:absolute; inset:0; background:center/cover no-repeat;
+  filter:grayscale(1); transition:filter .5s var(--ease);
+}
+.release:hover .release__img{ filter:grayscale(0); }
 .release__go{
   position:absolute; inset:auto 0 0 0;
   background:var(--ink); color:var(--paper);
@@ -621,7 +632,11 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   transition:background .2s var(--ease);
 }
 .photo:hover{ background:var(--paper-2); }
-.photo__thumb{ width:76px; height:58px; flex:none; background:var(--paper-2) center/cover no-repeat; }
+.photo__thumb{
+  width:76px; height:58px; flex:none; background:var(--paper-2) center/cover no-repeat;
+  filter:grayscale(1); transition:filter .4s var(--ease);
+}
+.photo:hover .photo__thumb{ filter:grayscale(0); }
 .photo__b{ display:grid; gap:3px; flex:1; min-width:0; }
 .photo__b strong{ font-size:14px; font-weight:500; }
 .photo__b span{ font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.06em; }
