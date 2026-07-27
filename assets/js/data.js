@@ -61,7 +61,7 @@ window.SITE = {
       nameSub: "이음",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
-      videoId: "HHCQX0VbYiA",
+      videoId: "qGxmenckIXY",
       lineup: ["Gideok Moon — drums, no-input mixing board, Pure Data"],
       text: "",                    /* description to come */
       status: "In development"
@@ -365,7 +365,7 @@ window.SITE = {
 
   /* -- Bottom player ----------------------------------------------------- */
   player: [
-    { title: "the REAL",            project: "Alla Prima",              videoId: "3IXsqH7luTc" },
+    { title: "Ieum",                project: "Solo",                    videoId: "qGxmenckIXY" },
     { title: "rolls",               project: "Solo — improvisation",    videoId: "HHCQX0VbYiA" },
     { title: "Live at PROGR",       project: "i!i!o",                   videoId: "pu-4o3zFFOM" },
     { title: "MoIM × LIQUID SOUND", project: "Life and Sound",          videoId: "5WSILESP-bE" },
