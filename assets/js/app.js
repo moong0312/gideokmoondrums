@@ -212,9 +212,9 @@
       grp[1].forEach(function (d) { host.appendChild(window.liveRow(d, "home")); });
     });
 
-    var all = $("#allDates");
-    all.href = S.live.allUrl;
-    all.textContent = "All " + S.live.dates.length + " performances →";
+    /* The label is whatever index.html says, so it can be edited there
+       without touching JS. Only the destination comes from data.js. */
+    $("#allDates").href = S.live.allUrl;
     $("#venues").textContent = S.live.venues;
   }
 
