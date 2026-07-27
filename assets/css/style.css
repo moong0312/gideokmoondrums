@@ -191,11 +191,12 @@ a{ color:inherit; }
    just the word for the mode it will switch *to*. Lives outside .nav__links
    so it stays visible even where the anchor nav collapses on mobile. */
 .theme-toggle{
-  font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--ink-2); background:transparent; border:0; padding:0; cursor:pointer;
-  transition:color .2s var(--ease);
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-2); background:transparent; cursor:pointer;
+  border:1px solid var(--line-2); border-radius:0; padding:6px 12px;
+  transition:color .2s var(--ease), border-color .2s var(--ease);
 }
-.theme-toggle:hover{ color:var(--ink); }
+.theme-toggle:hover{ color:var(--ink); border-color:var(--ink-3); }
 
 @media (min-width:900px){
   .nav__links{ display:flex; }
