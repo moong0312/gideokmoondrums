@@ -185,7 +185,7 @@ a{ color:inherit; }
 .hero__still{
   position:absolute; inset:0;
   background:var(--bg-2) center/cover no-repeat;
-  filter:brightness(1.24) saturate(1.05);
+  filter:brightness(1.5) saturate(1.06);
 }
 .hero__still.has-img{ background-image:var(--img); }
 
@@ -218,8 +218,17 @@ a{ color:inherit; }
 .hero__veil{
   position:absolute; inset:0;
   background:
-    linear-gradient(180deg, rgba(11,9,8,.55) 0%, rgba(11,9,8,.10) 34%, rgba(11,9,8,.78) 80%, var(--bg) 100%),
-    linear-gradient(92deg, rgba(11,9,8,.72) 0%, rgba(11,9,8,.14) 60%, transparent 100%);
+    linear-gradient(180deg, rgba(11,9,8,.38) 0%, rgba(11,9,8,0) 34%, rgba(11,9,8,.70) 82%, var(--bg) 100%),
+    linear-gradient(92deg, rgba(11,9,8,.64) 0%, rgba(11,9,8,.06) 58%, transparent 100%);
+}
+/* Narrow screens crop the photo to the bright sweater and stack the text
+   over it, so the lower band needs to come back up. */
+@media (max-width:859px){
+  .hero__veil{
+    background:
+      linear-gradient(180deg, rgba(11,9,8,.34) 0%, rgba(11,9,8,0) 26%,
+                              rgba(11,9,8,.62) 52%, rgba(11,9,8,.88) 76%, var(--bg) 100%);
+  }
 }
 
 .hero__inner{ position:relative; z-index:2; width:100%; max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
