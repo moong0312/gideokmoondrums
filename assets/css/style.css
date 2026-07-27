@@ -23,6 +23,10 @@
 
   --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* bold poster-style display face, borrowed from the Life and Sound video
+     thumbnail (MoIM concert flyer) — used where the italic serif read as
+     hard-to-read script rather than emphasis */
+  --impact: "Anton", "Arial Narrow Bold", "Helvetica Neue", sans-serif;
 
   --pad: 20px;
   --max: 1180px;
@@ -227,7 +231,15 @@ a{ color:inherit; }
   line-height:.98; letter-spacing:-.025em;
   margin:0 0 26px; max-width:15ch;
 }
-.hero__title em{ display:block; font-style:italic; color:var(--accent); }
+/* Anton is condensed and tall next to the serif line above it, so it gets
+   its own smaller scale, tighter line-height and a touch of positive
+   tracking rather than inheriting the serif's negative letter-spacing. */
+.hero__title em{
+  display:block; font-style:normal;
+  font-family:var(--impact); font-weight:400; text-transform:uppercase;
+  font-size:.66em; letter-spacing:.006em; line-height:.96;
+  margin-top:8px; color:var(--accent);
+}
 
 .hero__meta{
   display:grid; gap:4px;
