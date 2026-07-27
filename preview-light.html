@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gideok Moon — Light preview</title>
+<meta name="description" content="Light-theme preview of the Gideok Moon EPK. Ivory base, forest green accent, animated background.">
+<meta name="theme-color" content="#f7f5f0">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/light.css">
+</head>
+<body class="lt">
+
+<a class="skip" href="#statement">Skip to content</a>
+
+<!-- animated background ---------------------------------------------------- -->
+<div class="bgfx" aria-hidden="true">
+  <span class="orb orb--1"></span>
+  <span class="orb orb--2"></span>
+  <span class="orb orb--3"></span>
+  <span class="bgfx__grain"></span>
+</div>
+
+<!-- preview banner --------------------------------------------------------- -->
+<div class="pvbar">
+  <span><strong>Light preview</strong> — the live site is unchanged</span>
+  <a href="index.html">View current dark version →</a>
+</div>
+
+<!-- nav -------------------------------------------------------------------- -->
+<header class="nav" id="nav">
+  <a class="nav__id" href="#top">
+    <span class="nav__mark" aria-hidden="true"></span>
+    <span>Gideok Moon</span>
+  </a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#releases">Releases</a>
+    <a href="#live">Live</a>
+    <a href="#press">Press</a>
+    <a href="#booking" class="nav__cta">Booking</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- hero — the "calling card" ---------------------------------------------- -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <article class="card card--hero">
+
+      <div class="card__text">
+        <p class="hero__kicker" id="heroKicker"></p>
+        <h1 class="hero__title">
+          <span id="heroL1"></span>
+          <em id="heroL2"></em>
+        </h1>
+
+        <div class="hero__meta">
+          <span id="heroRoles"></span>
+          <span class="dot" aria-hidden="true"></span>
+          <span id="heroBase"></span>
+        </div>
+
+        <div class="hero__actions">
+          <button class="btn btn--play" id="heroPlay" type="button">
+            <span class="btn__ico" aria-hidden="true"></span>
+            <span id="heroPlayLabel">Play with sound</span>
+          </button>
+          <a class="btn btn--ghost" href="#booking">Booking</a>
+        </div>
+      </div>
+
+      <div class="card__media">
+        <div class="hero__video" id="heroVideo"></div>
+        <div class="hero__still" id="heroStill"></div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<!-- statement -------------------------------------------------------------- -->
+<section class="sec sec--statement" id="statement">
+  <div class="wrap">
+    <p class="eyebrow">Statement</p>
+    <p class="lead" id="stLead"></p>
+    <div class="cols">
+      <div class="cols__body" id="stBody"></div>
+      <dl class="facts" id="stFacts"></dl>
+    </div>
+  </div>
+</section>
+
+<!-- featured --------------------------------------------------------------- -->
+<section class="sec sec--featured" id="watch">
+  <div class="wrap">
+    <p class="eyebrow">Listen</p>
+    <div class="feature feature--square">
+      <div class="feature__frame">
+        <div class="ytbox" id="featuredVideo" data-video=""></div>
+      </div>
+      <div class="feature__cap">
+        <h2 id="ftTitle"></h2>
+        <p id="ftMeta"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- work ------------------------------------------------------------------- -->
+<section class="sec sec--work" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Work</p>
+    <h2 class="sec__h">Four ways of listening.</h2>
+    <div class="works" id="works"></div>
+  </div>
+</section>
+
+<!-- releases --------------------------------------------------------------- -->
+<section class="sec sec--releases" id="releases">
+  <div class="wrap">
+    <p class="eyebrow">Releases</p>
+    <h2 class="sec__h">Six records.</h2>
+
+    <h3 class="grp">As leader &amp; co-leader</h3>
+    <div class="rel rel--lead" id="relLeader"></div>
+
+    <h3 class="grp">As sideman</h3>
+    <div class="rel rel--side" id="relSideman"></div>
+  </div>
+</section>
+
+<!-- live ------------------------------------------------------------------- -->
+<section class="sec sec--live" id="live">
+  <div class="wrap">
+    <p class="eyebrow">Live</p>
+    <h2 class="sec__h">Selected performances.</h2>
+    <ul class="dates" id="dates"></ul>
+    <div class="live__foot">
+      <a class="link" id="allDates" href="#">More</a>
+      <p class="venues" id="venues"></p>
+    </div>
+  </div>
+</section>
+
+<!-- press ------------------------------------------------------------------ -->
+<section class="sec sec--press" id="press">
+  <div class="wrap">
+    <p class="eyebrow">Press</p>
+    <div class="quotes" id="quotes"></div>
+  </div>
+</section>
+
+<!-- press materials -------------------------------------------------------- -->
+<section class="sec sec--kit" id="kit">
+  <div class="wrap">
+    <p class="eyebrow">Press materials</p>
+    <h2 class="sec__h">Take what you need.</h2>
+
+    <div class="kit">
+      <div class="kit__bios">
+        <h3 class="grp">Biography</h3>
+        <div class="bios" id="bios"></div>
+      </div>
+
+      <div class="kit__photos">
+        <h3 class="grp">Photos</h3>
+        <p class="kit__note">High-resolution, free for press use. Please credit where a photographer is listed.</p>
+        <ul class="photos" id="photos"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- booking ---------------------------------------------------------------- -->
+<section class="sec sec--booking" id="booking">
+  <div class="wrap">
+    <div class="card card--book">
+      <p class="eyebrow">Booking</p>
+      <h2 class="booking__h">Let's make a date.</h2>
+      <p class="booking__line" id="bkLine"></p>
+
+      <div class="booking__grid">
+        <a class="bigmail" id="bkMail" href="#"></a>
+        <div class="booking__side">
+          <a class="btn btn--ghost" id="bkForm" href="#" target="_blank" rel="noopener">Booking form</a>
+          <ul class="social" id="social"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
+    <p class="foot__c">© <span id="yr"></span> Gideok Moon. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- fixed player ----------------------------------------------------------- -->
+<div class="player" id="player" hidden>
+  <div class="player__bar">
+    <button class="pbtn pbtn--main" id="pPlay" type="button" aria-label="Play">
+      <span class="pico pico--play" aria-hidden="true"></span>
+    </button>
+
+    <div class="player__now">
+      <p class="player__title" id="pTitle">—</p>
+      <p class="player__proj" id="pProj"></p>
+    </div>
+
+    <div class="player__seek">
+      <div class="seek" id="pSeek" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="seek__fill" id="pFill"></div>
+      </div>
+      <span class="player__time" id="pTime">0:00</span>
+    </div>
+
+    <div class="player__nav">
+      <button class="pbtn" id="pPrev" type="button" aria-label="Previous track"><span class="pico pico--prev" aria-hidden="true"></span></button>
+      <button class="pbtn" id="pNext" type="button" aria-label="Next track"><span class="pico pico--next" aria-hidden="true"></span></button>
+      <button class="pbtn pbtn--eye" id="pShow" type="button" aria-label="Show video" aria-pressed="false"><span class="pico pico--eye" aria-hidden="true"></span></button>
+      <button class="pbtn" id="pClose" type="button" aria-label="Close player"><span class="pico pico--x" aria-hidden="true"></span></button>
+    </div>
+  </div>
+  <div class="player__stage" id="pStage"><div id="pMount"></div></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/live.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
