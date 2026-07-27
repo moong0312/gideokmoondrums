@@ -71,7 +71,7 @@ window.SITE = {
       name: "i!i!o",
       kind: "Trio",
       image: "assets/img/work-iio.jpg",
-      videoId: "so-H9T3kPa4",
+      videoId: "pu-4o3zFFOM",
       lineup: [
         "Gideok Moon — drums",
         "Tobias Rüetschi — no-input mixing desk",
@@ -367,7 +367,7 @@ window.SITE = {
   player: [
     { title: "the REAL",            project: "Alla Prima",              videoId: "3IXsqH7luTc" },
     { title: "rolls",               project: "Solo — improvisation",    videoId: "HHCQX0VbYiA" },
-    { title: "Live at PROGR",       project: "i!i!o",                   videoId: "so-H9T3kPa4" },
+    { title: "Live at PROGR",       project: "i!i!o",                   videoId: "pu-4o3zFFOM" },
     { title: "MoIM × LIQUID SOUND", project: "Life and Sound",          videoId: "5WSILESP-bE" },
     { title: "SOund RE;search LAB", project: "Yoonhwa Choi Trio",       videoId: "NKE673GASb4" },
     { title: "The Lake",            project: "Seongmin Ahn Quartet",    videoId: "J8XbOPTZLJ8" }

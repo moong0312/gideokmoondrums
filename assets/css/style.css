@@ -185,6 +185,7 @@ a{ color:inherit; }
 .hero__still{
   position:absolute; inset:0;
   background:var(--bg-2) center/cover no-repeat;
+  filter:brightness(1.24) saturate(1.05);
 }
 .hero__still.has-img{ background-image:var(--img); }
 
@@ -212,11 +213,13 @@ a{ color:inherit; }
   border:0;
 }
 
+/* Kept heavy enough at the bottom-left corner to carry the title, light
+   everywhere else so the photograph actually reads. */
 .hero__veil{
   position:absolute; inset:0;
   background:
-    linear-gradient(180deg, rgba(11,9,8,.82) 0%, rgba(11,9,8,.30) 34%, rgba(11,9,8,.86) 78%, var(--bg) 100%),
-    linear-gradient(92deg, rgba(11,9,8,.80) 0%, rgba(11,9,8,.20) 62%, transparent 100%);
+    linear-gradient(180deg, rgba(11,9,8,.55) 0%, rgba(11,9,8,.10) 34%, rgba(11,9,8,.78) 80%, var(--bg) 100%),
+    linear-gradient(92deg, rgba(11,9,8,.72) 0%, rgba(11,9,8,.14) 60%, transparent 100%);
 }
 
 .hero__inner{ position:relative; z-index:2; width:100%; max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
@@ -275,8 +278,17 @@ a{ color:inherit; }
   margin:0 0 40px; max-width:22ch;
 }
 .cols{ display:grid; gap:40px; }
-.cols__body p{ margin:0 0 20px; color:var(--ink-2); max-width:62ch; }
+/* Long prose gets a panel to sit on — bare paragraphs on the near-black
+   background were the hardest thing on the page to read. */
+.cols__body{
+  background:var(--bg-2); border:1px solid var(--line);
+  border-left:2px solid var(--accent-dim);
+  padding:24px 22px; max-width:64ch;
+}
+.cols__body p{ margin:0 0 18px; color:var(--ink-2); }
 .cols__body p:last-child{ margin-bottom:0; }
+
+@media (min-width:860px){ .cols__body{ padding:30px 28px; } }
 
 .facts{ margin:0; display:grid; gap:0; align-content:start; }
 .facts div{
@@ -381,7 +393,12 @@ a{ color:inherit; }
   color:var(--accent); border:1px solid var(--line-2);
   padding:4px 9px; border-radius:2px;
 }
-.work__text{ margin:0 0 18px; color:var(--ink-2); max-width:56ch; }
+.work__text{
+  margin:0 0 18px; color:var(--ink-2); max-width:58ch;
+  background:var(--bg-2); border:1px solid var(--line);
+  border-left:2px solid var(--accent-dim);
+  padding:16px 18px;
+}
 .work__lineup{ list-style:none; margin:0 0 16px; padding:0; display:grid; gap:5px; }
 .work__lineup li{ font-size:13px; color:var(--ink-3); }
 .work__lineup li:first-child{ color:var(--ink); }
