@@ -78,7 +78,7 @@ window.SITE = {
         "Jessie Chen — voice"
       ],
       text: "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability.",
-      status: "TEUM (틈) — December 2026"
+      more: "assets/press/iiio-epk.pdf"
     },
     {
       id: "life-and-sound",

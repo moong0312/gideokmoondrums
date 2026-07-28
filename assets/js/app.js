@@ -168,6 +168,13 @@
 
       if (w.text) body.appendChild(el("p", "work__text", esc(w.text)));
       if (w.status) body.appendChild(el("p", "work__status", esc(w.status)));
+      if (w.more) {
+        var more = el("a", "work__more", "More");
+        more.href = w.more;
+        more.target = "_blank";
+        more.rel = "noopener";
+        body.appendChild(more);
+      }
 
       card.appendChild(media);
       card.appendChild(body);
