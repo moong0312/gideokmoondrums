@@ -63,7 +63,7 @@ window.SITE = {
       image: "assets/img/work-solo.jpg",
       videoId: "qGxmenckIXY",
       lineup: ["Gideok Moon — drums, no-input mixing board, Pure Data"],
-      text: "",                    /* description to come */
+      text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap — a generative space where an entirely new sonic language is born.",
       status: "In development"
     },
     {
