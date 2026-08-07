@@ -362,11 +362,7 @@ window.SITE = {
     { label: "Cymbal, solo set",    file: "assets/img/press/gideok-moon-01.jpg", credit: "Seenjoong Keem" },
     { label: "Live at the kit",     file: "assets/img/press/gideok-moon-02.jpg", credit: "Minhyuk Park" },
     { label: "24Hours, THC",        file: "assets/img/press/gideok-moon-03.jpg", credit: "Seenjoong Keem" },
-    { label: "Brushes, close-up",   file: "assets/img/press/gideok-moon-04.jpg", credit: "Seenjoong Keem" },
-    { label: "Full kit, wide stage",file: "assets/img/press/gideok-moon-05.jpg", credit: "Minhyuk Park" },
-    { label: "Profile, mid-set",    file: "assets/img/press/gideok-moon-06.jpg", credit: "Minhyuk Park" },
-    { label: "Side stage, in suit", file: "assets/img/press/gideok-moon-07.jpg", credit: "Minhyuk Park" },
-    { label: "Backstage, double exposure", file: "assets/img/press/gideok-moon-08.jpg" }
+    { label: "Brushes, close-up",   file: "assets/img/press/gideok-moon-04.jpg", credit: "Seenjoong Keem" }
   ],
 
   /* -- Bottom player ----------------------------------------------------- */
