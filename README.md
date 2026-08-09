@@ -52,15 +52,17 @@ sync. Add it anywhere in the array; both pages sort by `date` themselves.
 | `players` | who else was on stage. Archive page only. Optional. |
 | `video` | a URL adds a “Video ↗” link. Optional. |
 | `info` | a second link — festival page, event listing. Archive page only. Optional. |
-| `home` | `true` shows it on the front page. Keep it to about six — see below. |
+| `home` | `true` shows it on the front page. Keep it to about eight — see below. |
 
 `performances.html` renders every entry, grouped by year, with a “Video only” filter.
 The front page shows the `home: true` ones and links across to the full archive.
 
-Pick the `home` six as **three most recent + three that have video**: the recent ones
-show the project is active, the video ones give a booker something to actually watch
-(on the front page a row with `video` becomes a link straight to it). Vary the project
-across the six rather than running the same group three times.
+Pick the `home` eight as **three most recent + three that have video + the marquee
+festivals**: the recent ones show the project is active, the video ones give a booker
+something to actually watch (on the front page a row with `video` becomes a link
+straight to it), and the big festival names carry weight even with no footage — the
+three rarely overlap. Vary the project across the eight rather than running the same
+group three times.
 
 ### Adding a release
 

@@ -182,10 +182,11 @@ window.SITE = {
        players — who else was on stage. Optional.
        video   — a URL makes the row a link with a "Video ↗" tag. Optional.
        info    — a second link (festival page, event listing). Optional.
-       home    — true puts the date on the front page. Keep it to ~6:
-                 the three most recent dates, plus three that have video,
-                 so the section shows both current activity and something
-                 to actually watch. Vary the project on each row.
+       home    — true puts the date on the front page. Keep it to ~8:
+                 the three most recent, three that have video, and the
+                 marquee festivals — so the section shows current activity,
+                 something to actually watch, and the biggest names, which
+                 don't always overlap. Vary the project on each row.
      performances.html renders all of them, grouped by year, on its own. */
   live: {
     dates: [
@@ -220,7 +221,7 @@ window.SITE = {
         info: "https://www.instagram.com/offy_the.off.space/" },
 
       { date: "2026-03-31", label: "Mar 31 – Apr 4, 2026", project: "IN WALKED INDIGO",
-        venue: "BernJazzfest — Jazztent, Bern",
+        venue: "BernJazzfest — Jazztent, Bern", home: true,
         players: "Louis Waeber, Anton Martinez, Benjamin Jaton",
         info: "https://www.mariansjazzroom.ch/jazzfestival-jazzzelt" },
 
@@ -300,7 +301,7 @@ window.SITE = {
         video: "https://youtu.be/mDZcsyY35eM" },
 
       { date: "2023-10-06", label: "2023", project: "Jarasum Jazz Festival",
-        venue: "Gapyeong, Korea",
+        venue: "Gapyeong, Korea", home: true,
         players: "Seongmin Ahn Guitar Quartet" },
 
       { date: "2023-10-01", label: "Oct 1, 2023", project: "Life and Sound Vol. 1: “Again, Being”",
