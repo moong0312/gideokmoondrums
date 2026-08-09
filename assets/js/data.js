@@ -182,7 +182,10 @@ window.SITE = {
        players — who else was on stage. Optional.
        video   — a URL makes the row a link with a "Video ↗" tag. Optional.
        info    — a second link (festival page, event listing). Optional.
-       home    — true puts the date on the front page. Keep it to ~10.
+       home    — true puts the date on the front page. Keep it to ~6:
+                 the three most recent dates, plus three that have video,
+                 so the section shows both current activity and something
+                 to actually watch. Vary the project on each row.
      performances.html renders all of them, grouped by year, on its own. */
   live: {
     dates: [
@@ -203,7 +206,7 @@ window.SITE = {
         players: "Tobias Rüetschi, Jessie Chen" },
 
       { date: "2026-05-06", label: "May 6, 2026", project: "EDGE",
-        venue: "Offy, Bern", home: true,
+        venue: "Offy, Bern",
         players: "Lukas Mohl, Nil Flückiger, Mattia Facchini",
         info: "https://www.instagram.com/offy_the.off.space/" },
 
@@ -217,7 +220,7 @@ window.SITE = {
         info: "https://www.instagram.com/offy_the.off.space/" },
 
       { date: "2026-03-31", label: "Mar 31 – Apr 4, 2026", project: "IN WALKED INDIGO",
-        venue: "BernJazzfest — Jazztent, Bern", home: true,
+        venue: "BernJazzfest — Jazztent, Bern",
         players: "Louis Waeber, Anton Martinez, Benjamin Jaton",
         info: "https://www.mariansjazzroom.ch/jazzfestival-jazzzelt" },
 
@@ -234,7 +237,7 @@ window.SITE = {
         players: "Sonya Chernysh, Philipp Keifer, Benjamin Jaton" },
 
       { date: "2026-01-18", label: "Jan 18, 2026", project: "Composer's Night — Playtime Festival",
-        venue: "HKB, Bern", home: true,
+        venue: "HKB, Bern",
         players: "Lukas Mohl" },
 
       { date: "2026-01-14", label: "Jan 14, 2026", project: "Improvisation Night — Playtime Festival",
@@ -242,10 +245,10 @@ window.SITE = {
         players: "Amilcar, Tobias, Jessie, Beatriz" },
 
       { date: "2025-09-29", label: "Sep 29, 2025", project: "The Music of Alice Coltrane",
-        venue: "HKB, Bern", home: true },
+        venue: "HKB, Bern" },
 
       { date: "2025-07-29", label: "Jul 29, 2025", project: "Double Duo",
-        venue: "Mudaeruk, Seoul",
+        venue: "Mudaeruk, Seoul", home: true,
         players: "Sangbeom Kim, Junyoung Song, Sunjae Lee",
         video: "https://youtu.be/tYTp0qWtqRg" },
 
@@ -297,7 +300,7 @@ window.SITE = {
         video: "https://youtu.be/mDZcsyY35eM" },
 
       { date: "2023-10-06", label: "2023", project: "Jarasum Jazz Festival",
-        venue: "Gapyeong, Korea", home: true,
+        venue: "Gapyeong, Korea",
         players: "Seongmin Ahn Guitar Quartet" },
 
       { date: "2023-10-01", label: "Oct 1, 2023", project: "Life and Sound Vol. 1: “Again, Being”",
