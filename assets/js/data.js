@@ -235,13 +235,11 @@ window.SITE = {
 
       { date: "2026-01-18", label: "Jan 18, 2026", project: "Composer's Night — Playtime Festival",
         venue: "HKB, Bern", home: true,
-        players: "Lukas Mohl",
-        video: "https://www.dropbox.com/scl/fi/tv4xyoiz6bceb9ul7co94/Insomnia-2.mov?rlkey=u7el9rsjj6fqotyokmvb6kk7s&st=777xqn37&dl=0" },
+        players: "Lukas Mohl" },
 
       { date: "2026-01-14", label: "Jan 14, 2026", project: "Improvisation Night — Playtime Festival",
         venue: "HKB, Bern",
-        players: "Amilcar, Tobias, Jessie, Beatriz",
-        video: "https://www.dropbox.com/scl/fi/j5zshj9zy1q18qwqj1ara/Jan-14-2026.mov?rlkey=gokutuuonfftrot30mkqz4mc6&st=dkitdt7a&dl=0" },
+        players: "Amilcar, Tobias, Jessie, Beatriz" },
 
       { date: "2025-09-29", label: "Sep 29, 2025", project: "The Music of Alice Coltrane",
         venue: "HKB, Bern", home: true },
