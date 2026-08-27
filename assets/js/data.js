@@ -190,12 +190,23 @@ window.SITE = {
      performances.html renders all of them, grouped by year, on its own. */
   live: {
     dates: [
+      { date: "2026-08-27", label: "Aug 27, 2026", project: "Trio",
+        venue: "Nangman Live, Seoul", home: true,
+        players: "Zach Han, Seajun Kwon" },
+
+      { date: "2026-08-19", label: "Aug 19, 2026", project: "Quintet",
+        venue: "Club Evans, Seoul", home: true,
+        players: "Sangbeom Kim, Junpyo Hong, Seongmin Ahn, Seungmin Hong" },
+
+      { date: "2026-08-18", label: "Aug 18, 2026", project: "Solo",
+        venue: "Mudaeruk, Seoul", home: true },
+
       { date: "2026-07-03", label: "Jul 3, 2026", project: "Low Current — Night 01",
-        venue: "Cocoon, Berlin", home: true,
+        venue: "Cocoon, Berlin",
         players: "Jung-Jae Kim, Laurie Rothwell, Ju Ray'm, Alper Elmaci, Elia Baioni, Justin Remfrey, Alessandro Rizzato" },
 
       { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival",
-        venue: "PROGR, Bern", home: true,
+        venue: "PROGR, Bern",
         players: "Lukas Mohl, Nil Flückiger, Mattia Facchini" },
 
       { date: "2026-05-30", label: "May 30, 2026", project: "Moon / Milone / Martinez — HKB Pop-Up Festival",
@@ -203,7 +214,7 @@ window.SITE = {
         players: "Juliette Milone, Anton Martinez" },
 
       { date: "2026-05-22", label: "May 22, 2026", project: "i!i!o — Tobias Rüetschi Diploma Concert",
-        venue: "PROGR 369, Bern", home: true,
+        venue: "PROGR 369, Bern",
         players: "Tobias Rüetschi, Jessie Chen" },
 
       { date: "2026-05-06", label: "May 6, 2026", project: "EDGE",
