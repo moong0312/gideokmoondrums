@@ -191,8 +191,8 @@ window.SITE = {
   live: {
     dates: [
       { date: "2026-08-27", label: "Aug 27, 2026", project: "Trio",
-        venue: "Nangman Live, Seoul", home: true,
-        players: "Zach Han, Seajun Kwon" },
+        venue: "Nangman Live, Seoul",
+        players: "Zach Hahn, Seajun Kwon" },
 
       { date: "2026-08-19", label: "Aug 19, 2026", project: "Quintet",
         venue: "Club Evans, Seoul", home: true,
@@ -206,7 +206,7 @@ window.SITE = {
         players: "Jung-Jae Kim, Laurie Rothwell, Ju Ray'm, Alper Elmaci, Elia Baioni, Justin Remfrey, Alessandro Rizzato" },
 
       { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival",
-        venue: "PROGR, Bern",
+        venue: "PROGR, Bern", home: true,
         players: "Lukas Mohl, Nil Flückiger, Mattia Facchini" },
 
       { date: "2026-05-30", label: "May 30, 2026", project: "Moon / Milone / Martinez — HKB Pop-Up Festival",
