@@ -199,7 +199,8 @@ window.SITE = {
         players: "Sangbeom Kim, Junpyo Hong, Seongmin Ahn, Seungmin Hong" },
 
       { date: "2026-08-18", label: "Aug 18, 2026", project: "Solo",
-        venue: "Mudaeruk, Seoul", home: true },
+        venue: "Mudaeruk, Seoul", home: true,
+        video: "https://youtu.be/QkKhPn7cosU" },
 
       { date: "2026-07-03", label: "Jul 3, 2026", project: "Low Current — Night 01",
         venue: "Cocoon, Berlin",
