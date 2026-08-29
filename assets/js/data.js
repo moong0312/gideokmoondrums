@@ -11,7 +11,9 @@ window.SITE = {
     name: "Gideok Moon",
     roles: "Drummer · Improviser · Composer",
     base: "Bern — Seoul",
-    email: "moonkiduk@gmail.com",
+    /* No email address here on purpose: this file is served to the browser, so
+       anything in it is public. Booking runs through the form instead, which
+       keeps the address in the form service rather than on the page. */
     instagram: "https://www.instagram.com/gideok_moon/",
     youtube: "https://youtube.com/@moonkiduk0312",
     linktree: "https://linktr.ee/jazkideok"
@@ -392,6 +394,14 @@ window.SITE = {
   /* -- Booking ----------------------------------------------------------- */
   booking: {
     line: "Available for concerts, festivals, residencies and recording sessions.",
-    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd7t7UKLzoR0BIB4UnuKrkCJ9_w0IwNXgQ6mKT_0bmkfsAmgw/viewform"
+    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd7t7UKLzoR0BIB4UnuKrkCJ9_w0IwNXgQ6mKT_0bmkfsAmgw/viewform",
+
+    /* Access key for the form service the booking form posts to. The address it
+       forwards to is stored in that service's dashboard, never in this file, so
+       the mailbox stays out of the page source and out of scrapers' reach.
+       Get one at https://web3forms.com — it is emailed to you, no account.
+       While this is empty the form is left out and the formUrl button shows
+       instead, so there is always a way to make contact. */
+    formKey: ""
   }
 };

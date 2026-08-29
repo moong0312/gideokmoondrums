@@ -305,12 +305,20 @@
   function renderBooking() {
     var a = S.artist, b = S.booking;
     $("#bkLine").textContent = b.line;
-    var m = $("#bkMail");
-    m.href = "mailto:" + a.email;
-    m.textContent = a.email;
 
-    var f = $("#bkForm");
-    if (b.formUrl) { f.href = b.formUrl; } else { f.remove(); }
+    /* The form posts to a service that holds the destination address, so the
+       mailbox is never in the page source. With no key there is nothing to post
+       to, so drop the form and fall back to the hosted one. */
+    var form = $("#bkForm"), link = $("#bkFormLink");
+    if (b.formKey) {
+      link.remove();
+      wireBookingForm(form, b.formKey);
+    } else {
+      var grid = $(".booking__grid");
+      form.remove();
+      if (grid) grid.className += " booking__grid--solo";
+      if (b.formUrl) { link.href = b.formUrl; } else { link.remove(); }
+    }
 
     var s = $("#social");
     [["Instagram", a.instagram], ["YouTube", a.youtube], ["All links", a.linktree]]
@@ -324,6 +332,48 @@
       });
 
     $("#yr").textContent = new Date().getFullYear();
+  }
+
+  /* Posts the booking form without leaving the page, so a sender stays in the
+     same quiet layout rather than being thrown to a service's own thank-you. */
+  function wireBookingForm(form, key) {
+    var btn = $("#bfSend"), note = $("#bfNote"), idle = btn.textContent;
+
+    function say(msg, state) {
+      note.textContent = msg;
+      note.className = "bform__note" + (state ? " is-" + state : "");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (form.getAttribute("data-sending")) return;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      form.setAttribute("data-sending", "1");
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      say("");
+
+      var fd = new FormData(form);
+      fd.append("access_key", key);
+      fd.append("subject", "Booking enquiry — gideokmoondrums.com");
+
+      fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d.success) throw new Error(d.message || "rejected");
+          form.reset();
+          say("Thank you — your message is on its way.", "ok");
+        })
+        .catch(function () {
+          say("That didn't send. Please try again in a moment.", "bad");
+        })
+        .then(function () {
+          form.removeAttribute("data-sending");
+          btn.disabled = false;
+          btn.textContent = idle;
+        });
+    });
   }
 
   /* -------------------------------------------------------- bottom player -- */

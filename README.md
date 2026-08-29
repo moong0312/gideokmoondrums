@@ -96,6 +96,29 @@ Album covers are already in `assets/img/release-*.jpg`.
 Full-resolution originals live in `_originals/`, which is gitignored — regenerate the
 web sizes from there rather than re-compressing what's already in `assets/`.
 
+## Booking form
+
+The booking section is a form, not a `mailto:` — the address appears nowhere in the
+HTML, the JS, or `data.js`, so scrapers have nothing to pick up. Note that `data.js`
+is served to the browser like any other file, so **never put the address back in it**.
+
+The site is static, so it can't send mail itself; the form POSTs to a form service
+that holds the destination address and forwards each message on. Set it up once:
+
+1. Get an access key from <https://web3forms.com> — enter the address you want
+   enquiries to land in and they email a key back. No account, no password.
+2. Paste it into `booking.formKey` in `data.js`.
+
+Until that key is set the form is left out of the page entirely and the `formUrl`
+button (a hosted Google Form) shows in its place, so there's always a way to reach
+you. With the key set, the form submits in place — no redirect off the page — and a
+hidden `botcheck` field catches the simplest spam bots.
+
+One trade-off worth knowing: whichever service you use, enquiries pass through it
+before reaching your inbox. That's the cost of having no backend. Swapping to a
+different provider (Formspree and friends work the same way) means changing the
+endpoint URL in `wireBookingForm` in `app.js` and the key in `data.js`.
+
 ## Design
 
 Paper base, one restrained accent (a muted sage green), quiet Fraunces serif for

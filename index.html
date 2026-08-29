@@ -204,9 +204,32 @@
     <p class="booking__line" id="bkLine"></p>
 
     <div class="booking__grid">
-      <a class="bigmail" id="bkMail" href="#"></a>
+      <form class="bform" id="bkForm" novalidate>
+        <div class="bform__row">
+          <label class="bform__l" for="bfName">Name</label>
+          <input class="bform__i" id="bfName" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="bform__row">
+          <label class="bform__l" for="bfMail">Email</label>
+          <input class="bform__i" id="bfMail" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="bform__row">
+          <label class="bform__l" for="bfWhen">Date or period <span class="bform__opt">optional</span></label>
+          <input class="bform__i" id="bfWhen" name="when" type="text" autocomplete="off">
+        </div>
+        <div class="bform__row">
+          <label class="bform__l" for="bfMsg">Message</label>
+          <textarea class="bform__i bform__t" id="bfMsg" name="message" rows="5" required></textarea>
+        </div>
+        <!-- Spam trap: off-screen, so only a bot ever fills it in. -->
+        <input class="bform__hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="bform__foot">
+          <button class="btn btn--ghost" id="bfSend" type="submit">Send</button>
+          <p class="bform__note" id="bfNote" role="status" aria-live="polite"></p>
+        </div>
+      </form>
       <div class="booking__side">
-        <a class="btn btn--ghost" id="bkForm" href="#" target="_blank" rel="noopener">Booking form</a>
+        <a class="btn btn--ghost" id="bkFormLink" href="#" target="_blank" rel="noopener">Booking form</a>
         <ul class="social mono" id="social"></ul>
       </div>
     </div>

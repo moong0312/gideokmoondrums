@@ -650,15 +650,29 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .booking__grid{ display:grid; gap:40px; }
 
-.bigmail{
-  font-family:var(--serif); font-weight:400; font-style:italic;
-  font-size:clamp(19px,3.6vw,28px); letter-spacing:0;
-  color:var(--accent); text-decoration:none;
-  border-bottom:2px solid var(--accent); padding-bottom:8px;
-  display:inline-block; word-break:break-all;
-  transition:opacity .2s var(--ease);
+/* Underlined fields rather than boxes — closer to the thin rules the rest of
+   the page is built from than a stack of input borders would be. */
+.bform{ display:grid; gap:22px; max-width:34rem; }
+.bform__row{ display:grid; gap:8px; }
+.bform__l{
+  font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-2);
 }
-.bigmail:hover{ opacity:.6; }
+.bform__opt{ font-weight:400; letter-spacing:.12em; color:var(--ink-3); }
+.bform__i{
+  font-family:var(--sans); font-size:15px; color:var(--ink);
+  background:transparent; border:0; border-bottom:1px solid var(--line-2);
+  border-radius:0; padding:9px 0; width:100%;
+  transition:border-color .2s var(--ease);
+}
+.bform__i:focus{ outline:none; border-bottom-color:var(--accent); }
+.bform__t{ resize:vertical; min-height:110px; line-height:1.6; }
+.bform__hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+.bform__foot{ display:flex; flex-wrap:wrap; align-items:center; gap:18px; }
+.bform__foot .btn[disabled]{ opacity:.45; cursor:default; }
+.bform__note{ margin:0; font-size:13.5px; color:var(--ink-2); }
+.bform__note.is-ok{ color:var(--accent); }
+.bform__note.is-bad{ color:var(--ink); }
 
 .booking__side{ display:grid; gap:24px; justify-items:start; align-content:start; }
 .social{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:20px; }
@@ -671,8 +685,12 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .social a:hover{ color:var(--accent); border-color:var(--accent); }
 
 @media (min-width:900px){
-  .booking__grid{ grid-template-columns:1fr auto; align-items:end; gap:56px; }
+  .booking__grid{ grid-template-columns:1fr auto; align-items:start; gap:56px; }
   .booking__side{ justify-items:end; }
+  /* No form to sit beside — let the side column keep the left edge instead of
+     stranding itself against the right margin. */
+  .booking__grid--solo{ grid-template-columns:auto; }
+  .booking__grid--solo .booking__side{ justify-items:start; }
 }
 
 /* --- footer --------------------------------------------------------------- */
