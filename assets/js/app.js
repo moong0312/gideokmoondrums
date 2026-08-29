@@ -357,6 +357,9 @@
       var fd = new FormData(form);
       fd.append("access_key", key);
       fd.append("subject", "Booking enquiry — gideokmoondrums.com");
+      /* So hitting Reply in the mailbox answers the sender rather than the
+         form service. */
+      fd.append("replyto", $("#bfMail").value);
 
       fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
         .then(function (r) { return r.json(); })

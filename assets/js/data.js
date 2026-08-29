@@ -402,6 +402,6 @@ window.SITE = {
        Get one at https://web3forms.com — it is emailed to you, no account.
        While this is empty the form is left out and the formUrl button shows
        instead, so there is always a way to make contact. */
-    formKey: ""
+    formKey: "bf0a8872-785e-4d21-8986-563c9c322ce1"
   }
 };
