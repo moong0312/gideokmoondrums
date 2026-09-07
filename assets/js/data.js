@@ -56,24 +56,37 @@ window.SITE = {
   },
 
   /* -- Work -------------------------------------------------------------- */
+  /* Each project also has its own page, so a single project can be sent to a
+     promoter on its own without handing over the whole site.
+       page  — the file that project's page lives in. The front page links to
+               it; the page itself renders from this same entry via work.js.
+       blurb — the short line the front page shows.
+       about — the full text, one string per paragraph. Only the project page
+               shows it, and it is skipped entirely when empty.
+     Live dates and releases point back here with their own `work` key, so each
+     project page collects its own history rather than repeating it by hand. */
   works: [
     {
       id: "solo",
+      page: "ieum.html",
       name: "Ieum",
       nameSub: "이음",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "qGxmenckIXY",
       lineup: ["Gideok Moon — drums, no-input mixing board, Pure Data"],
+      about: [],
       text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap — a generative space where an entirely new sonic language is born.",
       status: "In development"
     },
     {
       id: "iio",
+      page: "iio.html",
       name: "i!i!o",
       kind: "Trio",
       image: "assets/img/work-iio.jpg",
       videoId: "pu-4o3zFFOM",
+      about: [],
       lineup: [
         "Gideok Moon — drums",
         "Tobias Rüetschi — no-input mixing desk",
@@ -84,10 +97,12 @@ window.SITE = {
     },
     {
       id: "life-and-sound",
+      page: "life-and-sound.html",
       name: "Life and Sound",
       kind: "Duo",
       image: "assets/img/work-life-and-sound.jpg",
       videoId: "5WSILESP-bE",
+      about: [],
       lineup: [
         "Gideok Moon — drums",
         "Sangbeom Kim — saxophone"
@@ -97,10 +112,12 @@ window.SITE = {
     },
     {
       id: "edge",
+      page: "edge.html",
       name: "EDGE",
       kind: "Quartet",
       image: "assets/img/work-edge.svg",
       videoId: "",
+      about: [],
       lineup: [
         "Gideok Moon — drums",
         "Lukas Mohl",
@@ -117,6 +134,7 @@ window.SITE = {
   releases: [
     {
       title: "Alla Prima",
+      work: "solo",
       year: 2022,
       credited: "Gideok Moon",
       role: "leader",
@@ -127,6 +145,7 @@ window.SITE = {
     },
     {
       title: "Mealworm",
+      work: "life-and-sound",
       year: 2025,
       credited: "Life and Sound",
       role: "leader",
@@ -201,14 +220,14 @@ window.SITE = {
         players: "Sangbeom Kim, Junpyo Hong, Seongmin Ahn, Seungmin Hong" },
 
       { date: "2026-08-18", label: "Aug 18, 2026", project: "Solo",
-        venue: "Mudaeruk, Seoul", home: true,
+        venue: "Mudaeruk, Seoul", work: "solo", home: true,
         video: "https://youtu.be/QkKhPn7cosU" },
 
       { date: "2026-07-03", label: "Jul 3, 2026", project: "Low Current — Night 01",
         venue: "Cocoon, Berlin",
         players: "Jung-Jae Kim, Laurie Rothwell, Ju Ray'm, Alper Elmaci, Elia Baioni, Justin Remfrey, Alessandro Rizzato" },
 
-      { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival",
+      { date: "2026-05-31", label: "May 31, 2026", project: "EDGE — HKB Pop-Up Festival", work: "edge",
         venue: "PROGR, Bern", home: true,
         players: "Lukas Mohl, Nil Flückiger, Mattia Facchini" },
 
@@ -216,12 +235,12 @@ window.SITE = {
         venue: "PROGR, Bern",
         players: "Juliette Milone, Anton Martinez" },
 
-      { date: "2026-05-22", label: "May 22, 2026", project: "i!i!o — Tobias Rüetschi Diploma Concert",
+      { date: "2026-05-22", label: "May 22, 2026", project: "i!i!o — Tobias Rüetschi Diploma Concert", work: "iio",
         venue: "PROGR 369, Bern",
         players: "Tobias Rüetschi, Jessie Chen" },
 
       { date: "2026-05-06", label: "May 6, 2026", project: "EDGE",
-        venue: "Offy, Bern",
+        venue: "Offy, Bern", work: "edge",
         players: "Lukas Mohl, Nil Flückiger, Mattia Facchini",
         info: "https://www.instagram.com/offy_the.off.space/" },
 
@@ -229,7 +248,7 @@ window.SITE = {
         venue: "HKB Auditorium, Bern",
         players: "Juliette Milone, Sonya Chernysh, Nataniel Edelman, Anton Martinez, Vadim Saukin, Maria Amor Oró, Matea Botella, Michael Cina" },
 
-      { date: "2026-04-10", label: "Apr 10, 2026", project: "i!i!o — OFFKULTURWOCHE",
+      { date: "2026-04-10", label: "Apr 10, 2026", project: "i!i!o — OFFKULTURWOCHE", work: "iio",
         venue: "Offy, Bern",
         players: "Tobias Rüetschi, Jessie Chen",
         info: "https://www.instagram.com/offy_the.off.space/" },
@@ -239,7 +258,7 @@ window.SITE = {
         players: "Louis Waeber, Anton Martinez, Benjamin Jaton",
         info: "https://www.mariansjazzroom.ch/jazzfestival-jazzzelt" },
 
-      { date: "2026-03-26", label: "Mar 26, 2026", project: "i!i!o — Chrut u Rüebe",
+      { date: "2026-03-26", label: "Mar 26, 2026", project: "i!i!o — Chrut u Rüebe", work: "iio",
         venue: "BeJazz, Bern",
         players: "Tobias Rüetschi, Jessie Chen" },
 
@@ -295,7 +314,7 @@ window.SITE = {
         video: "https://youtu.be/5WSILESP-bE" },
 
       { date: "2024-10-26", label: "Oct 26, 2024", project: "Life and Sound",
-        venue: "Munrae Record, Seoul",
+        venue: "Munrae Record, Seoul", work: "life-and-sound",
         players: "Minseok Choi" },
 
       { date: "2024-10-24", label: "Oct 24, 2024", project: "Modern Jazz Chamber",
@@ -318,7 +337,7 @@ window.SITE = {
         venue: "Gapyeong, Korea", home: true,
         players: "Seongmin Ahn Guitar Quartet" },
 
-      { date: "2023-10-01", label: "Oct 1, 2023", project: "Life and Sound Vol. 1: “Again, Being”",
+      { date: "2023-10-01", label: "Oct 1, 2023", project: "Life and Sound Vol. 1: “Again, Being”", work: "life-and-sound",
         venue: "Yeonhui Art Theater, Seoul",
         players: "Sangbeom Kim",
         video: "https://youtu.be/yNSgjeVHoWc" },

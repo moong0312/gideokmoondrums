@@ -131,54 +131,23 @@
   }
 
   /* ---------------------------------------------------------------- work -- */
+  /* An index, not a display case. Each project carries its own page now — one
+     that can be sent to a promoter on its own — so the front page names the
+     four and gets out of the way rather than half-telling each story here. */
   function renderWork() {
     var host = $("#works");
     S.works.forEach(function (w, i) {
-      var card = el("article", "work rv");
-      card.id = "work-" + w.id;
+      var a = el("a", "wx rv");
+      a.id = "work-" + w.id;
+      a.href = w.page;
 
-      var media = el("div", "work__media");
-      media.appendChild(el("span", "work__num", "0" + (i + 1)));
-      var img = el("div", "work__img");
-      media.appendChild(img);
-      setBg(img, [w.image].concat(ytThumb(w.videoId)));
+      a.appendChild(el("span", "wx__num", "0" + (i + 1)));
+      a.appendChild(el("span", "wx__name",
+        esc(w.name) + (w.nameSub ? ' <span class="wx__sub">' + esc(w.nameSub) + "</span>" : "")));
+      a.appendChild(el("span", "wx__kind", esc(w.kind)));
+      a.appendChild(el("span", "wx__go", "→"));
 
-      if (w.videoId) {
-        media.style.cursor = "pointer";
-        media.setAttribute("role", "button");
-        media.setAttribute("tabindex", "0");
-        media.setAttribute("aria-label", "Play " + w.name);
-        var open = function () { window.Player.playById(w.videoId, w.name, w.kind); };
-        media.addEventListener("click", open);
-        media.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
-        });
-      }
-
-      var body = el("div", "work__body");
-      var head = el("div", "work__head");
-      head.appendChild(el("h3", "work__name",
-        esc(w.name) + (w.nameSub ? ' <span class="work__sub">' + esc(w.nameSub) + "</span>" : "")));
-      head.appendChild(el("span", "work__kind", esc(w.kind)));
-      body.appendChild(head);
-
-      var lu = el("ul", "work__lineup");
-      w.lineup.forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
-      body.appendChild(lu);
-
-      if (w.text) body.appendChild(el("p", "work__text", esc(w.text)));
-      if (w.status) body.appendChild(el("p", "work__status", esc(w.status)));
-      if (w.more) {
-        var more = el("a", "work__more", "More");
-        more.href = w.more;
-        more.target = "_blank";
-        more.rel = "noopener";
-        body.appendChild(more);
-      }
-
-      card.appendChild(media);
-      card.appendChild(body);
-      host.appendChild(card);
+      host.appendChild(a);
     });
   }
 

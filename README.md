@@ -5,12 +5,17 @@ dependencies, no framework. Open `index.html` and it works.
 
 ```
 index.html              front page — markup + section order
+ieum.html               ┐
+iio.html                │ one page per project — same markup, each names its
+life-and-sound.html     │ project with data-work on <body>
+edge.html               ┘
 performances.html       full performance archive
 assets/css/style.css    all styling
 assets/js/data.js       ← all content lives here
 assets/js/app.js        front-page rendering + audio player
 assets/js/performances.js  archive page
 assets/js/live.js       the live-date row, shared by both pages
+assets/js/work.js       the project pages
 assets/js/theme.js      light/dark toggle button
 assets/img/             album covers, work images, hero
 assets/img/press/       downloadable press photos
@@ -63,6 +68,31 @@ something to actually watch (on the front page a row with `video` becomes a link
 straight to it), and the big festival names carry weight even with no footage — the
 three rarely overlap. Vary the project across the eight rather than running the same
 group three times.
+
+### Project pages
+
+Each project in `works` has its own page so it can be sent to a promoter on its
+own — the link is about that project, not the whole site. The front page is only
+an index of the four names; everything else lives on the project's page.
+
+All four pages share `work.js`. A page names its project with `data-work` on
+`<body>`, and `work.js` renders the rest from that entry. To add a project: add it
+to `works` with a `page`, copy any existing project page, and change the `<title>`,
+the description, the `og:` tags and `data-work`. The `og:` tags are per-file on
+purpose — they are what a mail client or chat app shows in the link preview, so
+they must name the project rather than the site.
+
+A section with nothing in it is dropped rather than left as an empty heading, so a
+project with no album or no video yet still reads as finished. Live dates and
+releases attach themselves with a `work` key matching the project's `id`:
+
+```js
+{ date: "2026-05-06", label: "May 6, 2026", project: "EDGE",
+  venue: "Offy, Bern", work: "edge", ... }
+```
+
+`about` is the long text, one string per paragraph, and starts empty — the project
+pages currently show only the short `text` blurb until it is filled in.
 
 ### Adding a release
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life and Sound — Gideok Moon</title>
+<meta name="description" content="The duo of drummer Gideok Moon and saxophonist Sangbeom Kim, moving from subtone to chaos.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
+
+<!-- Absolute URLs: this page exists to be sent to someone, so the preview has
+     to resolve from inside a mail client or a chat app, not just on the site. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gideokmoondrums.com/life-and-sound.html">
+<meta property="og:title" content="Life and Sound — Duo">
+<meta property="og:description" content="The duo of drummer Gideok Moon and saxophonist Sangbeom Kim, moving from subtone to chaos.">
+<meta property="og:image" content="https://i.ytimg.com/vi/5WSILESP-bE/maxresdefault.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Set before first paint so there's no flash of the wrong theme. -->
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("gm-theme");
+    var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page" data-work="life-and-sound">
+
+<!-- An original composition in the vocabulary of Kandinsky's Bauhaus-era
+     geometric abstraction (circle, triangle, crossing lines, a filled
+     square) — not a reproduction of any specific painting. Fixed behind
+     every section, low-opacity so it reads as texture, not decoration. -->
+<svg class="bg-lines" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g fill="none" stroke="var(--ink-3)" stroke-width="1.4" opacity="0.16">
+    <circle cx="1260" cy="190" r="240"/>
+    <line x1="60" y1="30" x2="1540" y2="880"/>
+    <line x1="30" y1="920" x2="1420" y2="40"/>
+    <polygon points="190,800 460,800 300,570"/>
+  </g>
+  <g fill="var(--ink-3)" opacity="0.22">
+    <circle cx="220" cy="140" r="4"/>
+    <circle cx="980" cy="860" r="5"/>
+    <circle cx="1500" cy="620" r="3"/>
+  </g>
+  <circle cx="1260" cy="190" r="4" fill="var(--accent)" opacity="0.45"/>
+  <rect x="1060" y="560" width="86" height="86" fill="var(--ink)" opacity="0.05"/>
+</svg>
+
+<a class="skip" href="#top">Skip to content</a>
+
+<!-- nav -------------------------------------------------------------------- -->
+<header class="nav is-stuck" id="nav">
+  <a class="nav__id" href="index.html">Gideok&nbsp;Moon</a>
+  <div class="nav__right">
+    <nav class="nav__links" aria-label="Sections">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#releases">Releases</a>
+      <a href="index.html#live">Live</a>
+      <a href="index.html#press">Press</a>
+      <a href="index.html#booking">Booking</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- project head ----------------------------------------------------------- -->
+<section class="sec sec--head">
+  <div class="wrap">
+    <a class="back" href="index.html#work">← All work</a>
+    <p class="eyebrow" id="wKind"></p>
+    <h1 class="sec__h wp__name" id="wName"></h1>
+    <p class="wp__lead" id="wLead"></p>
+    <ul class="work__lineup wp__lineup" id="wLineup"></ul>
+    <div class="wp__acts" id="wActs"></div>
+  </div>
+</section>
+
+<!-- about ------------------------------------------------------------------ -->
+<section class="sec" id="wAboutSec" hidden>
+  <div class="wrap">
+    <div class="wp__about" id="wAbout"></div>
+  </div>
+</section>
+
+<!-- video ------------------------------------------------------------------ -->
+<section class="sec" id="wVideoSec" hidden>
+  <div class="wrap">
+    <p class="eyebrow">Watch</p>
+    <div class="wp__video" id="wVideo"></div>
+  </div>
+</section>
+
+<!-- releases --------------------------------------------------------------- -->
+<section class="sec" id="wRelSec" hidden>
+  <div class="wrap">
+    <p class="eyebrow">Releases</p>
+    <div class="wp__rels" id="wRels"></div>
+  </div>
+</section>
+
+<!-- live ------------------------------------------------------------------- -->
+<section class="sec" id="wLiveSec" hidden>
+  <div class="wrap">
+    <p class="eyebrow">Live</p>
+    <ul class="dates" id="wDates"></ul>
+    <p class="wp__all"><a class="link" href="performances.html">All performances →</a></p>
+  </div>
+</section>
+
+<!-- other projects --------------------------------------------------------- -->
+<section class="sec sec--others">
+  <div class="wrap">
+    <p class="eyebrow">Other projects</p>
+    <div class="wp__others" id="wOthers"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in mono">
+    <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
+    <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/live.js"></script>
+<script src="assets/js/work.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

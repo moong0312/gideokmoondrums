@@ -361,67 +361,50 @@ a{ color:inherit; }
 
 /* --- work ----------------------------------------------------------------- */
 
+/* The front page lists the projects; each one's page tells its story. Rows,
+   not cards, so four names read as an index at a glance. */
 .works{ display:grid; gap:0; border-top:1px solid var(--line); }
 
-.work{
+.wx{
   border-bottom:1px solid var(--line);
-  display:grid; padding:0;
-  transition:background .3s var(--ease);
+  display:grid; grid-template-columns:auto 1fr auto; align-items:baseline;
+  column-gap:18px; row-gap:6px; padding:26px 4px;
+  text-decoration:none; transition:background .3s var(--ease), padding-left .3s var(--ease);
 }
-.work:hover{ background:var(--paper-3); }
-
-.work__media{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--paper-2); border:1px solid var(--img-edge); }
-.work__img{ position:absolute; inset:0; background:center/cover no-repeat; transition:transform .8s var(--ease); }
-.work:hover .work__img{ transform:scale(1.03); }
-.work__img:not(.has-img)::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(150deg, #6f8154, var(--paper-2));
+.wx:hover{ background:var(--paper-3); padding-left:14px; }
+.wx__num{
+  font-family:var(--mono); font-size:10.5px; font-weight:700;
+  letter-spacing:.16em; color:var(--ink-3);
 }
-.work__num{
-  position:absolute; top:16px; left:16px; z-index:2;
-  font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.16em;
-  color:#f7f5ef; text-shadow:0 1px 4px rgba(0,0,0,.55);
+.wx__name{
+  font-family:var(--serif); font-weight:400; color:var(--ink);
+  font-size:clamp(24px,4vw,38px); letter-spacing:-.01em; line-height:1.1;
 }
-
-.work__body{ padding:32px 0 40px; }
-.work__head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:14px; margin-bottom:18px; }
-.work__name{
-  font-family:var(--serif); font-weight:400;
-  font-size:clamp(20px,2.6vw,25px); letter-spacing:-.005em; margin:0; line-height:1.1;
-}
-.work__sub{ color:var(--ink-3); font-weight:400; margin-left:8px; }
-.work__kind{
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.2em;
+.wx__sub{ color:var(--ink-3); margin-left:10px; font-size:.7em; }
+.wx__kind{
+  grid-column:2; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em;
   text-transform:uppercase; font-weight:700; color:var(--ink-3);
 }
+.wx__go{
+  grid-row:1 / span 2; grid-column:3; align-self:center;
+  color:var(--ink-3); font-size:18px;
+  transition:transform .3s var(--ease), color .3s var(--ease);
+}
+.wx:hover .wx__go{ transform:translateX(6px); color:var(--accent); }
 
 .work__lineup{ list-style:none; margin:0 0 20px; padding:0; display:grid; gap:5px; }
 .work__lineup li{ font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.02em; }
 .work__lineup li:first-child{ color:var(--ink); }
 
-.work__text{
-  margin:0 0 18px; color:var(--ink-2); max-width:58ch;
-  font-size:15.5px; line-height:1.7;
-}
 .work__status{
   font-family:var(--mono); font-size:10px; letter-spacing:.18em;
   text-transform:uppercase; color:var(--ink-3); margin:0;
   display:flex; align-items:center; gap:9px;
 }
 .work__status::before{ content:""; width:6px; height:6px; background:var(--accent); }
-.work__more{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--ink-2); display:inline-block; margin:0; padding-bottom:2px;
-  border-bottom:1px solid var(--line-2);
-  transition:color .2s var(--ease), border-color .2s var(--ease);
-}
-.work__more:hover{ color:var(--ink); border-color:var(--ink-3); }
 
 @media (min-width:900px){
-  .work{ grid-template-columns:minmax(0,44%) 1fr; align-items:stretch; gap:56px; }
-  .work__media{ aspect-ratio:auto; min-height:100%; }
-  .work__body{ padding:48px 0 56px; align-self:center; }
-  .work:nth-child(even) .work__media{ order:2; }
+  .wx{ column-gap:32px; padding:34px 4px; }
 }
 
 /* --- releases ------------------------------------------------------------- */
@@ -638,6 +621,51 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 }
 
 @media (min-width:900px){ .kit{ grid-template-columns:1.3fr 1fr; gap:72px; } }
+
+/* --- project page --------------------------------------------------------- */
+
+.wp__name{ margin-bottom:20px; }
+.wp__sub{ color:var(--ink-3); }
+/* A paragraph, not a pull quote — .lead is sized for one line and this is the
+   project's summary, so it gets a readable measure instead. */
+.wp__lead{
+  margin:0; max-width:56ch; color:var(--ink-2);
+  font-size:17px; line-height:1.75;
+}
+.wp__lineup{ margin:22px 0 0; }
+.wp__acts{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:32px; }
+.wp__acts .work__status{ margin:0; }
+
+.wp__about{ display:grid; gap:20px; max-width:62ch; }
+.wp__about p{ margin:0; color:var(--ink-2); font-size:16px; line-height:1.75; }
+
+/* 16:9 box so the embed can't push the page sideways on a narrow screen. */
+.wp__video{
+  position:relative; width:100%; aspect-ratio:16/9;
+  border:1px solid var(--line-2); background:var(--paper-2);
+}
+.wp__video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+.wp__rels{ display:grid; gap:32px; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); }
+.wp__all{ margin:28px 0 0; }
+
+.sec--others{ border-top:1px solid var(--line); }
+.wp__others{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line); }
+.wp__other{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:12px;
+  padding:20px 22px; background:var(--paper); text-decoration:none;
+  transition:background .2s var(--ease);
+}
+.wp__other:hover{ background:var(--paper-3); }
+.wp__other-n{ font-family:var(--serif); font-size:19px; color:var(--ink); }
+.wp__other-k{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.2em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-3);
+}
+
+@media (min-width:900px){
+  .wp__others{ grid-template-columns:repeat(3,1fr); }
+}
 
 /* --- booking -------------------------------------------------------------- */
 
