@@ -110,28 +110,30 @@ a{ color:inherit; }
 /* section labels read as quiet italic serif caps, not technical mono tags */
 .eyebrow{
   font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:13px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--ink-3); margin:0 0 30px;
+  font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 18px;
 }
 
 .sec__h{
   font-family:var(--serif); font-weight:400;
-  font-size:clamp(24px, 3.4vw, 34px);
+  font-size:clamp(23px, 3vw, 31px);
   line-height:1.18; letter-spacing:-.005em;
-  margin:0 0 56px;
+  margin:0 0 22px;
 }
 
 .grp{
   font-family:var(--serif); font-style:italic; font-weight:500;
   font-size:13px; letter-spacing:.02em;
   color:var(--ink-3);
-  margin:0 0 24px; padding-bottom:12px;
+  margin:0 0 18px; padding-bottom:10px;
   border-bottom:1px solid var(--line-2);
 }
 
-.sec{ padding:100px 0; position:relative; }
+/* Tuned for eight short pages, not one long one: a page with a lineup and two
+   paragraphs should not need three screens to say so. */
+.sec{ padding:60px 0; position:relative; }
 .sec + .sec{ border-top:1px solid var(--line); }
-@media (min-width:900px){ .sec{ padding:150px 0; } }
+@media (min-width:900px){ .sec{ padding:68px 0; } }
 
 .link{
   color:var(--ink); text-decoration:none; font-weight:500;
@@ -282,16 +284,16 @@ a{ color:inherit; }
 .feature__cap h2{
   font-family:var(--serif); font-weight:400;
   font-size:clamp(20px,3vw,26px); letter-spacing:-.005em;
-  margin:24px 0 8px; line-height:1.15;
+  margin:16px 0 6px; line-height:1.15;
 }
 .feature__cap p{ margin:0; color:var(--ink-3); font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-family:var(--mono); }
 
 .feature--square .ytbox{ aspect-ratio:1; }
-.feature--square .feature__frame{ max-width:420px; }
+.feature--square .feature__frame{ max-width:320px; }
 @media (min-width:900px){
   .feature--square{
     display:grid; grid-template-columns:minmax(0,400px) 1fr;
-    gap:64px; align-items:center;
+    gap:52px; align-items:center;
   }
   .feature--square .feature__cap h2{ margin-top:0; }
 }
@@ -341,12 +343,12 @@ a{ color:inherit; }
 .work__status::before{ content:""; width:6px; height:6px; background:var(--accent); }
 
 @media (min-width:900px){
-  .wx{ column-gap:32px; padding:34px 4px; }
+  .wx{ column-gap:32px; padding:26px 4px; }
 }
 
 /* --- releases ------------------------------------------------------------- */
 
-.rel{ display:grid; grid-template-columns:repeat(2,1fr); gap:40px 24px; margin:0 0 64px; }
+.rel{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px 24px; margin:0 0 44px; }
 .rel:last-child{ margin-bottom:0; }
 
 .release{ text-decoration:none; display:block; }
@@ -383,7 +385,7 @@ a{ color:inherit; }
 /* --- live ----------------------------------------------------------------- */
 
 .dates{
-  list-style:none; margin:0 0 40px; padding:0;
+  list-style:none; margin:0 0 28px; padding:0;
   border-top:1px solid var(--line);
 }
 .date{ border-bottom:1px solid var(--line); }
@@ -407,14 +409,14 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .venues{ margin:0; font-size:12.5px; color:var(--ink-3); line-height:1.9; max-width:70ch; }
 
 @media (min-width:900px){
-  .date__in{ grid-template-columns:190px 1fr auto; align-items:baseline; gap:28px; padding:24px 0; }
+  .date__in{ grid-template-columns:190px 1fr auto; align-items:baseline; gap:28px; padding:17px 0; }
   .date__vid{ margin-top:0; }
   .live__foot{ grid-template-columns:auto 1fr; align-items:start; gap:44px; }
 }
 
 /* --- performances (archive) page ------------------------------------------ */
 
-.page .sec--head{ border-top:0; padding-top:112px; padding-bottom:0; }
+.page .sec--head{ border-top:0; padding-top:30px; padding-bottom:0; }
 .page .sec--archive{ border-top:0; padding-top:44px; }
 
 .back{
@@ -428,7 +430,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .phead__lead{
   font-family:var(--sans); font-size:15.5px; line-height:1.7;
   color:var(--ink-2); letter-spacing:0;
-  max-width:54ch; margin:-14px 0 36px;
+  max-width:54ch; margin:-6px 0 26px;
 }
 
 .phead__bar{
@@ -449,7 +451,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .chip:hover{ color:var(--ink); border-color:var(--ink-3); }
 .chip.is-on{ color:#ffffff; background:var(--accent); border-color:var(--accent); }
 
-.yr{ margin:0 0 52px; }
+.yr{ margin:0 0 36px; }
 .yr__h{
   font-family:var(--serif); font-weight:400; font-style:italic;
   font-size:clamp(24px, 5vw, 34px); line-height:1;
@@ -481,8 +483,8 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 }
 
 @media (min-width:900px){
-  .page .sec--head{ padding-top:132px; }
-  .yr{ margin-bottom:64px; }
+  .page .sec--head{ padding-top:34px; }
+  .yr{ margin-bottom:44px; }
   .yr__h{ margin-bottom:14px; }
   .date__tags{ margin-top:0; justify-content:flex-end; }
   .dates--all .date__in{ align-items:start; }
@@ -494,7 +496,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .quotes{ display:grid; gap:0; border-top:1px solid var(--line); }
 .quote{
-  margin:0; padding:40px 0;
+  margin:0; padding:26px 0;
   border-bottom:1px solid var(--line);
 }
 .quote__t{
@@ -506,13 +508,13 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .quote__by span{ color:var(--ink-3); }
 
 @media (min-width:900px){
-  .quotes{ grid-template-columns:1fr 1fr; gap:0 64px; }
-  .quote:nth-child(1){ border-right:1px solid var(--line); padding-right:64px; }
+  .quotes{ grid-template-columns:1fr 1fr; gap:0 52px; }
+  .quote:nth-child(1){ border-right:1px solid var(--line); padding-right:52px; }
 }
 
 /* --- press materials ------------------------------------------------------ */
 
-.kit{ display:grid; gap:64px; }
+.kit{ display:grid; gap:44px; }
 
 .bios{ display:grid; gap:20px; }
 .bio{ border:1px solid var(--line-2); background:var(--paper-3); }
@@ -557,7 +559,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   text-transform:uppercase; font-weight:700; color:var(--accent); white-space:nowrap;
 }
 
-@media (min-width:900px){ .kit{ grid-template-columns:1.3fr 1fr; gap:72px; } }
+@media (min-width:900px){ .kit{ grid-template-columns:1.3fr 1fr; gap:56px; } }
 
 /* --- page banner ---------------------------------------------------------- */
 
@@ -565,7 +567,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
    who followed a link sees the playing before reading about it. */
 .banner__img{
   position:relative; width:100%;
-  aspect-ratio:3/1; min-height:190px; max-height:520px;
+  aspect-ratio:3/1; min-height:170px; max-height:320px;
   background:var(--paper-2) center 32% / cover no-repeat;
   border-bottom:1px solid var(--img-edge);
 }
@@ -620,8 +622,8 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* One project, told in full. On a page with several, each is one of these. */
 .pj{ display:block; }
-.pj + .pj{ margin-top:76px; padding-top:76px; border-top:1px solid var(--line); }
-.pj__head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:14px; margin-bottom:20px; }
+.pj + .pj{ margin-top:52px; padding-top:52px; border-top:1px solid var(--line); }
+.pj__head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:14px; margin-bottom:14px; }
 .pj__name{
   font-family:var(--serif); font-weight:400; margin:0; line-height:1.1;
   font-size:clamp(24px,3.4vw,34px); letter-spacing:-.01em;
@@ -631,9 +633,9 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   font-family:var(--mono); font-size:9.5px; letter-spacing:.2em;
   text-transform:uppercase; font-weight:700; color:var(--ink-3);
 }
-.pj__p{ margin:0 0 18px; max-width:62ch; color:var(--ink-2); font-size:16px; line-height:1.75; }
-.pj__part{ margin-top:44px; }
-.pj__part .eyebrow{ margin-bottom:16px; }
+.pj__p{ margin:0 0 14px; max-width:62ch; color:var(--ink-2); font-size:15.5px; line-height:1.7; }
+.pj__part{ margin-top:32px; }
+.pj__part .eyebrow{ margin-bottom:12px; }
 
 .sec--list{ padding-top:0; }
 
@@ -643,15 +645,15 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 /* A paragraph, not a pull quote — .lead is sized for one line and this is the
    project's summary, so it gets a readable measure instead. */
 .wp__lead{
-  margin:0; max-width:56ch; color:var(--ink-2);
-  font-size:17px; line-height:1.75;
+  margin:0; max-width:58ch; color:var(--ink-2);
+  font-size:15.5px; line-height:1.7;
 }
-.wp__lineup{ margin:22px 0 0; }
-.wp__acts{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:32px; }
+.wp__lineup{ margin:16px 0 0; }
+.wp__acts{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:22px; }
 .wp__acts .work__status{ margin:0; }
 
-.wp__about{ display:grid; gap:20px; max-width:62ch; }
-.wp__about p{ margin:0; color:var(--ink-2); font-size:16px; line-height:1.75; }
+.wp__about{ display:grid; gap:15px; max-width:62ch; }
+.wp__about p{ margin:0; color:var(--ink-2); font-size:15.5px; line-height:1.7; }
 
 /* 16:9 box so the embed can't push the page sideways on a narrow screen. */
 .wp__video{
@@ -661,7 +663,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .wp__video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
 .wp__rels{ display:grid; gap:32px; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); }
-.wp__all{ margin:28px 0 0; }
+.wp__all{ margin:20px 0 0; }
 
 .sec--others{ border-top:1px solid var(--line); }
 .wp__others{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line); }
@@ -685,16 +687,16 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .booking__h{
   font-family:var(--serif); font-weight:400;
-  font-size:clamp(28px,5vw,46px); line-height:1.12;
-  letter-spacing:-.01em; margin:0 0 24px;
+  font-size:clamp(26px,4vw,38px); line-height:1.12;
+  letter-spacing:-.01em; margin:0 0 18px;
 }
-.booking__line{ margin:0 0 44px; color:var(--ink-2); max-width:44ch; }
+.booking__line{ margin:0 0 28px; color:var(--ink-2); max-width:44ch; }
 
 .booking__grid{ display:grid; gap:40px; }
 
 /* Contact is printed, not behind a form, so the address and the number are the
    two biggest things on the block — and both are live links. */
-.cx{ display:grid; gap:18px; margin:8px 0 34px; }
+.cx{ display:grid; gap:14px; margin:4px 0 26px; }
 .cx__row{ display:grid; gap:5px; }
 .cx__k{
   font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
