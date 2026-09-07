@@ -215,31 +215,7 @@ a{ color:inherit; }
   .nav__links a{ font-size:11px; letter-spacing:.14em; }
 }
 
-/* --- hero — text on paper, photo inset and bounded -------------------------- */
-
-.hero{ position:relative; overflow:hidden; padding:132px 0 96px; }
-
-.hero__inner{
-  position:relative; z-index:1;
-  max-width:var(--max); margin:0 auto; padding:0 var(--pad);
-  display:grid; gap:56px;
-}
-
-.hero__text{ max-width:38ch; }
-
-.hero__kicker{
-  font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;
-  color:var(--ink-3); margin:0 0 24px; font-weight:600;
-  font-family:var(--mono);
-}
-.hero__title{
-  font-family:var(--serif); font-weight:400;
-  font-size:clamp(28px, 5vw, 48px);
-  line-height:1.08; letter-spacing:-.01em;
-  margin:0 0 28px;
-  color:var(--ink);
-}
-.hero__title em{ display:block; font-style:italic; color:var(--accent); }
+/* --- the roles/base line, under the front-page bio ------------------------- */
 
 .hero__meta{
   display:grid; gap:4px;
@@ -251,49 +227,6 @@ a{ color:inherit; }
 @media (min-width:560px){
   .hero__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
   .dot{ display:inline-block; }
-}
-
-.hero__actions{ display:flex; flex-wrap:wrap; gap:12px; }
-
-/* the photo itself: bounded, never full-width — a plain hard-edged
-   rectangle, same treatment as every other photo on the page. In dark
-   mode a subtle edge keeps a near-black shot from bleeding into an
-   equally-dark page. */
-.hero__photo{
-  position:relative;
-  aspect-ratio:4/5;
-  max-width:420px;
-  width:100%;
-  margin:0 auto;
-  border:1px solid var(--img-edge);
-}
-.hero__still{
-  position:absolute; inset:0;
-  background:var(--paper-2) center/cover no-repeat;
-}
-.hero__still:not(.has-img)::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(150deg, #6f8154, #46525a);
-}
-.hero__video{ position:absolute; inset:-2px; opacity:0; transition:opacity 1.2s var(--ease); pointer-events:none; }
-.hero__video.is-on{ opacity:.92; }
-.hero__video iframe{
-  position:absolute; top:50%; left:50%;
-  width:100vw; height:56.25vw; min-height:100%; min-width:177.77vh;
-  transform:translate(-50%,-50%); border:0;
-}
-
-@media (min-width:900px){
-  .hero{ padding:150px 0 110px; }
-  .hero__inner{
-    grid-template-columns:1.05fr .95fr; align-items:center; gap:64px;
-  }
-  /* on desktop the photo sits beside the text rather than stacked below it,
-     so it's cropped shorter and wider here to match the text block's height
-     instead of the tall portrait crop mobile uses. */
-  .hero__photo{
-    aspect-ratio:4/3; max-width:500px; margin:0 0 0 auto;
-  }
 }
 
 /* --- statement ------------------------------------------------------------ */
@@ -628,9 +561,29 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* --- home ----------------------------------------------------------------- */
 
-.home__bio{ max-width:52ch; margin:28px 0 0; }
-.home__bio p{ margin:0 0 14px; color:var(--ink-2); font-size:15.5px; line-height:1.75; }
-.home .social{ margin-top:30px; }
+/* The one image on the site that runs edge to edge. Everywhere else a photo
+   stays bounded; here it is the whole introduction, so it gets the width. */
+.shot{ margin:0; }
+.shot__img{
+  width:100%; height:min(74vh,760px); min-height:320px;
+  background:var(--paper-2) center 22% / cover no-repeat;
+  border-bottom:1px solid var(--img-edge);
+}
+
+.home__intro{ padding-top:52px; }
+.home__name{
+  font-family:var(--serif); font-weight:400; margin:0 0 22px;
+  font-size:clamp(30px,5.4vw,52px); letter-spacing:-.015em; line-height:1.05;
+}
+.home__bio{ max-width:54ch; margin:0; }
+.home__bio p{ margin:0 0 16px; color:var(--ink-2); font-size:17px; line-height:1.75; }
+.home__intro .hero__meta{ margin-top:26px; }
+.home__intro .social{ margin-top:30px; }
+
+@media (min-width:900px){
+  .shot__img{ background-position:center 25%; }
+  .home__bio p{ font-size:18px; }
+}
 
 /* --- project page --------------------------------------------------------- */
 

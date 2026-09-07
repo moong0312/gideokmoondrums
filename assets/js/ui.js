@@ -93,12 +93,12 @@
   function bios(host) {
     if (!host) return;
     S.bios.forEach(function (b) {
-      var card = el("article", "bio rv");
+      var card = el("div", "bio rv");
       var top = el("div", "bio__top");
-      top.appendChild(el("span", "bio__len mono",
-        "<strong>" + esc(b.label) + "</strong> " + esc(b.words + " words")));
+      top.appendChild(el("div", "bio__lab",
+        "<strong>" + esc(b.label) + "</strong><span>" + esc(b.words) + "</span>"));
 
-      var btn = el("button", "bio__copy mono", "Copy");
+      var btn = el("button", "copy", "Copy");
       btn.type = "button";
       btn.addEventListener("click", function () {
         var done = function () {
@@ -151,12 +151,11 @@
   function quotes(host) {
     if (!host) return;
     S.press.forEach(function (q) {
-      var fig = el("figure", "quote rv");
-      fig.appendChild(el("blockquote", null, "“" + esc(q.quote) + "”"));
-      fig.appendChild(el("figcaption", "mono",
-        "<strong>" + esc(q.source) + "</strong>" +
-        (q.detail ? " — " + esc(q.detail) : "")));
-      host.appendChild(fig);
+      var b = el("blockquote", "quote rv");
+      b.appendChild(el("p", "quote__t", "“" + esc(q.quote) + "”"));
+      b.appendChild(el("p", "quote__by",
+        esc(q.source) + (q.detail ? " <span>— " + esc(q.detail) + "</span>" : "")));
+      host.appendChild(b);
     });
   }
 

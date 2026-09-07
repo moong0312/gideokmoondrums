@@ -8,7 +8,7 @@ handing over the whole site. The front page is a photograph and a short biograph
 everything else lives behind the nav.
 
 ```
-index.html              photograph + short bio, nothing else
+index.html              the photograph, then two sentences. Nothing else
 solo.html               long biography · the Ieum project · records as leader
 iio.html                ┐ one project each
 life-and-sound.html     ┘
@@ -161,8 +161,9 @@ which is what this site did before.
 
 Paper base, one restrained accent (a muted sage green), quiet Fraunces serif for
 headings with italic carrying emphasis instead of bold caps — reference point is
-colinvallon.com: no image runs edge-to-edge, buttons are thin-bordered text, nothing
-shouts. Space Mono for small functional labels (dates, tags), Inter for body copy.
+colinvallon.com: buttons are thin-bordered text, nothing shouts. Images stay bounded
+with one deliberate exception: the front-page photograph runs edge to edge, because
+there it is the whole introduction. Space Mono for small functional labels (dates, tags), Inter for body copy.
 Mobile-first, with a persistent bottom player that follows the theme like everything
 else (on `--paper-3`, the elevated-surface tone, so it still reads as a raised bar).
 

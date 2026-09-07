@@ -11,22 +11,16 @@
   GM.boot(function () {
     var h = S.hero, a = S.artist;
 
-    $("#heroKicker").textContent = h.kicker;
-    $("#heroL1").textContent = h.line1;
-    $("#heroL2").textContent = h.line2;
     $("#heroRoles").textContent = a.roles;
     $("#heroBase").textContent = a.base;
     GM.setBg($("#heroStill"), [h.image]);
 
-    /* The short bio, not the statement: someone who has just arrived wants to
-       know who this is in a few seconds, and the longer reads are a click away
-       on Solo and on the EPK page. */
+    /* hero.intro, not the press bio: it skips what the kicker and the line under
+       the title already say, so nothing on this screen is said twice. The longer
+       reads are one click away on Solo and on the EPK page. */
     var host = $("#homeBio");
-    var short = null;
-    S.bios.forEach(function (b) { if (b.id === "short") short = b; });
-    if (!short) short = S.bios[0];
-    if (host && short) {
-      short.text.split("\n\n").forEach(function (p) {
+    if (host) {
+      (h.intro || []).forEach(function (p) {
         host.appendChild(el("p", null, esc(p)));
       });
     }

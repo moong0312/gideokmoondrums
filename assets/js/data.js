@@ -26,9 +26,15 @@ window.SITE = {
      page of its own. */
   hero: {
     image: "assets/img/press/gideok-moon-03.jpg",
-    kicker: "Solo · i!i!o · Life and Sound · EDGE",
-    line1: "Music that moves toward",
-    line2: "what resists explanation."
+
+    /* Deliberately not the press bio. The nav already names the projects and the
+       line under this already says drummer, Bern and Seoul, so it says only what
+       none of them can — and stops. The self-contained version press needs is in
+       `bios`. */
+    intro: [
+      "Gideok Moon is a drummer who explores the space between acoustic and electronics, the familiar and the unfamiliar, certainty and uncertainty.",
+      "Rooted in jazz, expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal."
+    ]
   },
 
   /* -- Statement --------------------------------------------------------- */
