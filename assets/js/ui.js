@@ -216,6 +216,27 @@
     items.forEach(function (n) { io.observe(n); });
   }
 
+  /* The letterbox photograph under the nav. Every page opens on a picture
+     rather than on a heading — a promoter who followed a link should see the
+     playing before they read about it. The chip captions it. */
+  function banner() {
+    var host = $("#banner");
+    if (!host) return;
+    var b = (S.banners || {})[here()];
+    if (!b) { host.remove(); return; }
+
+    var img = el("div", "banner__img");
+    img.setAttribute("role", "img");
+    img.setAttribute("aria-label", b.label || "Gideok Moon");
+    setBg(img, [b.image].concat(ytThumb(b.videoId)));
+    if (b.label) img.appendChild(el("span", "banner__chip", esc(b.label)));
+    host.appendChild(img);
+  }
+
+  function here() {
+    return location.pathname.split("/").pop() || "index.html";
+  }
+
   /* Marks the nav link for the page being viewed, so a visitor who arrived on a
      project link can see where they are in the site. */
   function markNav() {
@@ -241,6 +262,7 @@
 
   function boot(fn) {
     var run = function () {
+      banner();
       fn();
       wireNav();
       wireReveal();

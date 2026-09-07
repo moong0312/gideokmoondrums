@@ -559,6 +559,37 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 @media (min-width:900px){ .kit{ grid-template-columns:1.3fr 1fr; gap:72px; } }
 
+/* --- page banner ---------------------------------------------------------- */
+
+/* Every page but the front one opens on a letterbox photograph, so a promoter
+   who followed a link sees the playing before reading about it. */
+.banner__img{
+  position:relative; width:100%;
+  aspect-ratio:3/1; min-height:190px; max-height:520px;
+  background:var(--paper-2) center 32% / cover no-repeat;
+  border-bottom:1px solid var(--img-edge);
+}
+.banner__img:not(.has-img)::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(150deg, #6f8154, var(--paper-2));
+}
+/* Captions the picture — which performance, which group — rather than
+   repeating the heading directly underneath it. */
+.banner__chip{
+  position:absolute; left:0; bottom:0; z-index:1;
+  background:var(--ink); color:var(--paper);
+  font-family:var(--mono); font-size:9px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  padding:9px 15px;
+}
+/* The head section carries the page's own top padding; with a picture above it
+   that gap doubles up, so it is pulled back in. */
+.page .banner + .sec--head{ padding-top:56px; }
+
+@media (min-width:900px){
+  .banner__chip{ font-size:9.5px; padding:10px 18px; }
+}
+
 /* --- home ----------------------------------------------------------------- */
 
 /* The one image on the site that runs edge to edge. Everywhere else a photo

@@ -35,6 +35,12 @@ assets/press/           press-kit PDFs
 serve.js                local preview server
 ```
 
+Every page but the front one opens on a letterbox photograph under the nav, at 3:1,
+with a small chip captioning it — set per page in `banners` in `data.js`, keyed by
+file name. Give it an `image`, or a `videoId` to use that video's own thumbnail so a
+project page opens on the group actually playing. There are only four press photos,
+so a couple currently repeat; adding photographs is the fix, the code needs nothing.
+
 Every page is built from the same shell: the theme script, the background drawing,
 the nav and the footer are identical across all eight, and `ui.js` renders the
 footer contact and marks the current nav link on each one. Keep them in step when

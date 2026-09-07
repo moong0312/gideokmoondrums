@@ -417,6 +417,26 @@ window.SITE = {
     { title: "The Lake",            project: "Seongmin Ahn Quartet",    videoId: "J8XbOPTZLJ8" }
   ],
 
+  /* -- Page banners ------------------------------------------------------ */
+  /* The letterbox photograph under the nav, on every page but the front one —
+     which has the full-height shot instead. Keyed by file name.
+       image   — a file, or
+       videoId — use that video's own thumbnail, so a project page opens on the
+                 group actually playing rather than on a stock portrait.
+       label   — the chip in the corner. It captions the picture, so it should
+                 name the moment rather than repeat the page title.
+     There are only four press photos, so a couple of these repeat. More
+     photographs is the fix; nothing in the code needs to change. */
+  banners: {
+    "solo.html":           { image: "assets/img/press/gideok-moon-01.jpg", label: "Cymbal, solo set" },
+    "iio.html":            { videoId: "pu-4o3zFFOM",                       label: "i!i!o — live" },
+    "life-and-sound.html": { videoId: "5WSILESP-bE",                       label: "MoIM × LIQUID SOUND, Seoul" },
+    "projects.html":       { image: "assets/img/press/gideok-moon-02.jpg", label: "Live at the kit" },
+    "albums.html":         { image: "assets/img/press/gideok-moon-04.jpg", label: "Brushes, close-up" },
+    "performances.html":   { image: "assets/img/press/gideok-moon-03.jpg", label: "24Hours, THC" },
+    "epk.html":            { image: "assets/img/press/gideok-moon-02.jpg", label: "Live at the kit" }
+  },
+
   /* -- Booking ----------------------------------------------------------- */
   /* Contact is the address and phone in `artist` — write or call, no form in
      between. The Web3Forms key that used to live here is gone with the form. */
