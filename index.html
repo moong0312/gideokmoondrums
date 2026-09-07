@@ -4,14 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gideok Moon — Drummer, Improviser, Composer</title>
-<meta name="description" content="Gideok Moon is a drummer, improviser and composer from Seoul, based in Bern. Solo, i!i!o, Life and Sound, EDGE. Press kit, releases, live dates and booking.">
+<meta name="description" content="Drummer, improviser and composer from Seoul, based in Bern. Solo, i!i!o, Life and Sound and EDGE.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
 
+<!-- Absolute URLs: these pages are meant to be sent to someone, so the preview
+     has to resolve inside a mail client or a chat app, not only on the site. -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://gideokmoondrums.com/index.html">
 <meta property="og:title" content="Gideok Moon — Drummer, Improviser, Composer">
-<meta property="og:description" content="Music that moves toward what resists explanation. Bern — Seoul.">
-<meta property="og:image" content="assets/img/press/gideok-moon-02.jpg">
+<meta property="og:description" content="Drummer, improviser and composer from Seoul, based in Bern. Solo, i!i!o, Life and Sound and EDGE.">
+<meta property="og:image" content="https://gideokmoondrums.com/assets/img/press/gideok-moon-03.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- Set before first paint so there's no flash of the wrong theme. -->
@@ -30,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="home">
 
 <!-- An original composition in the vocabulary of Kandinsky's Bauhaus-era
      geometric abstraction (circle, triangle, crossing lines, a filled
@@ -52,26 +55,25 @@
   <rect x="1060" y="560" width="86" height="86" fill="var(--ink)" opacity="0.05"/>
 </svg>
 
-<a class="skip" href="#statement">Skip to content</a>
+<a class="skip" href="#top">Skip to content</a>
 
-<!-- nav -------------------------------------------------------------------- -->
 <header class="nav" id="nav">
-  <a class="nav__id" href="#top">Gideok&nbsp;Moon</a>
+  <a class="nav__id" href="index.html">Gideok&nbsp;Moon</a>
   <div class="nav__right">
-    <nav class="nav__links" aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#releases">Releases</a>
-      <a href="#live">Live</a>
-      <a href="#press">Press</a>
-      <a href="#booking">Booking</a>
+    <nav class="nav__links" aria-label="Pages">
+      <a href="solo.html">Solo</a>
+      <a href="iio.html">i!i!o</a>
+      <a href="life-and-sound.html">Life and Sound</a>
+      <a href="projects.html">More projects</a>
+      <a href="albums.html">Albums</a>
+      <a href="performances.html">Performances</a>
+      <a href="epk.html">EPK</a>
     </nav>
     <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
   </div>
 </header>
 
 <main id="top">
-
-<!-- hero — text on paper, photo inset and bounded ---------------------------- -->
 <section class="hero" id="hero">
   <div class="hero__inner">
     <div class="hero__text">
@@ -87,196 +89,29 @@
         <span id="heroBase"></span>
       </div>
 
-      <div class="hero__actions">
-        <button class="btn btn--play" id="heroPlay" type="button">
-          <span class="btn__ico" aria-hidden="true"></span>
-          <span id="heroPlayLabel">Play with sound</span>
-        </button>
-        <a class="btn btn--ghost" href="#booking">Booking</a>
-      </div>
+      <div class="home__bio" id="homeBio"></div>
+      <ul class="social mono" id="social"></ul>
     </div>
 
     <div class="hero__photo">
-      <div class="hero__video" id="heroVideo"></div>
       <div class="hero__still" id="heroStill"></div>
     </div>
   </div>
 </section>
-
-<!-- statement -------------------------------------------------------------- -->
-<section class="sec sec--statement" id="statement">
-  <div class="wrap">
-    <p class="eyebrow">Statement</p>
-    <p class="lead" id="stLead"></p>
-    <div class="cols">
-      <div class="cols__body" id="stBody"></div>
-      <dl class="facts mono" id="stFacts"></dl>
-    </div>
-  </div>
-</section>
-
-<!-- featured --------------------------------------------------------------- -->
-<section class="sec sec--featured" id="watch">
-  <div class="wrap">
-    <p class="eyebrow">Listen</p>
-    <div class="feature feature--square">
-      <div class="feature__frame">
-        <div class="ytbox" id="featuredVideo" data-video=""></div>
-      </div>
-      <div class="feature__cap">
-        <h2 id="ftTitle"></h2>
-        <p class="mono" id="ftMeta"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- work ------------------------------------------------------------------- -->
-<section class="sec sec--work" id="work">
-  <div class="wrap">
-    <p class="eyebrow">Work</p>
-    <h2 class="sec__h">Four ways of listening.</h2>
-    <div class="works" id="works"></div>
-  </div>
-</section>
-
-<!-- releases --------------------------------------------------------------- -->
-<section class="sec sec--releases" id="releases">
-  <div class="wrap">
-    <p class="eyebrow">Releases</p>
-    <h2 class="sec__h">Six records.</h2>
-
-    <h3 class="grp">As leader &amp; co-leader</h3>
-    <div class="rel rel--lead" id="relLeader"></div>
-
-    <h3 class="grp">As sideman</h3>
-    <div class="rel rel--side" id="relSideman"></div>
-  </div>
-</section>
-
-<!-- live ------------------------------------------------------------------- -->
-<section class="sec sec--live" id="live">
-  <div class="wrap">
-    <p class="eyebrow">Live</p>
-    <h2 class="sec__h">Selected performances.</h2>
-    <ul class="dates" id="dates"></ul>
-    <div class="live__foot">
-      <a class="link" id="allDates" href="performances.html">More</a>
-      <p class="venues" id="venues"></p>
-    </div>
-  </div>
-</section>
-
-<!-- press ------------------------------------------------------------------ -->
-<section class="sec sec--press" id="press">
-  <div class="wrap">
-    <p class="eyebrow">Press</p>
-    <div class="quotes" id="quotes"></div>
-  </div>
-</section>
-
-<!-- press materials -------------------------------------------------------- -->
-<section class="sec sec--kit" id="kit">
-  <div class="wrap">
-    <p class="eyebrow">Press materials</p>
-    <h2 class="sec__h">Take what you need.</h2>
-
-    <div class="kit">
-      <div class="kit__bios">
-        <h3 class="grp">Biography</h3>
-        <div class="bios" id="bios"></div>
-      </div>
-
-      <div class="kit__photos">
-        <h3 class="grp">Photos</h3>
-        <p class="kit__note">High-resolution, free for press use. Please credit where a photographer is listed.</p>
-        <ul class="photos" id="photos"></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- booking ---------------------------------------------------------------- -->
-<section class="sec sec--booking" id="booking">
-  <div class="wrap">
-    <p class="eyebrow">Booking</p>
-    <h2 class="booking__h">Let's make a date.</h2>
-    <p class="booking__line" id="bkLine"></p>
-
-    <div class="booking__grid">
-      <form class="bform" id="bkForm" novalidate>
-        <div class="bform__row">
-          <label class="bform__l" for="bfName">Name</label>
-          <input class="bform__i" id="bfName" name="name" type="text" required autocomplete="name">
-        </div>
-        <div class="bform__row">
-          <label class="bform__l" for="bfMail">Email</label>
-          <input class="bform__i" id="bfMail" name="email" type="email" required autocomplete="email">
-        </div>
-        <div class="bform__row">
-          <label class="bform__l" for="bfWhen">Date or period <span class="bform__opt">optional</span></label>
-          <input class="bform__i" id="bfWhen" name="when" type="text" autocomplete="off">
-        </div>
-        <div class="bform__row">
-          <label class="bform__l" for="bfMsg">Message</label>
-          <textarea class="bform__i bform__t" id="bfMsg" name="message" rows="5" required></textarea>
-        </div>
-        <!-- Spam trap: off-screen, so only a bot ever fills it in. -->
-        <input class="bform__hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="bform__foot">
-          <button class="btn btn--ghost" id="bfSend" type="submit">Send</button>
-          <p class="bform__note" id="bfNote" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-      <div class="booking__side">
-        <a class="btn btn--ghost" id="bkFormLink" href="#" target="_blank" rel="noopener">Booking form</a>
-        <ul class="social mono" id="social"></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer class="foot">
   <div class="wrap foot__in mono">
+    <div class="foot__cx" id="footContact"></div>
     <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
     <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
   </div>
 </footer>
 
-<!-- fixed player ----------------------------------------------------------- -->
-<div class="player" id="player" hidden>
-  <div class="player__bar">
-    <button class="pbtn pbtn--main" id="pPlay" type="button" aria-label="Play">
-      <span class="pico pico--play" aria-hidden="true"></span>
-    </button>
-
-    <div class="player__now">
-      <p class="player__title" id="pTitle">—</p>
-      <p class="player__proj" id="pProj"></p>
-    </div>
-
-    <div class="player__seek">
-      <div class="seek" id="pSeek" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div class="seek__fill" id="pFill"></div>
-      </div>
-      <span class="player__time" id="pTime">0:00</span>
-    </div>
-
-    <div class="player__nav">
-      <button class="pbtn" id="pPrev" type="button" aria-label="Previous track"><span class="pico pico--prev" aria-hidden="true"></span></button>
-      <button class="pbtn" id="pNext" type="button" aria-label="Next track"><span class="pico pico--next" aria-hidden="true"></span></button>
-      <button class="pbtn pbtn--eye" id="pShow" type="button" aria-label="Show video" aria-pressed="false"><span class="pico pico--eye" aria-hidden="true"></span></button>
-      <button class="pbtn" id="pClose" type="button" aria-label="Close player"><span class="pico pico--x" aria-hidden="true"></span></button>
-    </div>
-  </div>
-  <div class="player__stage" id="pStage"><div id="pMount"></div></div>
-</div>
-
 <script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
 <script src="assets/js/live.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
 </html>

@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ieum (이음) — Gideok Moon</title>
-<meta name="description" content="The solo project of drummer and improviser Gideok Moon — drums, no-input mixing board and Pure Data.">
+<title>Solo — Gideok Moon</title>
+<meta name="description" content="The solo work of drummer and improviser Gideok Moon: biography, the Ieum project, and records released under his own name.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
 
-<!-- Absolute URLs: this page exists to be sent to someone, so the preview has
-     to resolve from inside a mail client or a chat app, not just on the site. -->
+<!-- Absolute URLs: these pages are meant to be sent to someone, so the preview
+     has to resolve inside a mail client or a chat app, not only on the site. -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://gideokmoondrums.com/ieum.html">
-<meta property="og:title" content="Ieum (이음) — Solo">
-<meta property="og:description" content="The solo project of drummer and improviser Gideok Moon — drums, no-input mixing board and Pure Data.">
+<meta property="og:url" content="https://gideokmoondrums.com/solo.html">
+<meta property="og:title" content="Gideok Moon — Solo">
+<meta property="og:description" content="The solo work of drummer and improviser Gideok Moon: biography, the Ieum project, and records released under his own name.">
 <meta property="og:image" content="https://i.ytimg.com/vi/qGxmenckIXY/maxresdefault.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -57,87 +57,72 @@
 
 <a class="skip" href="#top">Skip to content</a>
 
-<!-- nav -------------------------------------------------------------------- -->
-<header class="nav is-stuck" id="nav">
+<header class="nav" id="nav">
   <a class="nav__id" href="index.html">Gideok&nbsp;Moon</a>
   <div class="nav__right">
-    <nav class="nav__links" aria-label="Sections">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#releases">Releases</a>
-      <a href="index.html#live">Live</a>
-      <a href="index.html#press">Press</a>
-      <a href="index.html#booking">Booking</a>
+    <nav class="nav__links" aria-label="Pages">
+      <a href="solo.html">Solo</a>
+      <a href="iio.html">i!i!o</a>
+      <a href="life-and-sound.html">Life and Sound</a>
+      <a href="projects.html">More projects</a>
+      <a href="albums.html">Albums</a>
+      <a href="performances.html">Performances</a>
+      <a href="epk.html">EPK</a>
     </nav>
     <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
   </div>
 </header>
 
 <main id="top">
-
-<!-- project head ----------------------------------------------------------- -->
 <section class="sec sec--head">
   <div class="wrap">
-    <a class="back" href="index.html#work">← All work</a>
-    <p class="eyebrow" id="wKind"></p>
-    <h1 class="sec__h wp__name" id="wName"></h1>
-    <p class="wp__lead" id="wLead"></p>
-    <ul class="work__lineup wp__lineup" id="wLineup"></ul>
-    <div class="wp__acts" id="wActs"></div>
+    <p class="eyebrow">Solo</p>
+    <h1 class="sec__h">Solo.</h1>
   </div>
 </section>
 
-<!-- about ------------------------------------------------------------------ -->
-<section class="sec" id="wAboutSec" hidden>
+<section class="sec" id="soBioSec" hidden>
   <div class="wrap">
-    <div class="wp__about" id="wAbout"></div>
+    <p class="eyebrow">Biography</p>
+    <div class="wp__about" data-host></div>
   </div>
 </section>
 
-<!-- video ------------------------------------------------------------------ -->
-<section class="sec" id="wVideoSec" hidden>
+<section class="sec" id="soProjSec" hidden>
   <div class="wrap">
-    <p class="eyebrow">Watch</p>
-    <div class="wp__video" id="wVideo"></div>
+    <p class="eyebrow">Current project</p>
+    <div class="pj" data-host></div>
   </div>
 </section>
 
-<!-- releases --------------------------------------------------------------- -->
-<section class="sec" id="wRelSec" hidden>
+<section class="sec" id="soRelSec" hidden>
   <div class="wrap">
-    <p class="eyebrow">Releases</p>
-    <div class="wp__rels" id="wRels"></div>
+    <p class="eyebrow">Records</p>
+    <div class="wp__rels" data-host></div>
   </div>
 </section>
 
-<!-- live ------------------------------------------------------------------- -->
-<section class="sec" id="wLiveSec" hidden>
+<section class="sec" id="soLiveSec" hidden>
   <div class="wrap">
     <p class="eyebrow">Live</p>
-    <ul class="dates" id="wDates"></ul>
+    <ul class="dates" data-host></ul>
     <p class="wp__all"><a class="link" href="performances.html">All performances →</a></p>
   </div>
 </section>
-
-<!-- other projects --------------------------------------------------------- -->
-<section class="sec sec--others">
-  <div class="wrap">
-    <p class="eyebrow">Other projects</p>
-    <div class="wp__others" id="wOthers"></div>
-  </div>
-</section>
-
 </main>
 
 <footer class="foot">
   <div class="wrap foot__in mono">
+    <div class="foot__cx" id="footContact"></div>
     <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
     <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
   </div>
 </footer>
 
 <script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
 <script src="assets/js/live.js"></script>
-<script src="assets/js/work.js"></script>
+<script src="assets/js/solo.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
 </html>

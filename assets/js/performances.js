@@ -56,10 +56,11 @@
     [].forEach.call(items, function (n) { io.observe(n); });
   }
 
-  function init() {
+  /* Through the shared boot so this page gets the same nav state and footer
+     contact as every other one. */
+  window.GM.boot(function () {
     render();
     $("#venues").textContent = S.live.venues;
-    $("#yr").textContent = new Date().getFullYear();
 
     var btn = $("#vidOnly");
     btn.addEventListener("click", function () {
@@ -68,9 +69,5 @@
       btn.classList.toggle("is-on", vidOnly);
       render();
     });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else { init(); }
+  });
 })();

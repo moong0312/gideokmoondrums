@@ -11,19 +11,20 @@ window.SITE = {
     name: "Gideok Moon",
     roles: "Drummer · Improviser · Composer",
     base: "Bern — Seoul",
-    /* No email address here on purpose: this file is served to the browser, so
-       anything in it is public. Booking runs through the form instead, which
-       keeps the address in the form service rather than on the page. */
+    /* Printed on the page, so both are public and scrapers will find them. That
+       is the trade for letting a promoter write or call without a form in the
+       way; swapping back to a form is what hides them again. */
+    email: "moonkiduk@gmail.com",
+    phone: "+41 77 466 82 20",
     instagram: "https://www.instagram.com/gideok_moon/",
     youtube: "https://youtube.com/@moonkiduk0312",
     linktree: "https://linktr.ee/jazkideok"
   },
 
   /* -- Hero -------------------------------------------------------------- */
-  /* The photo is the hero. Set videoId to a YouTube id if you ever want a
-     muted ambient loop behind it instead; "" keeps the still photo clean. */
+  /* The front page is this photograph and a few lines; everything else has a
+     page of its own. */
   hero: {
-    videoId: "",
     image: "assets/img/press/gideok-moon-03.jpg",
     kicker: "Solo · i!i!o · Life and Sound · EDGE",
     line1: "Music that moves toward",
@@ -68,7 +69,7 @@ window.SITE = {
   works: [
     {
       id: "solo",
-      page: "ieum.html",
+      page: "solo.html",
       name: "Ieum",
       nameSub: "이음",
       kind: "Solo",
@@ -112,7 +113,7 @@ window.SITE = {
     },
     {
       id: "edge",
-      page: "edge.html",
+      page: "projects.html",
       name: "EDGE",
       kind: "Quartet",
       image: "assets/img/work-edge.svg",
@@ -411,16 +412,9 @@ window.SITE = {
   ],
 
   /* -- Booking ----------------------------------------------------------- */
+  /* Contact is the address and phone in `artist` — write or call, no form in
+     between. The Web3Forms key that used to live here is gone with the form. */
   booking: {
-    line: "Available for concerts, festivals, residencies and recording sessions.",
-    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd7t7UKLzoR0BIB4UnuKrkCJ9_w0IwNXgQ6mKT_0bmkfsAmgw/viewform",
-
-    /* Access key for the form service the booking form posts to. The address it
-       forwards to is stored in that service's dashboard, never in this file, so
-       the mailbox stays out of the page source and out of scrapers' reach.
-       Get one at https://web3forms.com — it is emailed to you, no account.
-       While this is empty the form is left out and the formUrl button shows
-       instead, so there is always a way to make contact. */
-    formKey: "bf0a8872-785e-4d21-8986-563c9c322ce1"
+    line: "Available for concerts, festivals, residencies and recording sessions."
   }
 };

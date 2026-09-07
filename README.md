@@ -1,26 +1,44 @@
 # Gideok Moon — EPK
 
-One-page electronic press kit. Static HTML, CSS and JavaScript — no build step, no
+Electronic press kit. Static HTML, CSS and JavaScript — no build step, no
 dependencies, no framework. Open `index.html` and it works.
 
+Each project has its own page so it can be sent to a promoter on its own, without
+handing over the whole site. The front page is a photograph and a short biography;
+everything else lives behind the nav.
+
 ```
-index.html              front page — markup + section order
-ieum.html               ┐
-iio.html                │ one page per project — same markup, each names its
-life-and-sound.html     │ project with data-work on <body>
-edge.html               ┘
+index.html              photograph + short bio, nothing else
+solo.html               long biography · the Ieum project · records as leader
+iio.html                ┐ one project each
+life-and-sound.html     ┘
+projects.html           the other groups (EDGE, and whatever comes next)
+albums.html             full discography + the bottom player
 performances.html       full performance archive
+epk.html                press quotes · bios · photo downloads · contact
+
 assets/css/style.css    all styling
 assets/js/data.js       ← all content lives here
-assets/js/app.js        front-page rendering + audio player
-assets/js/performances.js  archive page
-assets/js/live.js       the live-date row, shared by both pages
-assets/js/work.js       the project pages
+assets/js/ui.js         helpers + the parts more than one page uses
+assets/js/home.js       front page
+assets/js/solo.js       solo page
+assets/js/work.js       project pages (iio, life-and-sound, projects)
+assets/js/albums.js     discography
+assets/js/epk.js        press kit
+assets/js/performances.js  archive
+assets/js/player.js     the bottom player — albums page only
+assets/js/live.js       the live-date row, shared by every page that lists dates
 assets/js/theme.js      light/dark toggle button
-assets/img/             album covers, work images, hero
+assets/img/             album covers, hero and release art
 assets/img/press/       downloadable press photos
+assets/press/           press-kit PDFs
 serve.js                local preview server
 ```
+
+Every page is built from the same shell: the theme script, the background drawing,
+the nav and the footer are identical across all eight, and `ui.js` renders the
+footer contact and marks the current nav link on each one. Keep them in step when
+adding a page — copy an existing one rather than writing a new head by hand.
 
 ## Running it locally
 
@@ -57,32 +75,39 @@ sync. Add it anywhere in the array; both pages sort by `date` themselves.
 | `players` | who else was on stage. Archive page only. Optional. |
 | `video` | a URL adds a “Video ↗” link. Optional. |
 | `info` | a second link — festival page, event listing. Archive page only. Optional. |
-| `home` | `true` shows it on the front page. Keep it to about eight — see below. |
+| `home` | **currently unused** — see below. |
+| `work` | ties the date to a project in `works`, which is how project pages collect their own history. |
 
 `performances.html` renders every entry, grouped by year, with a “Video only” filter.
-The front page shows the `home: true` ones and links across to the full archive.
+A project page shows the dates whose `work` matches it.
 
-Pick the `home` eight as **three most recent + three that have video + the marquee
-festivals**: the recent ones show the project is active, the video ones give a booker
-something to actually watch (on the front page a row with `video` becomes a link
-straight to it), and the big festival names carry weight even with no footage — the
-three rarely overlap. Vary the project across the eight rather than running the same
-group three times.
+`home` marked a curated eight for the old one-page front page — three most recent,
+three with video, plus the marquee festivals. The front page is now a photograph and
+a short bio, so nothing reads the flag. It is left on those eight entries because the
+selection is worth keeping if a “selected performances” block ever wants a home; delete
+it if not.
 
 ### Project pages
 
-Each project in `works` has its own page so it can be sent to a promoter on its
-own — the link is about that project, not the whole site. The front page is only
-an index of the four names; everything else lives on the project's page.
+Each project in `works` has a page so it can be sent to a promoter on its own — the
+link is about that project, not the whole site.
 
-All four pages share `work.js`. A page names its project with `data-work` on
-`<body>`, and `work.js` renders the rest from that entry. To add a project: add it
-to `works` with a `page`, copy any existing project page, and change the `<title>`,
-the description, the `og:` tags and `data-work`. The `og:` tags are per-file on
-purpose — they are what a mail client or chat app shows in the link preview, so
-they must name the project rather than the site.
+`iio.html`, `life-and-sound.html` and `projects.html` share `work.js`. A page lists
+the projects it shows in `data-works` on `<body>`; adding `data-head="page"` means the
+page is about that one project and its `<h1>` is the project's name, so the block does
+not repeat the heading. Without it the `<h1>` is whatever the file says and every
+project gets its own heading — which is what More projects needs, and how a second
+group is added there: `data-works="edge,newband"`.
 
-A section with nothing in it is dropped rather than left as an empty heading, so a
+`solo.html` is its own script (`solo.js`) because it leads with the biography before
+the project.
+
+The `og:` tags are per-file on purpose — they are what a mail client or chat app shows
+in the link preview, so they must name the project rather than the site. Point
+`og:image` at that project's own video thumbnail
+(`https://i.ytimg.com/vi/<id>/maxresdefault.jpg`) where there is one.
+
+A part with nothing in it is dropped rather than left as an empty heading, so a
 project with no album or no video yet still reads as finished. Live dates and
 releases attach themselves with a `work` key matching the project's `id`:
 
@@ -106,18 +131,12 @@ missing and the layout falls back to a dark gradient rather than breaking.
 
 | Put the file at | Shows up as | Status |
 | --- | --- | --- |
-| `assets/img/press/gideok-moon-02.jpg` | hero photo (bounded, not full-bleed) | in |
-| `assets/img/press/gideok-moon-01.jpg` | press download 1 | in |
-| `assets/img/press/gideok-moon-02.jpg` | press download 2 | in |
-| `assets/img/work-solo.jpg` | Ieum (이음) card | falls back to video still |
-| `assets/img/work-iio.jpg` | i!i!o card | falls back to video still |
-| `assets/img/work-life-and-sound.jpg` | Life and Sound card | falls back to video still |
-| `assets/img/work-edge.svg` | EDGE card | in — designed placeholder, no band photo yet |
+| `assets/img/press/gideok-moon-03.jpg` | front-page photograph | in |
+| `assets/img/press/gideok-moon-01.jpg` … `-04.jpg` | press downloads on the EPK page | in |
 
-Work cards are 4:3; a card with neither photo nor `videoId` shows a dark gradient.
-EDGE currently uses a designed SVG placeholder (bold glitch-styled "EDGE" wordmark)
-instead — swap in a real band photo at the same path/aspect ratio whenever one exists.
-Press photos are served as direct downloads, so whatever is in `press/` is exactly what
+The `image` on each entry in `works` is no longer drawn anywhere — project pages
+embed the video instead — so those `work-*.jpg` paths are only a note of what to
+shoot. Press photos are served as direct downloads, so whatever is in `press/` is exactly what
 press receives — keep them large. Set `credit` on each entry in `data.js` and the
 credit line renders under the label.
 
@@ -126,28 +145,17 @@ Album covers are already in `assets/img/release-*.jpg`.
 Full-resolution originals live in `_originals/`, which is gitignored — regenerate the
 web sizes from there rather than re-compressing what's already in `assets/`.
 
-## Booking form
+## Contact
 
-The booking section is a form, not a `mailto:` — the address appears nowhere in the
-HTML, the JS, or `data.js`, so scrapers have nothing to pick up. Note that `data.js`
-is served to the browser like any other file, so **never put the address back in it**.
+Contact is the `email` and `phone` in `artist` — printed on the EPK page and in the
+footer of every page, both as live links, so a promoter can write or call without a
+form in between.
 
-The site is static, so it can't send mail itself; the form POSTs to a form service
-that holds the destination address and forwards each message on. Set it up once:
-
-1. Get an access key from <https://web3forms.com> — enter the address you want
-   enquiries to land in and they email a key back. No account, no password.
-2. Paste it into `booking.formKey` in `data.js`.
-
-Until that key is set the form is left out of the page entirely and the `formUrl`
-button (a hosted Google Form) shows in its place, so there's always a way to reach
-you. With the key set, the form submits in place — no redirect off the page — and a
-hidden `botcheck` field catches the simplest spam bots.
-
-One trade-off worth knowing: whichever service you use, enquiries pass through it
-before reaching your inbox. That's the cost of having no backend. Swapping to a
-different provider (Formspree and friends work the same way) means changing the
-endpoint URL in `wireBookingForm` in `app.js` and the key in `data.js`.
+Both are therefore public: `data.js` is served to the browser like any other file,
+so anything in it can be read and scraped. That is the deliberate trade for being
+directly reachable. If it ever becomes a problem, the fix is a form posting to a
+service that holds the address (Web3Forms, Formspree and friends all work this way),
+which is what this site did before.
 
 ## Design
 

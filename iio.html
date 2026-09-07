@@ -8,8 +8,8 @@
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16140f">
 
-<!-- Absolute URLs: this page exists to be sent to someone, so the preview has
-     to resolve from inside a mail client or a chat app, not just on the site. -->
+<!-- Absolute URLs: these pages are meant to be sent to someone, so the preview
+     has to resolve inside a mail client or a chat app, not only on the site. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gideokmoondrums.com/iio.html">
 <meta property="og:title" content="i!i!o — Trio">
@@ -33,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page" data-work="iio">
+<body class="page" data-works="iio" data-head="page">
 
 <!-- An original composition in the vocabulary of Kandinsky's Bauhaus-era
      geometric abstraction (circle, triangle, crossing lines, a filled
@@ -57,85 +57,45 @@
 
 <a class="skip" href="#top">Skip to content</a>
 
-<!-- nav -------------------------------------------------------------------- -->
-<header class="nav is-stuck" id="nav">
+<header class="nav" id="nav">
   <a class="nav__id" href="index.html">Gideok&nbsp;Moon</a>
   <div class="nav__right">
-    <nav class="nav__links" aria-label="Sections">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#releases">Releases</a>
-      <a href="index.html#live">Live</a>
-      <a href="index.html#press">Press</a>
-      <a href="index.html#booking">Booking</a>
+    <nav class="nav__links" aria-label="Pages">
+      <a href="solo.html">Solo</a>
+      <a href="iio.html">i!i!o</a>
+      <a href="life-and-sound.html">Life and Sound</a>
+      <a href="projects.html">More projects</a>
+      <a href="albums.html">Albums</a>
+      <a href="performances.html">Performances</a>
+      <a href="epk.html">EPK</a>
     </nav>
     <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
   </div>
 </header>
 
 <main id="top">
-
-<!-- project head ----------------------------------------------------------- -->
 <section class="sec sec--head">
   <div class="wrap">
-    <a class="back" href="index.html#work">← All work</a>
     <p class="eyebrow" id="wKind"></p>
     <h1 class="sec__h wp__name" id="wName"></h1>
-    <p class="wp__lead" id="wLead"></p>
-    <ul class="work__lineup wp__lineup" id="wLineup"></ul>
-    <div class="wp__acts" id="wActs"></div>
   </div>
 </section>
 
-<!-- about ------------------------------------------------------------------ -->
-<section class="sec" id="wAboutSec" hidden>
-  <div class="wrap">
-    <div class="wp__about" id="wAbout"></div>
-  </div>
+<section class="sec sec--list">
+  <div class="wrap"><div id="wList"></div></div>
 </section>
-
-<!-- video ------------------------------------------------------------------ -->
-<section class="sec" id="wVideoSec" hidden>
-  <div class="wrap">
-    <p class="eyebrow">Watch</p>
-    <div class="wp__video" id="wVideo"></div>
-  </div>
-</section>
-
-<!-- releases --------------------------------------------------------------- -->
-<section class="sec" id="wRelSec" hidden>
-  <div class="wrap">
-    <p class="eyebrow">Releases</p>
-    <div class="wp__rels" id="wRels"></div>
-  </div>
-</section>
-
-<!-- live ------------------------------------------------------------------- -->
-<section class="sec" id="wLiveSec" hidden>
-  <div class="wrap">
-    <p class="eyebrow">Live</p>
-    <ul class="dates" id="wDates"></ul>
-    <p class="wp__all"><a class="link" href="performances.html">All performances →</a></p>
-  </div>
-</section>
-
-<!-- other projects --------------------------------------------------------- -->
-<section class="sec sec--others">
-  <div class="wrap">
-    <p class="eyebrow">Other projects</p>
-    <div class="wp__others" id="wOthers"></div>
-  </div>
-</section>
-
 </main>
 
 <footer class="foot">
   <div class="wrap foot__in mono">
+    <div class="foot__cx" id="footContact"></div>
     <p><strong>Gideok Moon</strong> — Drummer &amp; Improviser · Bern &amp; Seoul</p>
     <p class="foot__c">© <span id="yr"></span> Gideok Moon</p>
   </div>
 </footer>
 
 <script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
 <script src="assets/js/live.js"></script>
 <script src="assets/js/work.js"></script>
 <script src="assets/js/theme.js"></script>
