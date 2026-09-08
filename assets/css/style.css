@@ -733,13 +733,16 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   font-size:clamp(23px,3.2vw,32px); line-height:1.12;
   letter-spacing:-.01em; margin:0 0 18px;
 }
-.booking__line{ margin:0 0 28px; color:var(--ink-2); max-width:44ch; }
+.booking__line{ margin:0 0 26px; color:var(--ink-2); max-width:none; }
 
 .booking__grid{ display:grid; gap:40px; }
 
 /* Contact is printed, not behind a form, so the address and the number are the
    two biggest things on the block — and both are live links. */
 .cx{ display:grid; gap:14px; margin:4px 0 26px; }
+@media (min-width:700px){
+  .cx{ grid-template-columns:1fr 1fr; gap:26px 40px; align-items:start; }
+}
 .cx__row{ display:grid; gap:5px; }
 .cx__k{
   font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
