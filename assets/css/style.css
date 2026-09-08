@@ -631,14 +631,18 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   font-family:var(--serif); font-weight:400; margin:0 0 22px;
   font-size:clamp(27px,4.4vw,42px); letter-spacing:-.015em; line-height:1.05;
 }
-.home__bio{ max-width:54ch; margin:0; }
-.home__bio p{ margin:0 0 14px; color:var(--ink-2); font-size:15.5px; line-height:1.68; }
+/* Two sentences, so they run the full column rather than stopping short and
+   leaving the right-hand half of the front page empty. A measure this wide
+   would be punishing to read at length — at two lines each it is a statement,
+   not a passage. */
+.home__bio{ max-width:none; margin:0; }
+.home__bio p{ margin:0 0 12px; color:var(--ink-2); font-size:16px; line-height:1.7; }
 .home__intro .hero__meta{ margin-top:26px; }
 .home__intro .social{ margin-top:30px; }
 
 @media (min-width:900px){
   .shot__img{ background-position:center 25%; }
-  .home__bio p{ font-size:16px; }
+  .home__bio p{ font-size:17.5px; line-height:1.72; }
 }
 
 /* --- project page --------------------------------------------------------- */
