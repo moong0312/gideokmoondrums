@@ -48,15 +48,23 @@
       if (w.status) head.appendChild(el("span", "pj__kind", esc(w.status)));
       host.appendChild(head);
 
+      /* Words left, video beside them — stacked, the text used half the width
+         and the video took a screen of its own underneath. */
+      var top = el("div", "pj__top");
+      var intro = el("div", "pj__intro");
+
       var lu = el("ul", "work__lineup");
       (w.lineup || []).forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
-      host.appendChild(lu);
+      intro.appendChild(lu);
 
-      if (w.text) host.appendChild(el("p", "wp__lead", esc(w.text)));
+      if (w.text) intro.appendChild(el("p", "wp__lead", esc(w.text)));
       (w.about || []).filter(function (p) { return p && p.trim(); })
-        .forEach(function (p) { host.appendChild(el("p", "pj__p", esc(p))); });
+        .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
+      top.appendChild(intro);
 
       if (w.videoId) {
+        top.className = "pj__top pj__top--split";
+        var media = el("div", "pj__media");
         var box = el("div", "wp__video");
         var f = el("iframe");
         f.src = "https://www.youtube-nocookie.com/embed/" + w.videoId;
@@ -65,8 +73,10 @@
         f.allow = "accelerometer; clipboard-write; encrypted-media; picture-in-picture";
         f.allowFullscreen = true;
         box.appendChild(f);
-        host.appendChild(box);
+        media.appendChild(box);
+        top.appendChild(media);
       }
+      host.appendChild(top);
       return 1;
     });
 

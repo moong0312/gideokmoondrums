@@ -49,14 +49,19 @@
       b.appendChild(h);
     }
 
+    /* Words on the left, the video beside them rather than a screen further
+       down — the text column alone left half the page empty. */
+    var top = el("div", "pj__top");
+    var intro = el("div", "pj__intro");
+
     var lu = el("ul", "work__lineup");
     (w.lineup || []).forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
-    b.appendChild(lu);
+    intro.appendChild(lu);
 
-    if (w.text) b.appendChild(el("p", "wp__lead", esc(w.text)));
+    if (w.text) intro.appendChild(el("p", "wp__lead", esc(w.text)));
 
     (w.about || []).filter(function (p) { return p && p.trim(); })
-      .forEach(function (p) { b.appendChild(el("p", "pj__p", esc(p))); });
+      .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
 
     var acts = el("div", "wp__acts");
     if (w.more) {
@@ -65,12 +70,16 @@
       acts.appendChild(pk);
     }
     if (w.status) acts.appendChild(el("p", "work__status", esc(w.status)));
-    if (acts.childNodes.length) b.appendChild(acts);
+    if (acts.childNodes.length) intro.appendChild(acts);
+
+    top.appendChild(intro);
 
     /* A real embed rather than a hand-off to a player: someone deciding whether
        to book this should be able to press play where they are. */
-    part(b, "Watch", function (host) {
-      if (!w.videoId) return 0;
+    if (w.videoId) {
+      top.className = "pj__top pj__top--split";
+      var media = el("div", "pj__media");
+      media.appendChild(el("p", "eyebrow", "Watch"));
       var box = el("div", "wp__video");
       var f = el("iframe");
       f.src = "https://www.youtube-nocookie.com/embed/" + w.videoId;
@@ -79,9 +88,10 @@
       f.allow = "accelerometer; clipboard-write; encrypted-media; picture-in-picture";
       f.allowFullscreen = true;
       box.appendChild(f);
-      host.appendChild(box);
-      return 1;
-    });
+      media.appendChild(box);
+      top.appendChild(media);
+    }
+    b.appendChild(top);
 
     part(b, "Releases", function (host) {
       var rs = S.releases.filter(function (r) { return r.work === w.id; });

@@ -47,26 +47,43 @@
   }
 
   /* ------------------------------------------------------------- releases -- */
+  /* Two things you can do with a record: hear a track from it, or go and stream
+     it. They used to be one link, with the hearing split off into a separate
+     block above that repeated the first album. Both live on the cover now. */
   function releaseCard(r) {
-    var a = el("a", "release rv");
+    var card = el("div", "release rv");
+
+    var art = el("div", "release__art");
+    var a = el("a", "release__link");
     a.href = r.link || "#";
     a.target = "_blank";
     a.rel = "noopener";
     a.setAttribute("aria-label", r.title + " — listen");
-
-    var art = el("div", "release__art");
     var img = el("div", "release__img");
-    art.appendChild(img);
-    art.appendChild(el("span", "release__go", "Listen ↗"));
+    a.appendChild(img);
+    a.appendChild(el("span", "release__go", "Listen ↗"));
     setBg(img, [r.image]);
+    art.appendChild(a);
 
-    a.appendChild(art);
-    a.appendChild(el("h4", "release__title", esc(r.title)));
-    a.appendChild(el("p", "release__by", esc(r.credited)));
-    a.appendChild(el("p", "release__meta",
+    if (r.videoId && window.Player) {
+      var play = el("button", "release__play");
+      play.type = "button";
+      play.setAttribute("aria-label", "Play " + (r.track || r.title));
+      play.appendChild(el("span", "pico pico--play"));
+      play.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.Player.playById(r.videoId, r.track || r.title, r.credited);
+      });
+      art.appendChild(play);
+    }
+
+    card.appendChild(art);
+    card.appendChild(el("h4", "release__title", esc(r.title)));
+    card.appendChild(el("p", "release__by", esc(r.credited)));
+    card.appendChild(el("p", "release__meta",
       esc(r.year + (r.label ? " · " + r.label : ""))));
-    if (r.note) a.appendChild(el("p", "release__note", esc(r.note)));
-    return a;
+    if (r.note) card.appendChild(el("p", "release__note", esc(r.note)));
+    return card;
   }
 
   /* ------------------------------------------------------------------ live -- */

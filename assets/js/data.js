@@ -52,16 +52,6 @@ window.SITE = {
     ]
   },
 
-  /* -- Featured track ---------------------------------------------------- */
-  /* Clicking this hands off to the bottom player rather than embedding, so
-     the music keeps going while the visitor reads the rest of the page. */
-  featured: {
-    videoId: "3IXsqH7luTc",
-    title: "the REAL",
-    meta: "Alla Prima · 2022",
-    square: true          /* true for cover art, false for a 16:9 video still */
-  },
-
   /* -- Work -------------------------------------------------------------- */
   /* Each project also has its own page, so a single project can be sent to a
      promoter on its own without handing over the whole site.
@@ -142,6 +132,8 @@ window.SITE = {
     {
       title: "Alla Prima",
       work: "solo",
+      videoId: "3IXsqH7luTc",
+      track: "the REAL",
       year: 2022,
       credited: "Gideok Moon",
       role: "leader",
@@ -163,6 +155,7 @@ window.SITE = {
     },
     {
       title: "SOund RE;search LAB",
+      videoId: "NKE673GASb4",
       year: 2024,
       credited: "Yoonhwa Choi Trio",
       role: "sideman",
@@ -173,6 +166,7 @@ window.SITE = {
     },
     {
       title: "The Lake",
+      videoId: "J8XbOPTZLJ8",
       year: 2023,
       credited: "Seongmin Ahn",
       role: "sideman",

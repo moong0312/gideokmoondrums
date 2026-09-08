@@ -35,6 +35,14 @@ assets/press/           press-kit PDFs
 serve.js                local preview server
 ```
 
+Everything except the fixed player sits inside `.shell`, a centred column capped at
+1160px on its own `--ground`, so on a wide monitor the eye has one place to sit. The
+shell keeps `--paper`, so every rule written against the page background still holds.
+
+Type runs small on purpose — 14px body, 1.62 leading, headings a step down from where
+they started. tony-buck.com sets body at 13px/21px and mariaportugal.com at 12px; the
+point of the scale is that a whole project fits in one view instead of three.
+
 Every page but the front one opens on a letterbox photograph under the nav, at 3:1,
 with a small chip captioning it — set per page in `banners` in `data.js`, keyed by
 file name. Give it an `image`, or a `videoId` to use that video's own thumbnail so a

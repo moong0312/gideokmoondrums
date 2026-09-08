@@ -26,6 +26,7 @@
   --accent:   #4f8a5e;
   --nav-veil: rgba(247,245,239,.92);
   --img-edge: transparent;
+  --ground:   #e3ded0;
 
   --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --mono:  "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace;
@@ -58,6 +59,7 @@
   --accent:   #6fae7c;
   --nav-veil: rgba(22,20,15,.88);
   --img-edge: var(--line-2);
+  --ground:   #0c0b08;
 
   color-scheme: dark;
 }
@@ -70,11 +72,11 @@ html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 
 body{
   margin:0;
-  background:var(--paper);
+  background:var(--ground);
   color:var(--ink);
   font-family:var(--sans);
-  font-size:16px;
-  line-height:1.7;
+  font-size:15px;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
   padding-bottom:var(--player-h);
   overflow-x:hidden;
@@ -91,6 +93,16 @@ a{ color:inherit; }
   position:fixed; inset:0;
   width:100%; height:100%;
   pointer-events:none;
+}
+
+/* Everything but the fixed player rides inside this. It keeps the page's own
+   background, so every rule written against --paper still holds; only what
+   surrounds it is new. */
+.shell{
+  position:relative; z-index:1;
+  max-width:1160px; margin:0 auto; min-height:100vh;
+  background:var(--paper);
+  box-shadow:0 0 0 1px var(--line), 0 22px 70px rgba(0,0,0,.13);
 }
 
 .mono{ font-family:var(--mono); }
@@ -110,20 +122,20 @@ a{ color:inherit; }
 /* section labels read as quiet italic serif caps, not technical mono tags */
 .eyebrow{
   font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--ink-3); margin:0 0 18px;
+  font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 16px;
 }
 
 .sec__h{
   font-family:var(--serif); font-weight:400;
-  font-size:clamp(23px, 3vw, 31px);
+  font-size:clamp(21px, 2.5vw, 27px);
   line-height:1.18; letter-spacing:-.005em;
   margin:0 0 22px;
 }
 
 .grp{
   font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:13px; letter-spacing:.02em;
+  font-size:12px; letter-spacing:.02em;
   color:var(--ink-3);
   margin:0 0 18px; padding-bottom:10px;
   border-bottom:1px solid var(--line-2);
@@ -241,7 +253,7 @@ a{ color:inherit; }
 }
 .cols{ display:grid; gap:48px; }
 .cols__body{ max-width:62ch; }
-.cols__body p{ margin:0 0 22px; color:var(--ink-2); font-size:16px; line-height:1.75; }
+.cols__body p{ margin:0 0 18px; color:var(--ink-2); font-size:14px; line-height:1.62; }
 .cols__body p:last-child{ margin-bottom:0; }
 
 .facts{ margin:0; display:grid; gap:0; align-content:start; }
@@ -317,7 +329,7 @@ a{ color:inherit; }
 }
 .wx__name{
   font-family:var(--serif); font-weight:400; color:var(--ink);
-  font-size:clamp(24px,4vw,38px); letter-spacing:-.01em; line-height:1.1;
+  font-size:clamp(22px,3.4vw,32px); letter-spacing:-.01em; line-height:1.1;
 }
 .wx__sub{ color:var(--ink-3); margin-left:10px; font-size:.7em; }
 .wx__kind{
@@ -332,7 +344,7 @@ a{ color:inherit; }
 .wx:hover .wx__go{ transform:translateX(6px); color:var(--accent); }
 
 .work__lineup{ list-style:none; margin:0 0 20px; padding:0; display:grid; gap:5px; }
-.work__lineup li{ font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.02em; }
+.work__lineup li{ font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.02em; }
 .work__lineup li:first-child{ color:var(--ink); }
 
 .work__status{
@@ -346,12 +358,24 @@ a{ color:inherit; }
   .wx{ column-gap:32px; padding:26px 4px; }
 }
 
+
 /* --- releases ------------------------------------------------------------- */
 
 .rel{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px 24px; margin:0 0 44px; }
 .rel:last-child{ margin-bottom:0; }
 
-.release{ text-decoration:none; display:block; }
+.release{ display:block; }
+.release__link{ display:block; text-decoration:none; }
+.release__play{
+  position:absolute; left:12px; bottom:12px; z-index:2;
+  width:40px; height:40px; border-radius:50%;
+  display:grid; place-items:center; cursor:pointer;
+  background:var(--paper); color:var(--ink);
+  border:1px solid var(--paper);
+  transition:background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.release__play:hover{ background:var(--accent); border-color:var(--accent); transform:scale(1.06); }
+.release__play .pico{ margin-left:2px; }
 .release__art{
   position:relative; aspect-ratio:1; overflow:hidden; background:var(--paper-2);
   border:1px solid var(--img-edge);
@@ -370,16 +394,15 @@ a{ color:inherit; }
 .release:hover .release__go{ transform:none; }
 
 .release__title{
-  font-family:var(--serif); font-weight:500; font-size:16px;
-  letter-spacing:-.005em; margin:18px 0 4px; line-height:1.2;
+  font-family:var(--serif); font-weight:500; font-size:14px;
+  letter-spacing:-.005em; margin:14px 0 3px; line-height:1.2;
 }
-.release__by{ margin:0; font-size:13px; color:var(--ink-2); }
+.release__by{ margin:0; font-size:12px; color:var(--ink-2); }
 .release__meta{ margin:3px 0 0; font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.08em; }
 .release__note{ margin:7px 0 0; font-family:var(--mono); font-size:9.5px; color:var(--accent); letter-spacing:.12em; text-transform:uppercase; }
 
 @media (min-width:760px){
-  .rel--lead{ grid-template-columns:repeat(2,1fr); max-width:640px; }
-  .rel--side{ grid-template-columns:repeat(4,1fr); }
+  .rel{ grid-template-columns:repeat(4,1fr); }
 }
 
 /* --- live ----------------------------------------------------------------- */
@@ -397,8 +420,8 @@ a{ color:inherit; }
 a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .date__when{ font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); }
-.date__what{ font-family:var(--serif); font-weight:500; font-size:17px; margin:0; letter-spacing:-.005em; line-height:1.3; }
-.date__where{ font-size:13px; color:var(--ink-3); margin:0; }
+.date__what{ font-family:var(--serif); font-weight:500; font-size:15px; margin:0; letter-spacing:-.005em; line-height:1.3; }
+.date__where{ font-size:12px; color:var(--ink-3); margin:0; }
 .date__vid{
   font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
   color:var(--paper); background:var(--ink);
@@ -406,7 +429,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 }
 
 .live__foot{ display:grid; gap:22px; }
-.venues{ margin:0; font-size:12.5px; color:var(--ink-3); line-height:1.9; max-width:70ch; }
+.venues{ margin:0; font-size:11.5px; color:var(--ink-3); line-height:1.8; max-width:78ch; }
 
 @media (min-width:900px){
   .date__in{ grid-template-columns:190px 1fr auto; align-items:baseline; gap:28px; padding:17px 0; }
@@ -421,14 +444,14 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .back{
   display:inline-block; margin-bottom:26px;
-  font-size:13px; color:var(--ink-2); text-decoration:none;
+  font-size:12px; color:var(--ink-2); text-decoration:none;
   transition:color .2s var(--ease);
 }
 .back:hover{ color:var(--accent); }
 
 /* subordinate to the page title, unlike the statement lead on the front page */
 .phead__lead{
-  font-family:var(--sans); font-size:15.5px; line-height:1.7;
+  font-family:var(--sans); font-size:14px; line-height:1.62;
   color:var(--ink-2); letter-spacing:0;
   max-width:54ch; margin:-6px 0 26px;
 }
@@ -501,7 +524,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 }
 .quote__t{
   font-family:var(--serif); font-weight:400; font-style:italic;
-  font-size:clamp(18px,2.6vw,23px); line-height:1.4;
+  font-size:clamp(16px,2.1vw,20px); line-height:1.45;
   margin:0 0 18px; letter-spacing:-.005em;
 }
 .quote__by{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin:0; }
@@ -537,11 +560,11 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .copy:hover{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
 .copy.is-done{ background:#6f8154; border-color:#6f8154; color:var(--paper); }
 
-.bio__text{ padding:22px; margin:0; color:var(--ink-2); font-size:14.5px; }
+.bio__text{ padding:18px; margin:0; color:var(--ink-2); font-size:13.5px; line-height:1.62; }
 .bio__text p{ margin:0 0 12px; }
 .bio__text p:last-child{ margin:0; }
 
-.kit__note{ font-size:13px; color:var(--ink-3); margin:0 0 22px; max-width:46ch; }
+.kit__note{ font-size:12px; color:var(--ink-3); margin:0 0 18px; max-width:46ch; }
 .photos{ list-style:none; margin:0; padding:0; display:grid; gap:16px; }
 .photo{
   display:flex; align-items:center; gap:15px; text-decoration:none;
@@ -552,7 +575,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .photo:hover{ background:var(--paper-2); }
 .photo__thumb{ width:76px; height:58px; flex:none; background:var(--paper-2) center/cover no-repeat; }
 .photo__b{ display:grid; gap:3px; flex:1; min-width:0; }
-.photo__b strong{ font-size:14px; font-weight:500; }
+.photo__b strong{ font-size:13px; font-weight:500; }
 .photo__b span{ font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.06em; }
 .photo__dl{
   font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
@@ -606,16 +629,16 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .home__intro{ padding-top:52px; }
 .home__name{
   font-family:var(--serif); font-weight:400; margin:0 0 22px;
-  font-size:clamp(30px,5.4vw,52px); letter-spacing:-.015em; line-height:1.05;
+  font-size:clamp(27px,4.4vw,42px); letter-spacing:-.015em; line-height:1.05;
 }
 .home__bio{ max-width:54ch; margin:0; }
-.home__bio p{ margin:0 0 16px; color:var(--ink-2); font-size:17px; line-height:1.75; }
+.home__bio p{ margin:0 0 14px; color:var(--ink-2); font-size:15.5px; line-height:1.68; }
 .home__intro .hero__meta{ margin-top:26px; }
 .home__intro .social{ margin-top:30px; }
 
 @media (min-width:900px){
   .shot__img{ background-position:center 25%; }
-  .home__bio p{ font-size:18px; }
+  .home__bio p{ font-size:16px; }
 }
 
 /* --- project page --------------------------------------------------------- */
@@ -626,14 +649,16 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .pj__head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:14px; margin-bottom:14px; }
 .pj__name{
   font-family:var(--serif); font-weight:400; margin:0; line-height:1.1;
-  font-size:clamp(24px,3.4vw,34px); letter-spacing:-.01em;
+  font-size:clamp(21px,2.7vw,28px); letter-spacing:-.01em;
 }
 .pj__sub{ color:var(--ink-3); margin-left:10px; font-size:.72em; }
 .pj__kind{
   font-family:var(--mono); font-size:9.5px; letter-spacing:.2em;
   text-transform:uppercase; font-weight:700; color:var(--ink-3);
 }
-.pj__p{ margin:0 0 14px; max-width:62ch; color:var(--ink-2); font-size:15.5px; line-height:1.7; }
+.pj__p{ margin:0 0 12px; color:var(--ink-2); font-size:14px; line-height:1.62; }
+.pj__top{ display:grid; gap:34px; }
+.pj__media .eyebrow{ margin-bottom:12px; }
 .pj__part{ margin-top:32px; }
 .pj__part .eyebrow{ margin-bottom:12px; }
 
@@ -645,15 +670,15 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 /* A paragraph, not a pull quote — .lead is sized for one line and this is the
    project's summary, so it gets a readable measure instead. */
 .wp__lead{
-  margin:0; max-width:58ch; color:var(--ink-2);
-  font-size:15.5px; line-height:1.7;
+  margin:0 0 12px; color:var(--ink-2);
+  font-size:14px; line-height:1.62;
 }
 .wp__lineup{ margin:16px 0 0; }
 .wp__acts{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:22px; }
 .wp__acts .work__status{ margin:0; }
 
-.wp__about{ display:grid; gap:15px; max-width:62ch; }
-.wp__about p{ margin:0; color:var(--ink-2); font-size:15.5px; line-height:1.7; }
+.wp__about{ display:grid; gap:15px; }
+.wp__about p{ margin:0; color:var(--ink-2); font-size:14px; line-height:1.62; }
 
 /* 16:9 box so the embed can't push the page sideways on a narrow screen. */
 .wp__video{
@@ -682,12 +707,26 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 @media (min-width:900px){
   .wp__others{ grid-template-columns:repeat(3,1fr); }
 }
+/* Wide enough to stop the words running to one side while the other half of
+   the page stays blank. */
+@media (min-width:1000px){
+  /* Text and video abreast rather than the video a screen further down. */
+  .pj__top--split{ grid-template-columns:1.05fr .95fr; gap:48px; align-items:start; }
+  .pj__media{ position:sticky; top:96px; }
+
+  /* Two columns keeps the line length readable while the paragraphs use the
+     full measure of the page instead of half of it. */
+  .wp__about{ display:block; column-count:2; column-gap:52px; }
+  .wp__about p{ margin:0 0 13px; break-inside:avoid; }
+
+  .pj__p, .wp__lead{ max-width:none; }
+}
 
 /* --- booking -------------------------------------------------------------- */
 
 .booking__h{
   font-family:var(--serif); font-weight:400;
-  font-size:clamp(26px,4vw,38px); line-height:1.12;
+  font-size:clamp(23px,3.2vw,32px); line-height:1.12;
   letter-spacing:-.01em; margin:0 0 18px;
 }
 .booking__line{ margin:0 0 28px; color:var(--ink-2); max-width:44ch; }
