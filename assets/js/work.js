@@ -91,30 +91,47 @@
       media.appendChild(box);
       top.appendChild(media);
     }
+
+    var dates = S.live.dates.filter(function (d) { return d.work === w.id; });
+
+    function liveInto(host) {
+      var ul = el("ul", "dates");
+      GM.dates(ul, dates, "all");
+      host.appendChild(ul);
+      var p = el("p", "wp__all");
+      var a = el("a", "link", "All performances →");
+      a.href = "performances.html";
+      p.appendChild(a);
+      host.appendChild(p);
+      return dates.length;
+    }
+
+    /* A project with no video would otherwise leave the right-hand column empty
+       and let the paragraph run the whole width. Its dates go there instead —
+       real content rather than a stretched line. */
+    var liveIsBeside = !w.videoId && dates.length;
+    if (liveIsBeside) {
+      top.className = "pj__top pj__top--split";
+      var side = el("div", "pj__media");
+      side.appendChild(el("p", "eyebrow", "Live"));
+      liveInto(side);
+      top.appendChild(side);
+    }
     b.appendChild(top);
 
-    part(b, "Releases", function (host) {
+    /* Records and dates abreast. One album on its own was a card in a third of
+       a row with the rest of the row empty; next to the dates it isn't. */
+    var cols = el("div", "pj__cols");
+    part(cols, "Releases", function (host) {
       var rs = S.releases.filter(function (r) { return r.work === w.id; });
       var grid = el("div", "wp__rels");
       rs.forEach(function (r) { grid.appendChild(GM.releaseCard(r)); });
       host.appendChild(grid);
       return rs.length;
     });
-
-    part(b, "Live", function (host) {
-      var ds = S.live.dates.filter(function (d) { return d.work === w.id; });
-      var ul = el("ul", "dates");
-      GM.dates(ul, ds, "all");
-      host.appendChild(ul);
-      if (ds.length) {
-        var p = el("p", "wp__all");
-        var a = el("a", "link", "All performances →");
-        a.href = "performances.html";
-        p.appendChild(a);
-        host.appendChild(p);
-      }
-      return ds.length;
-    });
+    if (!liveIsBeside) part(cols, "Live", liveInto);
+    if (cols.children.length === 2) cols.className = "pj__cols pj__cols--split";
+    if (cols.children.length) b.appendChild(cols);
 
     return b;
   }

@@ -81,7 +81,8 @@
     card.appendChild(el("h4", "release__title", esc(r.title)));
     card.appendChild(el("p", "release__by", esc(r.credited)));
     card.appendChild(el("p", "release__meta",
-      esc(r.year + (r.label ? " · " + r.label : ""))));
+      esc(r.year + (r.label ? " · " + r.label : "")) +
+      (r.role ? ' <span class="release__role">' + esc(r.role) + "</span>" : "")));
     if (r.note) card.appendChild(el("p", "release__note", esc(r.note)));
     return card;
   }

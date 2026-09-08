@@ -399,10 +399,16 @@ a{ color:inherit; }
 }
 .release__by{ margin:0; font-size:12px; color:var(--ink-2); }
 .release__meta{ margin:3px 0 0; font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.08em; }
+.release__role{
+  font-family:var(--mono); font-size:9px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3);
+  border:1px solid var(--line-2); padding:2px 6px; margin-left:8px;
+  white-space:nowrap;
+}
 .release__note{ margin:7px 0 0; font-family:var(--mono); font-size:9.5px; color:var(--accent); letter-spacing:.12em; text-transform:uppercase; }
 
 @media (min-width:760px){
-  .rel{ grid-template-columns:repeat(4,1fr); }
+  .rel{ grid-template-columns:repeat(3,1fr); gap:36px 28px; }
 }
 
 /* --- live ----------------------------------------------------------------- */
@@ -429,7 +435,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 }
 
 .live__foot{ display:grid; gap:22px; }
-.venues{ margin:0; font-size:11.5px; color:var(--ink-3); line-height:1.8; max-width:78ch; }
+.venues{ margin:0; font-size:11.5px; color:var(--ink-3); line-height:1.8; max-width:none; }
 
 @media (min-width:900px){
   .date__in{ grid-template-columns:190px 1fr auto; align-items:baseline; gap:28px; padding:17px 0; }
@@ -453,7 +459,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .phead__lead{
   font-family:var(--sans); font-size:14px; line-height:1.62;
   color:var(--ink-2); letter-spacing:0;
-  max-width:54ch; margin:-6px 0 26px;
+  max-width:none; margin:-6px 0 24px;
 }
 
 .phead__bar{
@@ -664,6 +670,8 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .pj__top{ display:grid; gap:34px; }
 .pj__media .eyebrow{ margin-bottom:12px; }
 .pj__part{ margin-top:32px; }
+.pj__cols{ display:grid; gap:0; }
+.pj__cols .pj__part:first-child{ margin-top:32px; }
 .pj__part .eyebrow{ margin-bottom:12px; }
 
 .sec--list{ padding-top:0; }
@@ -717,6 +725,12 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   /* Text and video abreast rather than the video a screen further down. */
   .pj__top--split{ grid-template-columns:1.05fr .95fr; gap:48px; align-items:start; }
   .pj__media{ position:sticky; top:96px; }
+
+  /* Records beside dates rather than stacked, so a single album is not a card
+     in a third of a row with the rest of the row empty. */
+  .pj__cols--split{ grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .pj__cols--split .pj__part{ margin-top:32px; }
+  .pj__cols--split .wp__rels{ grid-template-columns:repeat(2,1fr); }
 
   /* Two columns keeps the line length readable while the paragraphs use the
      full measure of the page instead of half of it. */

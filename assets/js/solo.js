@@ -80,16 +80,22 @@
       return 1;
     });
 
-    /* Records under his own name. */
-    section("soRelSec", function (host) {
+    /* Records under his own name, and the dates, abreast — one album alone was
+       a card in a third of a row with the rest of the row empty. */
+    var sec = $("#soFootSec");
+    if (sec) {
       var rs = S.releases.filter(function (r) { return r.work === "solo"; });
-      rs.forEach(function (r) { host.appendChild(GM.releaseCard(r)); });
-      return rs.length;
-    });
-
-    section("soLiveSec", function (host) {
       var ds = S.live.dates.filter(function (d) { return d.work === "solo"; });
-      return GM.dates(host, ds, "all");
-    });
+      rs.forEach(function (r) { sec.querySelector("[data-rel]").appendChild(GM.releaseCard(r)); });
+      GM.dates(sec.querySelector("[data-live]"), ds, "all");
+
+      if (!rs.length) sec.querySelector("#soRel").remove();
+      if (!ds.length) sec.querySelector("#soLive").remove();
+      if (!rs.length || !ds.length) {
+        var cols = sec.querySelector(".pj__cols");
+        if (cols) cols.className = "pj__cols";
+      }
+      if (!rs.length && !ds.length) sec.remove(); else sec.hidden = false;
+    }
   });
 })();
