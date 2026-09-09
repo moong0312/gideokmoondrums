@@ -113,8 +113,11 @@
     S.bios.forEach(function (b) {
       var card = el("div", "bio rv");
       var top = el("div", "bio__top");
+      /* Counted, not written down — the labels drifted from the text the first
+         time a sentence was cut out of it. */
+      var words = b.text.trim().split(/\s+/).length;
       top.appendChild(el("div", "bio__lab",
-        "<strong>" + esc(b.label) + "</strong><span>" + esc(b.words) + "</span>"));
+        "<strong>" + esc(b.label) + "</strong><span>" + words + " words</span>"));
 
       var btn = el("button", "copy", "Copy");
       btn.type = "button";

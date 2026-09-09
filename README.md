@@ -69,6 +69,10 @@ photo **Download** links, which browsers block on that protocol.
 Everything editable is in **`assets/js/data.js`** — bios, releases, live dates, press
 quotes, links, the player tracklist. Edit, save, reload. No rebuild.
 
+The two sentences the front page opens with are the `INTRO` at the top of that file,
+and the short press bio is the same text, so they are written once and used twice.
+Editing `INTRO` changes both. Bio word counts are counted at render, not written down.
+
 ### Adding a live date
 
 Every performance is one entry in `live.dates` — there is no second list to keep in

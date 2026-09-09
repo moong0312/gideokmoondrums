@@ -4,6 +4,14 @@
    No build step, no dependencies.
 --------------------------------------------------------------------------- */
 
+/* The two sentences the front page opens with — and the short press bio, which
+   is the same text. Written once here so the two cannot drift apart; editing
+   this changes both. */
+var INTRO = [
+  "Gideok Moon is a drummer who explores the space between acoustic and electronics, the familiar and the unfamiliar, certainty and uncertainty.",
+  "Rooted in jazz, expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal."
+];
+
 window.SITE = {
 
   /* -- Identity ---------------------------------------------------------- */
@@ -31,25 +39,7 @@ window.SITE = {
        line under this already says drummer, Bern and Seoul, so it says only what
        none of them can — and stops. The self-contained version press needs is in
        `bios`. */
-    intro: [
-      "Gideok Moon is a drummer who explores the space between acoustic and electronics, the familiar and the unfamiliar, certainty and uncertainty.",
-      "Rooted in jazz, expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal."
-    ]
-  },
-
-  /* -- Statement --------------------------------------------------------- */
-  statement: {
-    lead: "Gideok Moon is an improviser who begins with the drum.",
-    body: [
-      "His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. Rooted in jazz, expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal.",
-      "Trained in jazz drumming at Kyung Hee University, he became active in Korea's free improvisation scene before relocating to Bern, where he is completing a Master's in Jazz and Contemporary Music at the Hochschule der Künste Bern."
-    ],
-    facts: [
-      ["Based in", "Bern, Switzerland"],
-      ["From", "Seoul, South Korea"],
-      ["Studying", "MA Jazz & Contemporary Music, HKB"],
-      ["Formats", "Solo · duo · trio · quartet"]
-    ]
+    intro: INTRO
   },
 
   /* -- Work -------------------------------------------------------------- */
@@ -374,20 +364,17 @@ window.SITE = {
     {
       id: "short",
       label: "Short",
-      words: "45 words",
-      text: "Gideok Moon is a drummer, improviser and composer from Seoul, based in Bern. Working solo and in the groups i!i!o, Life and Sound and EDGE, he combines acoustic drums with electronics across jazz and free improvisation. He is completing a Master's at the Hochschule der Künste Bern."
+      text: INTRO.join("\n\n")
     },
     {
       id: "medium",
       label: "Medium",
-      words: "95 words",
-      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. A drummer, improviser and composer from Seoul, now based in Bern, he works across solo performance, the duo Life and Sound with saxophonist Sangbeom Kim, the trio i!i!o, and the quartet EDGE. He released his solo debut Alla Prima (2022) on Mung Music and has performed at the Jarasum Jazz Festival and the Bern Jazz Festival. He is completing a Master's in Jazz and Contemporary Music at the Hochschule der Künste Bern."
+      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. A drummer, improviser and composer from Seoul, now based in Bern, he works across solo performance, the duo Life and Sound with saxophonist Sangbeom Kim, the trio i!i!o, and the quartet EDGE. He released his solo debut Alla Prima (2022) on Mung Music and has performed at the Jarasum Jazz Festival and the Bern Jazz Festival."
     },
     {
       id: "long",
       label: "Long",
-      words: "190 words",
-      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal.\n\nHe is a drummer, improviser and composer from Seoul, South Korea, currently based in Bern, Switzerland. He works across several formats: solo, where he develops an approach combining acoustic drums with electronics; the duo Life and Sound, with saxophonist Sangbeom Kim; the trio i!i!o; and the quartet EDGE.\n\nHe received traditional jazz drumming training at Kyung Hee University and was actively involved with improvisers and communities in Korea's free improvisation scene. He collaborated with saxophonist Sunjae Lee and released his solo debut album, Alla Prima (2022), through Lee's label, Mung Music. His duo album with Life and Sound, Mealworm, followed in 2025. He has performed at the Jarasum Jazz Festival, the Korean Cultural Centre in Germany, and jazz clubs across Korea.\n\nSince relocating to Bern he has remained active in the local improvisation scene, performing with i!i!o and EDGE at PROGR, BeJazz, Offy and the Bern Jazz Festival. He is currently pursuing a Master's degree in Jazz and Contemporary Music at the Hochschule der Künste Bern (HKB)."
+      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal.\n\nHe is a drummer, improviser and composer from Seoul, South Korea, currently based in Bern, Switzerland. He works across several formats: solo, where he develops an approach combining acoustic drums with electronics; the duo Life and Sound, with saxophonist Sangbeom Kim; the trio i!i!o; and the quartet EDGE.\n\nHe received traditional jazz drumming training at Kyung Hee University and was actively involved with improvisers and communities in Korea's free improvisation scene. He collaborated with saxophonist Sunjae Lee and released his solo debut album, Alla Prima (2022), through Lee's label, Mung Music. His duo album with Life and Sound, Mealworm, followed in 2025. He has performed at the Jarasum Jazz Festival, the Korean Cultural Centre in Germany, and jazz clubs across Korea.\n\nSince relocating to Bern he has remained active in the local improvisation scene, performing with i!i!o and EDGE at PROGR, BeJazz, Offy and the Bern Jazz Festival."
     }
   ],
 
