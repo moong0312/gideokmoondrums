@@ -740,6 +740,30 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   .pj__p, .wp__lead{ max-width:none; }
 }
 
+/* --- listen & watch (EPK) -------------------------------------------------- */
+
+.lw{ display:grid; gap:34px; }
+.lw__h{
+  font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-3); margin:0 0 8px; padding-bottom:8px;
+  border-bottom:1px solid var(--line-2);
+}
+.lw__row{
+  display:grid; grid-template-columns:1fr auto auto; align-items:baseline;
+  gap:14px; padding:10px 4px; text-decoration:none;
+  border-bottom:1px solid var(--line);
+  transition:background .2s var(--ease), padding-left .2s var(--ease);
+}
+.lw__row:hover{ background:var(--paper-3); padding-left:10px; }
+.lw__name{ font-family:var(--serif); font-size:15px; color:var(--ink); }
+.lw__meta{ font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); }
+.lw__go{ color:var(--ink-3); font-size:12px; }
+.lw__row:hover .lw__go{ color:var(--accent); }
+
+@media (min-width:760px){
+  .lw{ grid-template-columns:1fr 1fr; gap:44px; }
+}
+
 /* --- booking -------------------------------------------------------------- */
 
 .booking__h{

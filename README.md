@@ -15,7 +15,7 @@ life-and-sound.html     ┘
 projects.html           the other groups (EDGE, and whatever comes next)
 albums.html             full discography + the bottom player
 performances.html       full performance archive
-epk.html                press quotes · bios · photo downloads · contact
+epk.html                listen/watch links · press quotes · bios · photos · contact
 
 assets/css/style.css    all styling
 assets/js/data.js       ← all content lives here
@@ -162,6 +162,17 @@ Album covers are already in `assets/img/release-*.jpg`.
 
 Full-resolution originals live in `_originals/`, which is gitignored — regenerate the
 web sizes from there rather than re-compressing what's already in `assets/`.
+
+## The EPK page
+
+It leads with **Listen & watch** — every project video and every album as a plain
+streaming link, opening in a new tab. Funding panels read an application with
+YouTube open beside it, and institutional networks block file downloads, so the
+sound has to be one click and never an attachment. The photo **Download** links
+below are the deliberate exception: press needs the actual file.
+
+Both columns build themselves from `works` and `releases`, so adding a video or a
+record puts it there without touching the page.
 
 ## Contact
 
