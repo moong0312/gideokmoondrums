@@ -181,10 +181,12 @@ footer of every page, both as live links, so a promoter can write or call withou
 form in between.
 
 Both are therefore public: `data.js` is served to the browser like any other file,
-so anything in it can be read and scraped. That is the deliberate trade for being
-directly reachable. If it ever becomes a problem, the fix is a form posting to a
-service that holds the address (Web3Forms, Formspree and friends all work this way),
-which is what this site did before.
+so anything in it can be read and scraped. The address is deliberately not a personal
+one — `gideok@gideokmoon.com` is an iCloud+ custom-domain address on the site's own
+domain, so if scraping ever becomes a problem it can be retired and replaced without
+touching anything else. Catch-all is off on purpose: the domain is printed on every
+page, and a catch-all on a published domain collects every dictionary-attack address
+a spammer tries.
 
 ## Design
 
@@ -207,5 +209,15 @@ change the accent, edit `--accent` in both blocks in `style.css`.
 ## Deploying
 
 Any static host. For GitHub Pages: push to GitHub, then Settings → Pages → deploy from
-the `main` branch, root folder. To keep the current domain, point the
-`gideokmoondrums.com` DNS at the host and add a `CNAME` file containing the domain.
+the `main` branch, root folder. The domain lives in the `CNAME` file; its DNS points
+four A records at GitHub's apex addresses and `www` at `moong0312.github.io`.
+
+The site answers on two domains. `gideokmoon.com` is the real one — it is what `CNAME`
+holds, what the `og:` tags name, and what GitHub issues the certificate for.
+`gideokmoondrums.com` came first and still has links pointing at it, so it sits on
+Cloudflare with a 301 rule that carries the path across. GitHub Pages serves one
+domain per site, which is why that redirect lives at the DNS layer rather than here.
+
+Mail is separate from all of this. `gideokmoon.com` also carries iCloud+ MX, SPF and
+DKIM records, so **changing web host means changing the A records only** — leave the
+MX, the two `@` TXT records and the `sig1._domainkey` CNAME alone or the mail stops.

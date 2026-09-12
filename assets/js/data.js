@@ -22,7 +22,7 @@ window.SITE = {
     /* Printed on the page, so both are public and scrapers will find them. That
        is the trade for letting a promoter write or call without a form in the
        way; swapping back to a form is what hides them again. */
-    email: "moonkiduk@gmail.com",
+    email: "gideok@gideokmoon.com",
     phone: "+41 77 466 82 20",
     instagram: "https://www.instagram.com/gideok_moon/",
     youtube: "https://youtube.com/@moonkiduk0312",
