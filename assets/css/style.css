@@ -1,8 +1,9 @@
 /* ===========================================================================
    Gideok Moon — EPK
    Paper base · one restrained accent · Fraunces + Space Mono + Inter
-   Light and dark share every rule below — only the custom properties in
-   :root / :root[data-theme="dark"] change between them.
+   Light only. The ground behind the page is a photograph, and a photograph
+   does not invert — a dark mode would have to dim the picture until it was
+   not the picture any more, so the site commits to one light palette.
 
    Reference point: colinvallon.com — a quiet serif carries every heading
    (no bold display type shouting), photography never runs edge-to-edge,
@@ -28,6 +29,17 @@
   --img-edge: transparent;
   --ground:   #e3ded0;
 
+  /* The ground is a photograph now. --bg-veil is what keeps it a room rather
+     than a picture: a wash of paper over the top so the shell's edge still
+     reads and nothing in the photo competes with a line of text. */
+  /* Root-absolute: a url() inside a custom property is resolved against the
+     stylesheet that declares it, so a relative path breaks the moment the value
+     is set from anywhere else. */
+  --bg:       url("/assets/img/bg/sunset.jpg");     /* fallback; body[data-bg] wins */
+  --bg-sm:    url("/assets/img/bg/sunset@sm.jpg");
+  --bg-veil:  rgba(247,245,239,.40);
+  --bg-tone:  saturate(.82) brightness(1.02);
+
   --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --mono:  "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -41,28 +53,6 @@
   color-scheme: light;
 }
 
-/* Dark mode: not an inverted palette, a deliberately softer one — near-black
-   instead of pure black, off-white instead of pure white, so it's actually
-   restful at night rather than just "light mode with the switch flipped". */
-:root[data-theme="dark"]{
-  --paper:    #16140f;
-  --paper-2:  #211e17;
-  --paper-3:  #2a251c;
-
-  --ink:      #f2efe6;
-  --ink-2:    #b6ad9c;
-  --ink-3:    #8f8672;
-
-  --line:     #2a2620;
-  --line-2:   #3b352a;
-
-  --accent:   #6fae7c;
-  --nav-veil: rgba(22,20,15,.88);
-  --img-edge: var(--line-2);
-  --ground:   #0c0b08;
-
-  color-scheme: dark;
-}
 
 @media (min-width:900px){ :root{ --pad:56px; } }
 
@@ -89,10 +79,40 @@ a{ color:inherit; }
 /* --- ambient background ---------------------------------------------------
    A fixed, low-opacity backdrop so it never competes with text — visible as
    texture in the empty space, not as decoration you consciously notice. */
-.bg-lines{
-  position:fixed; inset:0;
-  width:100%; height:100%;
-  pointer-events:none;
+.bg-lines{ display:none; }
+
+/* --- the ground ----------------------------------------------------------
+   tony-buck.com sits one column on a photograph: the eye lands in a single
+   place and the picture is the room it sits in rather than the subject. These
+   are Gideok's own photographs. Two fixed layers — the picture, then a wash of
+   paper over it — because a photograph at full strength argues with every line
+   of type on the card above it. */
+body::before,
+body::after{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+}
+body::before{
+  background:var(--bg) center 45% / cover no-repeat;
+  filter:var(--bg-tone);
+}
+body::after{ background:var(--bg-veil); }
+
+/* One photograph per page. A promoter who follows a project link lands
+   somewhere that looks like its own place, so the nav is not the only thing
+   saying which page this is. All of them are Gideok's own. */
+body[data-bg="sunset"]{ --bg:url("/assets/img/bg/sunset.jpg"); --bg-sm:url("/assets/img/bg/sunset@sm.jpg"); }
+body[data-bg="dusk"]{ --bg:url("/assets/img/bg/dusk.jpg"); --bg-sm:url("/assets/img/bg/dusk@sm.jpg"); }
+body[data-bg="concrete"]{ --bg:url("/assets/img/bg/concrete.jpg"); --bg-sm:url("/assets/img/bg/concrete@sm.jpg"); }
+body[data-bg="forest"]{ --bg:url("/assets/img/bg/forest.jpg"); --bg-sm:url("/assets/img/bg/forest@sm.jpg"); }
+body[data-bg="brick"]{ --bg:url("/assets/img/bg/brick.jpg"); --bg-sm:url("/assets/img/bg/brick@sm.jpg"); }
+body[data-bg="lake"]{ --bg:url("/assets/img/bg/lake.jpg"); --bg-sm:url("/assets/img/bg/lake@sm.jpg"); }
+body[data-bg="poplars"]{ --bg:url("/assets/img/bg/poplars.jpg"); --bg-sm:url("/assets/img/bg/poplars@sm.jpg"); }
+body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/assets/img/bg/valley@sm.jpg"); }
+
+@media (max-width:760px){
+  /* The card covers the viewport on a phone, so the large file would be paid
+     for and never seen. */
+  body::before{ background-image:var(--bg-sm, var(--bg)); }
 }
 
 /* Everything but the fixed player rides inside this. It keeps the page's own
@@ -103,6 +123,15 @@ a{ color:inherit; }
   max-width:1160px; margin:0 auto; min-height:100vh;
   background:var(--paper);
   box-shadow:0 0 0 1px var(--line), 0 22px 70px rgba(0,0,0,.13);
+}
+
+/* Only once there is room to spare: below this the photograph would be a
+   sliver down each side, which reads as a mistake rather than a margin. */
+@media (min-width:1280px){
+  .shell{
+    margin:30px auto; min-height:calc(100vh - 60px);
+    box-shadow:0 0 0 1px var(--line), 0 30px 90px rgba(0,0,0,.28);
+  }
 }
 
 .mono{ font-family:var(--mono); }
@@ -213,16 +242,6 @@ a{ color:inherit; }
 .nav__links a:hover{ color:var(--ink); }
 .nav__links a.is-here{ color:var(--accent); }
 
-/* the little light/dark switch — same weight as any other nav link, no icon,
-   just the word for the mode it will switch *to*. Lives outside .nav__links
-   so it stays visible even where the anchor nav collapses on mobile. */
-.theme-toggle{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--ink-2); background:transparent; cursor:pointer;
-  border:1px solid var(--line-2); border-radius:0; padding:6px 12px;
-  transition:color .2s var(--ease), border-color .2s var(--ease);
-}
-.theme-toggle:hover{ color:var(--ink); border-color:var(--ink-3); }
 
 @media (min-width:900px){
   .nav__links{ gap:24px; font-size:11px; }

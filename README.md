@@ -28,7 +28,7 @@ assets/js/epk.js        press kit
 assets/js/performances.js  archive
 assets/js/player.js     the bottom player — albums page only
 assets/js/live.js       the live-date row, shared by every page that lists dates
-assets/js/theme.js      light/dark toggle button
+assets/img/bg/          the per-page background photographs
 assets/img/             album covers, hero and release art
 assets/img/press/       downloadable press photos
 assets/press/           press-kit PDFs
@@ -36,8 +36,9 @@ serve.js                local preview server
 ```
 
 Everything except the fixed player sits inside `.shell`, a centred column capped at
-1160px on its own `--ground`, so on a wide monitor the eye has one place to sit. The
-shell keeps `--paper`, so every rule written against the page background still holds.
+1160px, so on a wide monitor the eye has one place to sit. The shell keeps `--paper`,
+so every rule written against the page background still holds. Behind it is a
+photograph — see **Backgrounds** below.
 
 Type runs small on purpose — 14px body, 1.62 leading, headings a step down from where
 they started. tony-buck.com sets body at 13px/21px and mariaportugal.com at 12px; the
@@ -49,8 +50,8 @@ file name. Give it an `image`, or a `videoId` to use that video's own thumbnail 
 project page opens on the group actually playing. There are only four press photos,
 so a couple currently repeat; adding photographs is the fix, the code needs nothing.
 
-Every page is built from the same shell: the theme script, the background drawing,
-the nav and the footer are identical across all eight, and `ui.js` renders the
+Every page is built from the same shell: the nav and the footer are identical
+across all eight, and `ui.js` renders the
 footer contact and marks the current nav link on each one. Keep them in step when
 adding a page — copy an existing one rather than writing a new head by hand.
 
@@ -195,16 +196,37 @@ headings with italic carrying emphasis instead of bold caps — reference point 
 colinvallon.com: buttons are thin-bordered text, nothing shouts. Images stay bounded
 with one deliberate exception: the front-page photograph runs edge to edge, because
 there it is the whole introduction. Space Mono for small functional labels (dates, tags), Inter for body copy.
-Mobile-first, with a persistent bottom player that follows the theme like everything
-else (on `--paper-3`, the elevated-surface tone, so it still reads as a raised bar).
+Mobile-first, with a persistent bottom player on `--paper-3`, the elevated-surface
+tone, so it still reads as a raised bar.
 
-Light and dark share every rule in `style.css` — only the custom properties change,
-between `:root` and `:root[data-theme="dark"]`. First-time visitors get whatever their
-system prefers (`prefers-color-scheme`), falling back to dark if that can't be read.
-The toggle in the nav (`theme.js`) flips `data-theme` on `<html>` and remembers the
-choice in `localStorage`. A small blocking script in each page's `<head>` applies it
-before first paint, so there's no flash of the wrong theme. To
-change the accent, edit `--accent` in both blocks in `style.css`.
+The palette is light only, and there is no toggle. A photograph cannot be inverted:
+a dark mode would have to dim the picture until it stopped being the picture, so the
+site commits to one set of custom properties in `:root`. To change the accent, edit
+`--accent` there.
+
+## Backgrounds
+
+Each page sits on one of Gideok's own photographs, named on `<body data-bg="...">` and
+resolved by a rule per name in `style.css`. Two fixed layers do the work: `body::before`
+is the picture, `body::after` is `--bg-veil`, a wash of paper over it. Without the veil
+a photograph argues with every line of type on the card above it.
+
+| page | photograph | | page | photograph |
+| --- | --- | --- | --- | --- |
+| index | `sunset` | | projects | `brick` |
+| solo | `dusk` | | albums | `lake` |
+| iio | `concrete` | | performances | `poplars` |
+| life-and-sound | `forest` | | epk | `valley` |
+
+Only the margins beside the shell are ever visible, so what matters is what sits at the
+left and right edges of the frame, not the middle — a photograph that is pale sky at both
+edges reads as no background at all. Each is cropped 16:9, capped near 180KB, and has a
+half-width `@sm` twin the phone loads instead. Originals live in `_originals/background/`,
+which is gitignored; regenerate the web sizes from there.
+
+A `url()` inside a custom property resolves against the stylesheet that declares it, so
+these paths are root-absolute (`/assets/...`) — a relative one breaks the moment the value
+is set from anywhere else.
 
 ## Deploying
 
