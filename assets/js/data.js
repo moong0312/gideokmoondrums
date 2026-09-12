@@ -409,13 +409,13 @@ window.SITE = {
      There are only four press photos, so a couple of these repeat. More
      photographs is the fix; nothing in the code needs to change. */
   banners: {
-    "solo.html":           { image: "assets/img/press/gideok-moon-01.jpg", label: "Cymbal, solo set" },
+    "solo.html":           { image: "assets/img/head/solo.jpg",            label: "Sticks down, snare" },
     "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — live" },
     "life-and-sound.html": { image: "assets/img/head/life-and-sound.jpg",  label: "Life and Sound" },
     "projects.html":       { image: "assets/img/head/projects.jpg",        label: "Snare, cymbal, floor" },
-    "albums.html":         { image: "assets/img/press/gideok-moon-04.jpg", label: "Brushes, close-up" },
-    "performances.html":   { image: "assets/img/press/gideok-moon-03.jpg", label: "24Hours, THC" },
-    "epk.html":            { image: "assets/img/press/gideok-moon-02.jpg", label: "Live at the kit" }
+    "albums.html":         { image: "assets/img/head/albums.jpg",          label: "The kit, set up" },
+    "performances.html":   { image: "assets/img/head/performances.jpg",    label: "Mid-set" },
+    "epk.html":            { image: "assets/img/head/epk.jpg",             label: "Sticks" }
   },
 
   /* -- Booking ----------------------------------------------------------- */
