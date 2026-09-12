@@ -410,9 +410,9 @@ window.SITE = {
      photographs is the fix; nothing in the code needs to change. */
   banners: {
     "solo.html":           { image: "assets/img/press/gideok-moon-01.jpg", label: "Cymbal, solo set" },
-    "iio.html":            { videoId: "pu-4o3zFFOM",                       label: "i!i!o — live" },
-    "life-and-sound.html": { videoId: "5WSILESP-bE",                       label: "MoIM × LIQUID SOUND, Seoul" },
-    "projects.html":       { image: "assets/img/press/gideok-moon-02.jpg", label: "Live at the kit" },
+    "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — live" },
+    "life-and-sound.html": { image: "assets/img/head/life-and-sound.jpg",  label: "Life and Sound" },
+    "projects.html":       { image: "assets/img/head/projects.jpg",        label: "Snare, cymbal, floor" },
     "albums.html":         { image: "assets/img/press/gideok-moon-04.jpg", label: "Brushes, close-up" },
     "performances.html":   { image: "assets/img/press/gideok-moon-03.jpg", label: "24Hours, THC" },
     "epk.html":            { image: "assets/img/press/gideok-moon-02.jpg", label: "Live at the kit" }

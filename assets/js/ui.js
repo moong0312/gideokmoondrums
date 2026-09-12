@@ -154,8 +154,11 @@
       a.href = p.file;
       a.setAttribute("download", "");
 
+      /* The thumbnail is 76px wide; the file behind the Download link is the
+         full-size press photograph, and four of those came to ten megabytes
+         for a strip of postage stamps. The link still points at the real one. */
       var t = el("span", "photo__thumb");
-      setBg(t, [p.file]);
+      setBg(t, [p.file.replace(/\.jpg$/i, "@thumb.jpg"), p.file]);
       a.appendChild(t);
 
       a.appendChild(el("span", "photo__b",
@@ -249,7 +252,15 @@
     var img = el("div", "banner__img");
     img.setAttribute("role", "img");
     img.setAttribute("aria-label", b.label || "Gideok Moon");
-    setBg(img, [b.image].concat(ytThumb(b.videoId)));
+
+    /* A phone shows this strip about 375px wide, so it has no use for the
+       full file. setBg walks the list and keeps the first that loads, which
+       means a banner with no @sm twin simply falls through to the full one. */
+    var narrow = window.matchMedia && window.matchMedia("(max-width:760px)").matches;
+    var sources = [];
+    if (b.image && narrow) sources.push(b.image.replace(/\.jpg$/i, "@sm.jpg"));
+    sources.push(b.image);
+    setBg(img, sources.concat(ytThumb(b.videoId)));
     if (b.label) img.appendChild(el("span", "banner__chip", esc(b.label)));
     host.appendChild(img);
   }

@@ -55,8 +55,22 @@ of its own, so there is nothing to keep in sync.
 Every page but the front one opens on a letterbox photograph under the nav, at 3:1,
 with a small chip captioning it — set per page in `banners` in `data.js`, keyed by
 file name. Give it an `image`, or a `videoId` to use that video's own thumbnail so a
-project page opens on the group actually playing. There are only four press photos,
-so a couple currently repeat; adding photographs is the fix, the code needs nothing.
+project page opens on the group actually playing. The three project pages have their
+own photographs in `assets/img/head/`, cut to 3:1 so nothing depends on the CSS crop.
+
+Two filename conventions save the phone from files it has no use for, and both are
+optional — `setBg` walks its list and keeps the first that loads, so a photograph
+without a twin simply falls through to the full one:
+
+| suffix | what it is | used by |
+| --- | --- | --- |
+| `@sm` | the same 3:1 frame at 980px | the banner, below 760px wide |
+| `@thumb` | 304×232 | the press-photo list on the EPK page |
+
+`@thumb` matters more than it sounds: the EPK page was pulling four full-resolution
+press photographs — nine megabytes — to draw four 76px thumbnails, on the one page
+most likely to be opened on an institution's network. The **Download** links still
+point at the full files, which is the whole reason those are kept large.
 
 Every page is built from the same shell: the nav and the footer are identical
 across all eight, and `ui.js` renders the
