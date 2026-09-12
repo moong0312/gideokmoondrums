@@ -8,7 +8,7 @@ handing over the whole site. The front page is a photograph and a short biograph
 everything else lives behind the nav.
 
 ```
-index.html              the photograph, then two sentences. Nothing else
+index.html              the photograph beside the two sentences. Nothing else
 solo.html               long biography · the Ieum project · records as leader
 iio.html                ┐ one project each
 life-and-sound.html     ┘

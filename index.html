@@ -64,23 +64,25 @@
 </header>
 
 <main id="top">
-<!-- The photograph carries the page; the words sit under it. -->
-<section class="shot" id="hero">
-  <div class="shot__img" id="heroStill" role="img" aria-label="Gideok Moon at the drums"></div>
-</section>
+<!-- Photograph and the two sentences abreast. Someone who opens the site
+     should see the face and read who he is in the same glance, without
+     scrolling for the second half of the introduction. -->
+<section class="sec intro" id="hero">
+  <div class="wrap intro__grid">
+    <div class="intro__shot" id="heroStill" role="img" aria-label="Gideok Moon at the drums"></div>
 
-<section class="sec home__intro">
-  <div class="wrap">
-    <h1 class="home__name">Gideok Moon</h1>
-    <div class="home__bio" id="homeBio"></div>
+    <div class="intro__text">
+      <h1 class="home__name">Gideok Moon</h1>
+      <div class="home__bio" id="homeBio"></div>
 
-    <div class="hero__meta mono">
-      <span id="heroRoles"></span>
-      <span class="dot" aria-hidden="true"></span>
-      <span id="heroBase"></span>
+      <div class="hero__meta mono">
+        <span id="heroRoles"></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span id="heroBase"></span>
+      </div>
+
+      <ul class="social mono" id="social"></ul>
     </div>
-
-    <ul class="social mono" id="social"></ul>
   </div>
 </section>
 </main>

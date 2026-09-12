@@ -642,32 +642,50 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* --- home ----------------------------------------------------------------- */
 
-/* The one image on the site that runs edge to edge. Everywhere else a photo
-   stays bounded; here it is the whole introduction, so it gets the width. */
-.shot{ margin:0; }
-.shot__img{
-  width:100%; height:min(74vh,760px); min-height:320px;
-  background:var(--paper-2) center 22% / cover no-repeat;
-  border-bottom:1px solid var(--img-edge);
+/* Photograph left, the two sentences right — tony-buck.com opens the same way,
+   and the reason is that the first screen has one job: show the face and say
+   who this is. Stacked, the second half of that fell below the fold. */
+.intro{ padding-top:38px; }
+
+.intro__shot{
+  background:var(--paper-2) center 24% / cover no-repeat;
+  border:1px solid var(--img-edge);
+  /* Square on a phone: stacked, a letterbox crop of a face is a squat strip,
+     and the photograph is the first thing anyone sees. */
+  aspect-ratio:1/1; width:100%;
 }
 
-.home__intro{ padding-top:52px; }
+/* Stacked, nothing separates the photograph from the name but this. */
+.intro__text{ margin-top:26px; }
+
 .home__name{
-  font-family:var(--serif); font-weight:400; margin:0 0 22px;
-  font-size:clamp(27px,4.4vw,42px); letter-spacing:-.015em; line-height:1.05;
+  font-family:var(--serif); font-weight:400; margin:0 0 18px;
+  font-size:clamp(27px,4.4vw,38px); letter-spacing:-.015em; line-height:1.05;
 }
-/* Two sentences, so they run the full column rather than stopping short and
-   leaving the right-hand half of the front page empty. A measure this wide
-   would be punishing to read at length — at two lines each it is a statement,
-   not a passage. */
 .home__bio{ max-width:none; margin:0; }
 .home__bio p{ margin:0 0 12px; color:var(--ink-2); font-size:16px; line-height:1.7; }
-.home__intro .hero__meta{ margin-top:26px; }
-.home__intro .social{ margin-top:30px; }
+.intro .hero__meta{ margin-top:24px; margin-bottom:0; }
+.intro .social{ margin-top:26px; }
 
-@media (min-width:900px){
-  .shot__img{ background-position:center 25%; }
-  .home__bio p{ font-size:17.5px; line-height:1.72; }
+/* Stacked until there is width for two readable columns: a 300px-wide measure
+   beside a shrunken photograph helps nobody. */
+@media (min-width:820px){
+  .intro__grid{
+    display:grid;
+    grid-template-columns:1.12fr .88fr;
+    gap:38px;
+    align-items:center;
+  }
+  .intro__text{ margin-top:0; }   /* the gap does it from here */
+  /* Capped against the viewport, not just the column, so the whole
+     introduction still clears the fold on a laptop screen. */
+  .intro__shot{ aspect-ratio:auto; height:min(58vh,470px); }
+  .home__bio p{ font-size:16.5px; line-height:1.7; }
+}
+
+@media (min-width:1120px){
+  .intro__shot{ height:min(62vh,520px); }
+  .home__bio p{ font-size:17px; }
 }
 
 /* --- project page --------------------------------------------------------- */
