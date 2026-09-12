@@ -262,7 +262,7 @@ window.SITE = {
         players: "Sonya Chernysh, Philipp Keifer, Benjamin Jaton" },
 
       { date: "2026-01-18", label: "Jan 18, 2026", project: "Composer's Night — Playtime Festival",
-        venue: "HKB, Bern",
+        venue: "PROZESS, Bern",
         players: "Lukas Mohl" },
 
       { date: "2026-01-14", label: "Jan 14, 2026", project: "Improvisation Night — Playtime Festival",
