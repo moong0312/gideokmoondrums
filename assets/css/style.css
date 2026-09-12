@@ -54,7 +54,7 @@
 }
 
 
-@media (min-width:900px){ :root{ --pad:56px; } }
+@media (min-width:900px){ :root{ --pad:48px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
@@ -120,14 +120,14 @@ body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/ass
    surrounds it is new. */
 .shell{
   position:relative; z-index:1;
-  max-width:1160px; margin:0 auto; min-height:100vh;
+  max-width:980px; margin:0 auto; min-height:100vh;
   background:var(--paper);
   box-shadow:0 0 0 1px var(--line), 0 22px 70px rgba(0,0,0,.13);
 }
 
 /* Only once there is room to spare: below this the photograph would be a
    sliver down each side, which reads as a mistake rather than a margin. */
-@media (min-width:1280px){
+@media (min-width:1120px){
   .shell{
     margin:30px auto; min-height:calc(100vh - 60px);
     box-shadow:0 0 0 1px var(--line), 0 30px 90px rgba(0,0,0,.28);

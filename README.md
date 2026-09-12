@@ -36,9 +36,13 @@ serve.js                local preview server
 ```
 
 Everything except the fixed player sits inside `.shell`, a centred column capped at
-1160px, so on a wide monitor the eye has one place to sit. The shell keeps `--paper`,
-so every rule written against the page background still holds. Behind it is a
-photograph — see **Backgrounds** below.
+980px, so on a wide monitor the eye has one place to sit. The shell keeps `--paper`, so
+every rule written against the page background still holds. Behind it is a photograph —
+see **Backgrounds** below.
+
+980px is measured, not guessed: tony-buck.com runs its card at 980px inside a 1600px
+window, 61% of the width. Wider than that and the photograph is a stripe down each
+side, which reads as a layout that failed rather than a margin that was chosen.
 
 Type runs small on purpose — 14px body, 1.62 leading, headings a step down from where
 they started. tony-buck.com sets body at 13px/21px and mariaportugal.com at 12px; the
