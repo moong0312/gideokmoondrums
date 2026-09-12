@@ -72,6 +72,14 @@ without a twin simply falls through to the full one:
 Only make the twin a file actually needs — press photographs want `@thumb` and no
 `@sm`, head photographs the reverse.
 
+Quality before weight on both the head and the ground: q93 with no chroma subsampling
+for a head at 1960px, no blur on a background at 2000px. An earlier pass squeezed these
+under a 190KB cap, which cost enough sharpness to see. A page now carries roughly
+0.6–0.9MB of photography, and that is the right trade for a site whose whole argument
+is what the pictures look like. Crops are centred at 0.5 except More projects, which
+sits at 0.68 so the instruments spread across the floor land inside the 3:1 band
+instead of below it.
+
 `@thumb` matters more than it sounds: the EPK page was pulling four full-resolution
 press photographs — nine megabytes — to draw four 76px thumbnails, on the one page
 most likely to be opened on an institution's network. The **Download** links still

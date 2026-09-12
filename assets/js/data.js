@@ -412,7 +412,7 @@ window.SITE = {
     "solo.html":           { image: "assets/img/head/solo.jpg",            label: "Sticks down, snare" },
     "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — live" },
     "life-and-sound.html": { image: "assets/img/head/life-and-sound.jpg",  label: "Life and Sound" },
-    "projects.html":       { image: "assets/img/head/projects.jpg",        label: "Snare, cymbal, floor" },
+    "projects.html":       { image: "assets/img/head/projects.jpg",        label: "Instruments, laid out" },
     "albums.html":         { image: "assets/img/head/albums.jpg",          label: "The kit, set up" },
     "performances.html":   { image: "assets/img/head/performances.jpg",    label: "Mid-set" },
     "epk.html":            { image: "assets/img/head/epk.jpg",             label: "Sticks" }
