@@ -44,9 +44,13 @@ see **Backgrounds** below.
 window, 61% of the width. Wider than that and the photograph is a stripe down each
 side, which reads as a layout that failed rather than a margin that was chosen.
 
-Type runs small on purpose — 14px body, 1.62 leading, headings a step down from where
+Type runs small on purpose — 15px body, 1.62 leading, headings a step down from where
 they started. tony-buck.com sets body at 13px/21px and mariaportugal.com at 12px; the
 point of the scale is that a whole project fits in one view instead of three.
+
+One scale, the front page included. Its title is `.sec__h`, the same class every other
+page titles with, and its bio runs at body size — nothing on the front page has a size
+of its own, so there is nothing to keep in sync.
 
 Every page but the front one opens on a letterbox photograph under the nav, at 3:1,
 with a small chip captioning it — set per page in `banners` in `data.js`, keyed by

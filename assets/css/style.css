@@ -658,12 +658,10 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 /* Stacked, nothing separates the photograph from the name but this. */
 .intro__text{ margin-top:26px; }
 
-.home__name{
-  font-family:var(--serif); font-weight:400; margin:0 0 18px;
-  font-size:clamp(27px,4.4vw,38px); letter-spacing:-.015em; line-height:1.05;
-}
+/* Body size, like every other page. The front page used to run two steps
+   larger, which made it read as a different site from the one behind it. */
 .home__bio{ max-width:none; margin:0; }
-.home__bio p{ margin:0 0 12px; color:var(--ink-2); font-size:16px; line-height:1.7; }
+.home__bio p{ margin:0 0 12px; color:var(--ink-2); font-size:15px; line-height:1.62; }
 .intro .hero__meta{ margin-top:24px; margin-bottom:0; }
 .intro .social{ margin-top:26px; }
 
@@ -680,12 +678,10 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   /* Capped against the viewport, not just the column, so the whole
      introduction still clears the fold on a laptop screen. */
   .intro__shot{ aspect-ratio:auto; height:min(58vh,470px); }
-  .home__bio p{ font-size:16.5px; line-height:1.7; }
 }
 
 @media (min-width:1120px){
   .intro__shot{ height:min(62vh,520px); }
-  .home__bio p{ font-size:17px; }
 }
 
 /* --- project page --------------------------------------------------------- */
