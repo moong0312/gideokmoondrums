@@ -251,6 +251,8 @@
 
     var img = el("div", "banner__img");
     img.setAttribute("role", "img");
+    /* Nothing is printed over the picture any more; the label is only what a
+       screen reader announces in place of it. */
     img.setAttribute("aria-label", b.label || "Gideok Moon");
 
     /* A phone shows this strip about 375px wide, so it has no use for the
@@ -261,7 +263,6 @@
     if (b.image && narrow) sources.push(b.image.replace(/\.jpg$/i, "@sm.jpg"));
     sources.push(b.image);
     setBg(img, sources.concat(ytThumb(b.videoId)));
-    if (b.label) img.appendChild(el("span", "banner__chip", esc(b.label)));
     host.appendChild(img);
   }
 

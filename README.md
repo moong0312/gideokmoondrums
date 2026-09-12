@@ -52,9 +52,9 @@ One scale, the front page included. Its title is `.sec__h`, the same class every
 page titles with, and its bio runs at body size — nothing on the front page has a size
 of its own, so there is nothing to keep in sync.
 
-Every page but the front one opens on a letterbox photograph under the nav, at 3:1,
-with a small chip captioning it — set per page in `banners` in `data.js`, keyed by
-file name. Give it an `image`, or a `videoId` to use that video's own thumbnail so a
+Every page but the front one opens on a letterbox photograph under the nav, at 3:1 —
+set per page in `banners` in `data.js`, keyed by file name. Nothing is printed over it;
+`label` is the accessible name only, what a screen reader reads in place of the picture. Give it an `image`, or a `videoId` to use that video's own thumbnail so a
 project page opens on the group actually playing. All seven have a photograph of their
 own in `assets/img/head/`, named for the page and cut to 3:1 so nothing depends on
 where the CSS decides to crop. The press photographs are no longer doubling as banners,

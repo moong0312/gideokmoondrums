@@ -408,6 +408,9 @@ window.SITE = {
                  name the moment rather than repeat the page title.
      There are only four press photos, so a couple of these repeat. More
      photographs is the fix; nothing in the code needs to change. */
+
+  /* `label` is not printed on the picture any more — it is the accessible name,
+     what a screen reader reads where everyone else sees the photograph. */
   banners: {
     "solo.html":           { image: "assets/img/head/solo.jpg",            label: "Sticks down, snare" },
     "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — live" },
