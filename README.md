@@ -105,9 +105,16 @@ photo **Download** links, which browsers block on that protocol.
 Everything editable is in **`assets/js/data.js`** — bios, releases, live dates, press
 quotes, links, the player tracklist. Edit, save, reload. No rebuild.
 
-The two sentences the front page opens with are the `INTRO` at the top of that file,
-and the short press bio is the same text, so they are written once and used twice.
-Editing `INTRO` changes both. Bio word counts are counted at render, not written down.
+The biography is assembled, not written three times. At the top of that file:
+
+| piece | used as |
+| --- | --- |
+| `INTRO` | the front-page sentences, and the Short bio on its own |
+| `INTRO` + `BIO_MID` | the Medium bio |
+| `INTRO` + `BIO_LONG` | the Long bio (EPK page, and the Solo page) |
+
+Editing `INTRO` changes all four places at once; the three lengths cannot drift apart
+or contradict each other. Word counts are counted at render, not written down.
 
 ### Adding a live date
 
