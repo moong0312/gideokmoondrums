@@ -206,7 +206,7 @@
   function social(host) {
     if (!host) return;
     var a = S.artist;
-    [["Instagram", a.instagram], ["YouTube", a.youtube], ["All links", a.linktree]]
+    [["Instagram", a.instagram], ["YouTube", a.youtube]]
       .forEach(function (pair) {
         if (!pair[1]) return;
         var li = el("li");

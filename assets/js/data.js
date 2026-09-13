@@ -17,7 +17,7 @@ window.SITE = {
   /* -- Identity ---------------------------------------------------------- */
   artist: {
     name: "Gideok Moon",
-    roles: "Drummer · Improviser · Composer",
+    roles: "Drummer · Improviser",
     base: "Bern — Seoul",
     /* Printed on the page, so both are public and scrapers will find them. That
        is the trade for letting a promoter write or call without a form in the
@@ -25,8 +25,7 @@ window.SITE = {
     email: "gideok@gideokmoon.com",
     phone: "+41 77 466 82 20",
     instagram: "https://www.instagram.com/gideok_moon/",
-    youtube: "https://youtube.com/@moonkiduk0312",
-    linktree: "https://linktr.ee/jazkideok"
+    youtube: "https://youtube.com/@moonkiduk0312"
   },
 
   /* -- Hero -------------------------------------------------------------- */
@@ -61,9 +60,9 @@ window.SITE = {
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "qGxmenckIXY",
-      lineup: ["Gideok Moon — drums, no-input mixing board, Pure Data"],
+      lineup: ["Gideok Moon — drums, Pure Data, resonance speaker"],
       about: [],
-      text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap — a generative space where an entirely new sonic language is born.",
+      text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap which is a generative space where an entirely new sonic language is born.",
       status: "In development"
     },
     {
@@ -73,13 +72,15 @@ window.SITE = {
       kind: "Trio",
       image: "assets/img/work-iio.jpg",
       videoId: "pu-4o3zFFOM",
-      about: [],
+      about: [
+        "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability."
+      ],
       lineup: [
         "Gideok Moon — drums",
         "Tobias Rüetschi — no-input mixing desk",
         "Jessie Chen — voice"
       ],
-      text: "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability.",
+      text: "Acoustic drums and voice feed into a no-input mixing desk, whose feedback loop returns them transformed. The result is a fourth presence inside the trio — a system that answers back, and refuses to be played the same way twice. i!i!o builds its music entirely in real time, moving between long sustained states and sudden reversals.",
       more: "assets/press/iiio-epk.pdf"
     },
     {
@@ -94,8 +95,7 @@ window.SITE = {
         "Gideok Moon — drums",
         "Sangbeom Kim — saxophone"
       ],
-      text: "A duo re-identifying the trivial and overlooked moments of daily life, moving across textures from subtone to chaos. The live album Mealworm (2025) captures the unfiltered dialogue of their shared presence.",
-      status: "Next: Sound of Space (공간의 소리)"
+      text: "A duo re-identifying the trivial and overlooked moments of daily life, moving across textures from subtone to chaos. The live album Mealworm (2025) captures the unfiltered dialogue of their shared presence."
     },
     {
       id: "edge",
@@ -374,7 +374,7 @@ window.SITE = {
     {
       id: "long",
       label: "Long",
-      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal.\n\nHe is a drummer, improviser and composer from Seoul, South Korea, currently based in Bern, Switzerland. He works across several formats: solo, where he develops an approach combining acoustic drums with electronics; the duo Life and Sound, with saxophonist Sangbeom Kim; the trio i!i!o; and the quartet EDGE.\n\nHe received traditional jazz drumming training at Kyung Hee University and was actively involved with improvisers and communities in Korea's free improvisation scene. He collaborated with saxophonist Sunjae Lee and released his solo debut album, Alla Prima (2022), through Lee's label, Mung Music. His duo album with Life and Sound, Mealworm, followed in 2025. He has performed at the Jarasum Jazz Festival, the Korean Cultural Centre in Germany, and jazz clubs across Korea.\n\nSince relocating to Bern he has remained active in the local improvisation scene, performing with i!i!o and EDGE at PROGR, BeJazz, Offy and the Bern Jazz Festival."
+      text: "Gideok Moon is an improviser who begins with the drum. His music moves toward what resists explanation — unpredictable motion, sounds that refuse optimisation, moments that won't disappear. Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal.\n\nHe is a drummer, improviser and composer from Seoul, South Korea, currently based in Bern, Switzerland. He works across several formats: solo, where he develops an approach combining acoustic drums with electronics; the duo Life and Sound, with saxophonist Sangbeom Kim; the trio i!i!o; and the quartet EDGE.\n\nHe holds a Bachelor in Music from the Department of Post-Modern Music at Kyung Hee University, and was actively involved with improvisers and communities in Korea's free improvisation scene. He collaborated with saxophonist Sunjae Lee and released his solo debut album, Alla Prima (2022), through Lee's label, Mung Music. His duo album with Life and Sound, Mealworm, followed in 2025. He has performed at the Jarasum Jazz Festival, the Korean Cultural Centre in Germany, and jazz clubs across Korea.\n\nSince moving to Bern for a Master in Music Performance (Jazz and Contemporary Music) at the Bern University of the Arts HKB, he has remained active in the local improvisation scene, performing with i!i!o and EDGE at PROGR, BeJazz, Offy and the Bern Jazz Festival."
     }
   ],
 
