@@ -177,6 +177,22 @@ releases attach themselves with a `work` key matching the project's `id`:
   venue: "Offy, Bern", work: "edge", ... }
 ```
 
+A project page can also be the press kit itself, so a venue reads it on the page rather
+than downloading a PDF. Give the entry any of these and the page draws those parts — i!i!o
+carries all of them; the others carry none yet and look as they did:
+
+| field | draws |
+| --- | --- |
+| `tagline` | the line above the name, in place of `kind` |
+| `members` | `{ name, role, bio }` each — three abreast, and the one-line `lineup` is dropped |
+| `technical` | `{ k, v }` rows — what the group brings, what the venue provides, set length |
+| `links` | `{ k, text, url }` rows, followed by a Booking row built from `artist` |
+
+With any of them present the dates move to a full-width *Recent performances* row, then
+*Technical* and *Listen & contact* sit side by side. `more` then reads **PDF version ↗**,
+since the page already holds everything the PDF does. Keep the two in step when either
+changes — the PDF is not generated from this data.
+
 `about` is the long text, one string per paragraph, and starts empty — the project
 pages currently show only the short `text` blurb until it is filled in.
 

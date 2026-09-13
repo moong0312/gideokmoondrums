@@ -674,6 +674,31 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* --- project page --------------------------------------------------------- */
 
+/* The press-kit parts of a project page: members, then dates / technical /
+   contact. Drawn only for a project whose entry carries them. */
+.pj__part--rule{ border-top:1px solid var(--line); padding-top:28px; margin-top:40px; }
+.pj__members{ display:grid; gap:24px; }
+.mem__name{ font-family:var(--serif); font-weight:400; font-size:18px; line-height:1.2; margin:0; }
+.mem__role{ font-family:var(--mono); font-size:11px; letter-spacing:.02em; color:var(--ink-3); margin:4px 0 10px; }
+.mem__bio{ margin:0; font-size:13.5px; line-height:1.6; color:var(--ink-2); }
+
+.pj__facts{ display:grid; gap:0 40px; align-items:start; }
+.pj__facts > .pj__part{ margin-top:0; }
+.pj__facts > .pj__part + .pj__part{ margin-top:28px; }
+.pj__kit{ margin:0; display:grid; gap:12px; }
+.pj__kit dt{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+.pj__kit dd{ margin:2px 0 0; text-align:left; font-size:13.5px; line-height:1.55; color:var(--ink-2); overflow-wrap:anywhere; }
+.pj__kit a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line-2); }
+.pj__kit a:hover{ color:var(--accent); border-color:var(--accent); }
+
+@media (min-width:760px){
+  .pj__members{ grid-template-columns:repeat(3,1fr); gap:32px; }
+}
+@media (min-width:900px){
+  .pj__facts--2{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .pj__facts > .pj__part + .pj__part{ margin-top:0; }
+}
+
 /* One project, told in full. On a page with several, each is one of these. */
 .pj{ display:block; }
 .pj + .pj{ margin-top:52px; padding-top:52px; border-top:1px solid var(--line); }
@@ -695,7 +720,8 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .pj__cols .pj__part:first-child{ margin-top:32px; }
 .pj__part .eyebrow{ margin-bottom:12px; }
 
-.sec--list{ padding-top:0; }
+/* The page head ends on a rule; at 0 the first line of a project sat on it. */
+.sec--list{ padding-top:30px; }
 
 
 .wp__name{ margin-bottom:20px; }
