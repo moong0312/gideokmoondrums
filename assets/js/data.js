@@ -17,7 +17,7 @@ var BIO_MID = "Originally from Seoul and now based in Bern, he performs solo and
 
 var BIO_LONG = [
   "Originally from Seoul, South Korea, and now based in Bern, Switzerland, he plays in several formats: solo, combining acoustic drums with electronics; the duo Life and Sound; the trio i!i!o; and the quartet EDGE.",
-  "He holds a Bachelor of Music from the Department of Post-Modern Music at Kyung Hee University, where he trained in jazz drumming, and became active in Korea's free improvisation scene as a founding member of MoIM, a Seoul-based collective of improvisers. He worked closely with saxophonist Sunjae Lee, whose label Mung Music released his solo debut, Alla Prima, in 2022; his playing can also be heard on Mealworm (2025), a live album by his duo Life and Sound. He has performed in concert series and jazz clubs across Korea, and at festivals including the Jarasum Jazz Festival and the Jazz Korea Festival at the Korean Cultural Centre in Germany.",
+  "He completed a Bachelor of Music (Post-Modern Music) at Kyung Hee University, where he trained in jazz drumming, and became active in Korea's free improvisation scene as a founding member of MoIM, a Seoul-based collective of improvisers. He worked closely with saxophonist Sunjae Lee, whose label Mung Music released his solo debut, Alla Prima, in 2022; his playing can also be heard on Mealworm (2025), a live album by his duo Life and Sound. He has performed in concert series and jazz clubs across Korea, and at festivals including the Jarasum Jazz Festival and the Jazz Korea Festival at the Korean Cultural Centre in Germany.",
   "Since moving to Bern for a Master of Arts in Music Performance (Jazz and Contemporary Music) at the Bern University of the Arts HKB, he has been active in the local improvisation scene, performing with i!i!o and EDGE at PROGR, BeJazz and Offy, and appearing at the Bern Jazz Festival."
 ];
 
@@ -98,7 +98,7 @@ window.SITE = {
       tagline: "Free improvisation trio · Bern, Switzerland",
       members: [
         { name: "Gideok Moon", role: "drums",
-          bio: "Drummer and improviser from Seoul, based in Bern, active in Korea's free improvisation scene. Releases include the solo album Alla Prima (2022, Mung Music) and the duo album Mealworm (2025). Bachelor of Music, Department of Post-Modern Music, Kyung Hee University. Studying for a Master of Arts in Music Performance, Jazz and Contemporary Music, at HKB Bern." },
+          bio: "Drummer and improviser from Seoul, based in Bern, active in Korea's free improvisation scene. Releases include the solo album Alla Prima (2022, Mung Music) and the duo album Mealworm (2025). Completed a Bachelor of Music (Post-Modern Music) at Kyung Hee University; studying for a Master of Arts in Music Performance (Jazz and Contemporary Music) at HKB Bern." },
         { name: "Tobias Rüetschi", role: "no-input mixing desk",
           bio: "Musician and artist based in Bern and Winterthur. Works with no-input mixing and sonic DIY techniques, treating noise as material and the creative misuse of technology as method. Studied fine arts in Zurich; currently pursuing an artistic research PhD in music in Bern and Freiburg." },
         { name: "Jessie Chen", role: "voice",
