@@ -103,7 +103,7 @@
       GM.dates(ul, dates, "all");
       host.appendChild(ul);
       var p = el("p", "wp__all");
-      var a = el("a", "link", "All performances →");
+      var a = el("a", "link", "More performances →");
       a.href = "performances.html";
       p.appendChild(a);
       host.appendChild(p);
