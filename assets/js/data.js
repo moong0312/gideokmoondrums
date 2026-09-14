@@ -68,7 +68,7 @@ window.SITE = {
       nameSub: "이음",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
-      videoId: "qGxmenckIXY",
+      videoId: "QkKhPn7cosU",
       lineup: ["Gideok Moon — drums, Pure Data, resonance speaker"],
       about: [],
       text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap which is a generative space where an entirely new sonic language is born.",
@@ -240,6 +240,12 @@ window.SITE = {
       { date: "2026-08-19", label: "Aug 19, 2026", project: "Quintet",
         venue: "Club Evans, Seoul", home: true,
         players: "Sangbeom Kim, Junpyo Hong, Seongmin Ahn, Seungmin Hong" },
+
+      /* Same night as the solo set below — the second half of the evening. */
+      { date: "2026-08-18", label: "Aug 18, 2026", project: "Trio — second set",
+        venue: "Mudaeruk, Seoul",
+        players: "Eunyoung Kim, Junpyo Hong",
+        video: "https://youtu.be/8r6nQQHQ8D0" },
 
       { date: "2026-08-18", label: "Aug 18, 2026", project: "Solo",
         venue: "Mudaeruk, Seoul", work: "solo", home: true,
