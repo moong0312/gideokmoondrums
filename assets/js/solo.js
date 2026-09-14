@@ -23,8 +23,6 @@
   }
 
   GM.boot(function () {
-    var w = find("solo");
-
     /* Biography — the long one. The shorter cuts are on the EPK page, where
        someone is there to copy a specific length. */
     section("soBioSec", function (host) {
@@ -38,47 +36,68 @@
       return 1;
     });
 
-    /* The solo project running now. */
-    section("soProjSec", function (host) {
-      if (!w) return 0;
+    /* One solo project, drawn the same way whichever it is: words on the left,
+       and beside them the video — or, for a record with no video yet, the
+       record itself, so the right-hand column is never left empty. */
+    function project(w) {
+      return function (host) {
+        if (!w) return 0;
 
-      var head = el("div", "pj__head");
-      head.appendChild(el("h2", "pj__name",
-        esc(w.name) + (w.nameSub ? ' <span class="pj__sub">' + esc(w.nameSub) + "</span>" : "")));
-      if (w.status) head.appendChild(el("span", "pj__kind", esc(w.status)));
-      host.appendChild(head);
+        var head = el("div", "pj__head");
+        head.appendChild(el("h2", "pj__name",
+          esc(w.name) + (w.nameSub ? ' <span class="pj__sub">' + esc(w.nameSub) + "</span>" : "")));
+        if (w.status) head.appendChild(el("span", "pj__kind", esc(w.status)));
+        host.appendChild(head);
 
-      /* Words left, video beside them — stacked, the text used half the width
-         and the video took a screen of its own underneath. */
-      var top = el("div", "pj__top");
-      var intro = el("div", "pj__intro");
+        var top = el("div", "pj__top");
+        var intro = el("div", "pj__intro");
 
-      var lu = el("ul", "work__lineup");
-      (w.lineup || []).forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
-      intro.appendChild(lu);
+        var lu = el("ul", "work__lineup");
+        (w.lineup || []).forEach(function (m) { lu.appendChild(el("li", null, esc(m))); });
+        intro.appendChild(lu);
 
-      if (w.text) intro.appendChild(el("p", "wp__lead", esc(w.text)));
-      (w.about || []).filter(function (p) { return p && p.trim(); })
-        .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
-      top.appendChild(intro);
+        if (w.text) intro.appendChild(el("p", "wp__lead", esc(w.text)));
+        (w.about || []).filter(function (p) { return p && p.trim(); })
+          .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
 
-      if (w.videoId) {
-        top.className = "pj__top pj__top--split";
-        var media = el("div", "pj__media");
-        var box = el("div", "wp__video");
-        var f = el("iframe");
-        f.src = "https://www.youtube-nocookie.com/embed/" + w.videoId;
-        f.title = w.name + " — video";
-        f.loading = "lazy";
-        f.allow = "accelerometer; clipboard-write; encrypted-media; picture-in-picture";
-        f.allowFullscreen = true;
-        box.appendChild(f);
-        media.appendChild(box);
-        top.appendChild(media);
-      }
-      host.appendChild(top);
-      return 1;
-    });
+        if (w.credits && w.credits.length) {
+          var cr = el("ul", "pj__credits");
+          w.credits.forEach(function (c) { cr.appendChild(el("li", null, esc(c))); });
+          intro.appendChild(cr);
+        }
+        top.appendChild(intro);
+
+        var media = null;
+        if (w.videoId) {
+          media = el("div", "pj__media");
+          var box = el("div", "wp__video");
+          var f = el("iframe");
+          f.src = "https://www.youtube-nocookie.com/embed/" + w.videoId;
+          f.title = w.name + " — video";
+          f.loading = "lazy";
+          f.allow = "accelerometer; clipboard-write; encrypted-media; picture-in-picture";
+          f.allowFullscreen = true;
+          box.appendChild(f);
+          media.appendChild(box);
+        } else {
+          var rs = S.releases.filter(function (r) { return r.work === w.id; });
+          if (rs.length) {
+            media = el("div", "pj__media pj__media--record");
+            rs.forEach(function (r) { media.appendChild(GM.releaseCard(r)); });
+          }
+        }
+        if (media) {
+          top.className = "pj__top pj__top--split";
+          top.appendChild(media);
+        }
+        host.appendChild(top);
+        return 1;
+      };
+    }
+
+    /* The solo project running now, then the album it grew out of. */
+    section("soProjSec", project(find("solo")));
+    section("soAllaSec", project(find("alla-prima")));
 
     /* Records under his own name, and the dates, abreast — one album alone was
        a card in a third of a row with the rest of the row empty. */

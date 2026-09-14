@@ -75,6 +75,28 @@ window.SITE = {
       status: "In development"
     },
     {
+      /* The first solo album, told as a project of its own on the Solo page.
+         videoId stays empty until the music video is up; until then the page
+         shows the album itself in that place. */
+      id: "alla-prima",
+      page: "solo.html",
+      name: "Alla Prima",
+      kind: "Solo album",
+      videoId: "",
+      lineup: ["Gideok Moon — drums"],
+      text: "Gideok Moon's first solo album, improvised and recorded to cassette in the summer of 2022. It takes its name from alla prima, the painting technique of finishing a canvas in a single session with no sketch underneath.",
+      about: [
+        "In The Unbearable Lightness of Being, Milan Kundera describes a life as a draft with no finished work, a sketch for nothing. He read it the other way round: if no finished version is coming, then every choice and every gesture is already the painting.",
+        "At a time when expressing himself felt difficult, he drew on that technique and on Fluxus, with its disregard for the borders between art forms, and improvised on the thoughts and feelings that particular books and texts had left with him."
+      ],
+      credits: [
+        "Released September 8, 2022 · Mung Music",
+        "Recorded by Sunjae Lee on a Tascam 424 at Stellive, summer 2022",
+        "Mixing, mastering and artwork by Sunjae Lee"
+      ],
+      status: "First solo album · 2022"
+    },
+    {
       id: "iio",
       page: "iio.html",
       name: "i!i!o",
@@ -152,7 +174,7 @@ window.SITE = {
   releases: [
     {
       title: "Alla Prima",
-      work: "solo",
+      work: "alla-prima",
       videoId: "3IXsqH7luTc",
       track: "the REAL",
       year: 2022,
