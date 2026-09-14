@@ -183,7 +183,9 @@ window.SITE = {
       label: "Mung Music",
       note: "Solo debut",
       image: "assets/img/release-alla-prima.jpg",
-      link: "https://album.link/s/4ZtlVkvjo7WO8gmwPtJ9Ow"
+      /* Bandcamp rather than album.link: this is the label's own page for the
+         record, where it can be bought as well as heard. */
+      link: "https://mungmusic.bandcamp.com/album/alla-prima"
     },
     {
       title: "Mealworm",
