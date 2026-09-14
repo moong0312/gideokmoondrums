@@ -39,6 +39,8 @@
     /* One solo project, drawn the same way whichever it is: words on the left,
        and beside them the video — or, for a record with no video yet, the
        record itself, so the right-hand column is never left empty. */
+    var shown = {};   /* records already drawn inside a project block */
+
     function project(w) {
       return function (host) {
         if (!w) return 0;
@@ -83,7 +85,7 @@
           var rs = S.releases.filter(function (r) { return r.work === w.id; });
           if (rs.length) {
             media = el("div", "pj__media pj__media--record");
-            rs.forEach(function (r) { media.appendChild(GM.releaseCard(r)); });
+            rs.forEach(function (r) { media.appendChild(GM.releaseCard(r)); shown[r.title] = 1; });
           }
         }
         if (media) {
@@ -103,7 +105,14 @@
        a card in a third of a row with the rest of the row empty. */
     var sec = $("#soFootSec");
     if (sec) {
-      var rs = S.releases.filter(function (r) { return r.work === "solo"; });
+      /* Records from any solo project, except one already standing in for a
+         video above — so a record appears on this page exactly once, wherever
+         it fits. */
+      var soloIds = S.works.filter(function (w) { return w.page === "solo.html"; })
+        .map(function (w) { return w.id; });
+      var rs = S.releases.filter(function (r) {
+        return soloIds.indexOf(r.work) !== -1 && !shown[r.title];
+      });
       var ds = S.live.dates.filter(function (d) { return d.work === "solo"; });
       rs.forEach(function (r) { sec.querySelector("[data-rel]").appendChild(GM.releaseCard(r)); });
       GM.dates(sec.querySelector("[data-live]"), ds, "all");

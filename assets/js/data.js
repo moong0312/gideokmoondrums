@@ -76,13 +76,13 @@ window.SITE = {
     },
     {
       /* The first solo album, told as a project of its own on the Solo page.
-         videoId stays empty until the music video is up; until then the page
-         shows the album itself in that place. */
+         With a videoId the page embeds it; without one it shows the album
+         itself in that place. */
       id: "alla-prima",
       page: "solo.html",
       name: "Alla Prima",
       kind: "Solo album",
-      videoId: "",
+      videoId: "6Bdca3_gqm4",   /* Maybe Tomorrow — official video */
       lineup: ["Gideok Moon — drums"],
       text: "Gideok Moon's first solo album, improvised and recorded to cassette in the summer of 2022. It takes its name from alla prima, the painting technique of finishing a canvas in a single session with no sketch underneath.",
       about: [

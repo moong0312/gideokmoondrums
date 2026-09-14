@@ -162,10 +162,10 @@ group is added there: `data-works="edge,newband"`.
 
 `solo.html` is its own script (`solo.js`) because it leads with the biography before
 the projects: Ieum (`id: "solo"`), then Alla Prima (`id: "alla-prima"`), the first solo
-album told as a project of its own. A solo project with no `videoId` shows its record in
-the video's place, and its `credits` list sits under the text. When the Alla Prima music
-video is up, put its ID in that entry's `videoId` — the page and the Contact page's
-Watch list pick it up.
+album told as a project of its own, with its music video (Maybe Tomorrow). A solo
+project with no `videoId` shows its record in the video's place; one with a video sends
+its record down to the Records row instead, so each record appears on the page once.
+`credits` sits under the text.
 
 The `og:` tags are per-file on purpose — they are what a mail client or chat app shows
 in the link preview, so they must name the project rather than the site. Point
