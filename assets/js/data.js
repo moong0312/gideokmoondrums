@@ -71,7 +71,20 @@ window.SITE = {
       videoId: "QkKhPn7cosU",
       lineup: ["Gideok Moon — drums, Pure Data, resonance speaker"],
       about: [],
-      text: "Ieum (이음) investigates the coexistence of distinct elements held together in creative tension. For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. What initially appears incompatible actually forms a fertile gap which is a generative space where an entirely new sonic language is born.",
+      text: "In Korean, Ieum (이음) can mean both \"different sounds\" and \"connection\". For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. Ieum is an electroacoustic project in which the drum is the speaker: a resonance speaker placed on the drumhead sends electronic sound through the head, the shell and the snare wires, so it comes from the instrument itself rather than from a PA beside it.",
+
+      /* Not shown on the site. The longer account, kept here with the project for
+         proposals and applications (the application-format skill reads this
+         file as the master record). */
+      proposal: [
+        "When electronics are added to a drum kit, the sound usually goes out through a mixer and loudspeakers, and what comes back never quite blends with the acoustic drums. Ieum turns this around. The electronic sounds come from Pure Data patches Gideok Moon builds himself and runs as phone apps, played like one more small percussion instrument. The kit needs no microphones, no mixer and no external speakers.",
+        "Playing this way changes the playing itself: a sound can be set on one drum, moved from surface to surface, and shaped by touch. He first performed with the setup at Mudaeruk in Seoul in August 2026. The work continues as research into more volume, several speakers at once, and sensors that let the electronics be controlled entirely from the kit, without touching a computer."
+      ],
+      proposalKo: [
+        "이음은 한국어로 '서로 다른 음(異音)', 또는 '연결'을 뜻합니다. 즉흥연주자 문기덕에게 앞으로 나아간다는 것은 낯선 것과의 연결을 끊임없이 시도하는 일입니다. 이음은 드럼 자체가 스피커가 되는 일렉트로어쿠스틱 프로젝트입니다. 드럼 헤드 위에 올린 레조넌스 스피커가 전자음을 헤드와 셸, 스네어 와이어로 울려서, 소리가 옆에 놓인 PA가 아니라 악기 자체에서 나옵니다.",
+        "드럼에 전자음을 더하면 소리는 보통 믹서와 외부 스피커로 나가고, 그렇게 돌아온 소리는 어쿠스틱 드럼과 잘 섞이지 않습니다. 이음은 그 방향을 뒤집습니다. 전자음은 문기덕이 직접 만든 Pure Data 패치를 휴대폰 앱으로 빌드해 작은 타악기처럼 연주합니다. 마이크도, 믹서도, 외부 스피커도 필요 없습니다.",
+        "이렇게 연주하면 연주 방식도 달라집니다. 소리를 한 드럼에 올려두고, 표면에서 표면으로 옮기고, 손으로 다듬을 수 있습니다. 2026년 8월 서울 무대륙에서 이 셋업으로 처음 공연했고, 지금은 음량 확보, 여러 스피커를 동시에 쓰는 법, 컴퓨터를 만지지 않고 드럼에서 바로 제어하는 센서 작업을 연구하고 있습니다."
+      ],
       status: "In development"
     },
     {
