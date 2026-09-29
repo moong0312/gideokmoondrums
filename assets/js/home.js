@@ -26,5 +26,21 @@
     }
 
     GM.social($("#social"));
+
+    /* Mouse only, and only if the visitor hasn't asked for less movement:
+       nothing here is worth a jitter on a phone or a headache on a desktop. */
+    var shot = $("#heroStill"), intro = $(".intro");
+    if (shot && intro && window.matchMedia &&
+        matchMedia("(hover:hover) and (pointer:fine)").matches &&
+        !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var place = function (x, y) {
+        shot.style.backgroundPosition = (50 + x * 2.5) + "% " + (24 + y * 2.5) + "%";
+      };
+      intro.addEventListener("pointermove", function (e) {
+        var r = intro.getBoundingClientRect();
+        place((e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5);
+      });
+      intro.addEventListener("pointerleave", function () { place(0, 0); });
+    }
   });
 })();
