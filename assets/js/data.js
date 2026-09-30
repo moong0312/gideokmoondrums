@@ -117,7 +117,8 @@ window.SITE = {
       image: "assets/img/work-iio.jpg",
       videoId: "pu-4o3zFFOM",
       about: [
-        "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability."
+        "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability.",
+        "A central part of i!i!o's output is the interest in exploring the fundamentals of improvisation. A non-linear setup like ours creates a situation where we are in a constant state of exploration and re-learning. This raises questions about traditional notions of control and expertise. But still, we see ourselves making some kind of progress in playing together as a group. We think this alternative form of artistic knowledge is something worth exploring, presenting to audiences and to document through a variety of forms."
       ],
       lineup: [
         "Gideok Moon — drums",
