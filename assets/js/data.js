@@ -117,15 +117,19 @@ window.SITE = {
       image: "assets/img/work-iio.jpg",
       videoId: "pu-4o3zFFOM",
       about: [
-        "Tobias builds sound from feedback loops rather than external sources. The three improvise into that system — sometimes mirroring what comes back, sometimes resisting it, looking for musical context inside the unpredictability.",
-        "A central part of i!i!o's output is the interest in exploring the fundamentals of improvisation. A non-linear setup like ours creates a situation where we are in a constant state of exploration and re-learning. This raises questions about traditional notions of control and expertise. But still, we see ourselves making some kind of progress in playing together as a group. We think this alternative form of artistic knowledge is something worth exploring, presenting to audiences and to document through a variety of forms."
+        "In i!i!o, the vocals and drums are also fed directly into the NIMB. This creates a system in which all three musicians influence each other and can either give up or take control. During performances, we listen closely to the feedback and respond to it in real time. We shape the music through our individual voices, but add extended techniques and make decisions together during the improvisation.",
+        "We understand this practice as something between composition and improvisation. It is also a form of artistic research into alternative forms of embodied mastery. We work with its unpredictability and develop ways of responding to it together instead of trying to fully control our instruments."
       ],
       lineup: [
         "Gideok Moon — drums",
         "Tobias Rüetschi — no-input mixing desk",
         "Jessie Chen — voice"
       ],
-      text: "Acoustic drums and voice feed into a no-input mixing desk, whose feedback loop returns them transformed. The result is a fourth presence inside the trio — a system that answers back, and refuses to be played the same way twice. i!i!o builds its music entirely in real time, moving between long sustained states and sudden reversals.",
+      text: "We met during our independent studies at HKB. We work with free improvisation. In our music, we experiment with the negotiation of control through improvisation. For that, we make heavy use of feedback-based instruments. Our trio combines voice, drums and a No-Input Mixing Board (NIMB). A NIMB is created by using any audio mixing board in an unconventional way: its outputs are connected back into its inputs. This creates feedback and a wide range of sounds. The sounds can be influenced through the controls of the mixer, but their effect changes continuously. This means the NIMB produces a nonlinear and unpredictable sound environment.",
+
+      /* The short version, in the trio's own words. Not shown on the site —
+         it is the lead paragraph of the PDF press kit. */
+      short: "A central part of i!i!o's output is the interest in exploring the fundamentals of improvisation. A non-linear setup like ours creates a situation where we are in a constant state of exploration and re-learning. This raises questions about traditional notions of control and expertise. But still, we see ourselves making some kind of progress in playing together as a group. We think this alternative form of artistic knowledge is something worth exploring, presenting to audiences and to document through a variety of forms.",
       more: "assets/press/iiio-epk.pdf",
 
       /* The fields below turn a project page into the press kit itself, so a
