@@ -122,7 +122,7 @@ window.SITE = {
       ],
       lineup: [
         "Gideok Moon — drums",
-        "Tobias Rüetschi — no-input mixing desk",
+        "Tobias Rüetschi — no-input mixing board",
         "Jessie Chen — voice"
       ],
       text: "We met during our independent studies at HKB. We work with free improvisation. In our music, we experiment with the negotiation of control through improvisation. For that, we make heavy use of feedback-based instruments. Our trio combines voice, drums and a No-Input Mixing Board (NIMB). A NIMB is created by using any audio mixing board in an unconventional way: its outputs are connected back into its inputs. This creates feedback and a wide range of sounds. The sounds can be influenced through the controls of the mixer, but their effect changes continuously. This means the NIMB produces a nonlinear and unpredictable sound environment.",
@@ -139,7 +139,7 @@ window.SITE = {
       members: [
         { name: "Gideok Moon", role: "drums",
           bio: "Drummer and improviser from Seoul, based in Bern, active in Korea's free improvisation scene. Releases include the solo album Alla Prima (2022, Mung Music) and the duo album Mealworm (2025). Completed a Bachelor of Music (Post-Modern Music) at Kyung Hee University; studying for a Master of Arts in Music Performance (Jazz and Contemporary Music) at HKB Bern." },
-        { name: "Tobias Rüetschi", role: "no-input mixing desk",
+        { name: "Tobias Rüetschi", role: "no-input mixing board",
           bio: "Musician and artist based in Bern and Winterthur. Works with no-input mixing and sonic DIY techniques, treating noise as material and the creative misuse of technology as method. Studied fine arts in Zurich; currently pursuing an artistic research PhD in music in Bern and Freiburg." },
         { name: "Jessie Chen", role: "voice",
           bio: "Vocalist and sound artist from Taiwan, based in Europe. Works across extended vocal technique, contemporary music theatre and sound art. Studied at the Hochschule für Musik Carl Maria von Weber Dresden, currently on an exchange year at HKB Bern." }
