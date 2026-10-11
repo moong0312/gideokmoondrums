@@ -151,7 +151,7 @@ window.SITE = {
       ],
       links: [
         { k: "Audio",     text: "youtube.com/@tttober", url: "https://www.youtube.com/@tttober" },
-        { k: "Instagram", text: "@iiii.trio",           url: "https://www.instagram.com/iiii.trio/" }
+        { k: "Instagram", text: "@iiiio.trio",          url: "https://www.instagram.com/iiiio.trio/" }
       ]
     },
     {
