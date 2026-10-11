@@ -276,6 +276,22 @@ window.SITE = {
      performances.html renders all of them, grouped by year, on its own. */
   live: {
     dates: [
+      { date: "2027-01-28", label: "Jan 28, 2027", project: "Colin Vallon & Patrice Moret project — PLAYTIME Festival",
+        venue: "PROZESS, Bern",
+        players: "Colin Vallon, Patrice Moret, Juliette Milone, Anton Martinez" },
+
+      { date: "2027-01-26", label: "Jan 26, 2027", project: "i!i!o — HKB Live at Prozess, PLAYTIME Festival", work: "iio",
+        venue: "PROZESS, Bern",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2027-01-24", label: "Jan 24, 2027", project: "i!i!o", work: "iio",
+        venue: "ONO, Bern",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-12-23", label: "Dec 23, 2026", project: "i!i!o", work: "iio",
+        venue: "Dotolim, Seoul",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
       { date: "2026-10-10", label: "Oct 10, 2026", project: "Kolotoč — sub drums",
         venue: "Bern",
         info: "https://www.instagram.com/kolotoc_music/" },
