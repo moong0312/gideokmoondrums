@@ -610,6 +610,10 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 @media (min-width:900px){ .kit{ grid-template-columns:1.3fr 1fr; gap:56px; } }
 
 /* --- page banner ---------------------------------------------------------- */
+.banner__credit{
+  margin:0; padding:7px var(--pad) 0; text-align:right;
+  font-size:9.5px; letter-spacing:.08em; color:var(--ink-3);
+}
 
 /* Every page but the front one opens on a letterbox photograph, so a promoter
    who followed a link sees the playing before reading about it. */

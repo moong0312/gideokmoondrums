@@ -480,7 +480,7 @@ window.SITE = {
      what a screen reader reads where everyone else sees the photograph. */
   banners: {
     "solo.html":           { image: "assets/img/head/solo.jpg",            label: "Sticks down, snare" },
-    "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — the trio, photo by Juliette Milone" },
+    "iio.html":            { image: "assets/img/head/iio.jpg",             label: "i!i!o — the trio, photo by Juliette Milone", credit: "Juliette Milone" },
     "life-and-sound.html": { image: "assets/img/head/life-and-sound.jpg",  label: "Life and Sound" },
     "projects.html":       { image: "assets/img/head/projects.jpg",        label: "Instruments, laid out" },
     "albums.html":         { image: "assets/img/head/albums.jpg",          label: "The kit, set up" },

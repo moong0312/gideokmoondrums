@@ -264,6 +264,8 @@
     sources.push(b.image);
     setBg(img, sources.concat(ytThumb(b.videoId)));
     host.appendChild(img);
+    /* Photographers are credited where their picture is, under it. */
+    if (b.credit) host.appendChild(el("p", "banner__credit mono", "Photo: " + esc(b.credit)));
   }
 
   function here() {
