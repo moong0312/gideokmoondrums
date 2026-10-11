@@ -68,11 +68,15 @@
       .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
 
     var acts = el("div", "wp__acts");
-    if (w.more) {
-      var pk = el("a", "btn btn--ghost", (w.members ? "PDF version" : "Press kit") + " ↗");
-      pk.href = w.more; pk.target = "_blank"; pk.rel = "noopener";
+    /* With the kit on the page itself, the PDFs are just the file versions —
+       one per language where there is one. */
+    [[w.more, w.moreDe ? "PDF — English" : (w.members ? "PDF version" : "Press kit")],
+     [w.moreDe, "PDF — Deutsch"]].forEach(function (p) {
+      if (!p[0]) return;
+      var pk = el("a", "btn btn--ghost", p[1] + " ↗");
+      pk.href = p[0]; pk.target = "_blank"; pk.rel = "noopener";
       acts.appendChild(pk);
-    }
+    });
     if (w.status) acts.appendChild(el("p", "work__status", esc(w.status)));
     if (acts.childNodes.length) intro.appendChild(acts);
 

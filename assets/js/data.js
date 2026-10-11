@@ -131,6 +131,7 @@ window.SITE = {
          it is the lead paragraph of the PDF press kit. */
       short: "A central part of i!i!o's output is the interest in exploring the fundamentals of improvisation. A non-linear setup like ours creates a situation where we are in a constant state of exploration and re-learning. This raises questions about traditional notions of control and expertise. But still, we see ourselves making some kind of progress in playing together as a group. We think this alternative form of artistic knowledge is something worth exploring, presenting to audiences and to document through a variety of forms.",
       more: "assets/press/iiio-epk.pdf",
+      moreDe: "assets/press/iiio-epk-de.pdf",   /* German press kit */
 
       /* The fields below turn a project page into the press kit itself, so a
          venue reads it on the page instead of downloading the PDF. Any project
@@ -139,10 +140,10 @@ window.SITE = {
       members: [
         { name: "Gideok Moon", role: "drums",
           bio: "Drummer and improviser from Seoul, based in Bern, active in Korea's free improvisation scene. Releases include the solo album Alla Prima (2022, Mung Music) and the duo album Mealworm (2025). Completed a Bachelor of Music (Post-Modern Music) at Kyung Hee University; studying for a Master of Arts in Music Performance (Jazz and Contemporary Music) at HKB Bern." },
-        { name: "Tobias Rüetschi", role: "no-input mixing board",
-          bio: "Musician and artist based in Bern and Winterthur. Works with no-input mixing and sonic DIY techniques, treating noise as material and the creative misuse of technology as method. Studied fine arts in Zurich; currently pursuing an artistic research PhD in music in Bern and Freiburg." },
         { name: "Jessie Chen", role: "voice",
-          bio: "Vocalist and sound artist from Taiwan, based in Europe. Works across extended vocal technique, contemporary music theatre and sound art. Studied at the Hochschule für Musik Carl Maria von Weber Dresden, currently on an exchange year at HKB Bern." }
+          bio: "Vocalist and sound artist currently based in Europe, where she researches and develops her artistic practice. In her work she seeks to move beyond formal boundaries and to discover a wide range of expression through voice and body. In 2024 Jessie moved to Europe to focus on contemporary vocal performance. She completed her master's degree at the Hochschule für Musik Dresden and is currently studying within an artistic research programme in music in Bern and Freiburg." },
+        { name: "Tobias Rüetschi", role: "no-input mixing board",
+          bio: "Musician and artist based in Bern and Winterthur. Works with no-input mixing and sonic DIY techniques, treating noise as material and the creative misuse of technology as method. Studied fine arts in Zurich; currently pursuing an artistic research PhD in music in Bern and Freiburg." }
       ],
       technical: [
         { k: "The trio brings", v: "Mixing board (used as a no-input instrument), patch cables, limiter, three microphones with stands" },

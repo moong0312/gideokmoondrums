@@ -194,8 +194,14 @@ carries all of them; the others carry none yet and look as they did:
 
 With any of them present the dates move to a full-width *Recent performances* row, then
 *Technical* and *Listen & contact* sit side by side. `more` then reads **PDF version ↗**,
-since the page already holds everything the PDF does. Keep the two in step when either
-changes — the PDF is not generated from this data.
+since the page already holds everything the PDF does.
+
+The i!i!o PDFs are generated: `python3 tools/iiio_pdf.py` writes
+`assets/press/iiio-epk.pdf` (English, member bios and lead read from `data.js`) and
+`assets/press/iiio-epk-de.pdf` (German, text in the script). Rerun it after changing
+either, and copy the results to the booking folder if they are attached to mail. A
+version that no longer fits on one page steps down a type size, and stops with an
+error if even the smallest size overflows.
 
 `about` is the long text, one string per paragraph, and starts empty — the project
 pages currently show only the short `text` blurb until it is filled in.
