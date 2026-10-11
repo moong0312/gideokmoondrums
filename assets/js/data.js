@@ -275,6 +275,14 @@ window.SITE = {
      performances.html renders all of them, grouped by year, on its own. */
   live: {
     dates: [
+      { date: "2026-10-10", label: "Oct 10, 2026", project: "Kolotoč — sub drums",
+        venue: "Bern",
+        info: "https://www.instagram.com/kolotoc_music/" },
+
+      { date: "2026-09-19", label: "Sep 19, 2026", project: "Kolotoč — sub drums",
+        venue: "Wendelplatz",
+        info: "https://www.instagram.com/kolotoc_music/" },
+
       { date: "2026-08-27", label: "Aug 27, 2026", project: "Trio",
         venue: "Nangman Live, Seoul",
         players: "Zach Hahn, Seajun Kwon" },
