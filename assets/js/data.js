@@ -132,6 +132,7 @@ window.SITE = {
       short: "A central part of i!i!o's output is the interest in exploring the fundamentals of improvisation. A non-linear setup like ours creates a situation where we are in a constant state of exploration and re-learning. This raises questions about traditional notions of control and expertise. But still, we see ourselves making some kind of progress in playing together as a group. We think this alternative form of artistic knowledge is something worth exploring, presenting to audiences and to document through a variety of forms.",
       more: "assets/press/iiio-epk.pdf",
       moreDe: "assets/press/iiio-epk-de.pdf",   /* German press kit */
+      moreKo: "assets/press/iiio-epk-ko.pdf",   /* Korean press kit */
 
       /* The fields below turn a project page into the press kit itself, so a
          venue reads it on the page instead of downloading the PDF. Any project

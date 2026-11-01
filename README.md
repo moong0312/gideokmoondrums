@@ -198,7 +198,9 @@ since the page already holds everything the PDF does.
 
 The i!i!o PDFs are generated: `python3 tools/iiio_pdf.py` writes
 `assets/press/iiio-epk.pdf` (English, member bios and lead read from `data.js`) and
-`assets/press/iiio-epk-de.pdf` (German, text in the script). Rerun it after changing
+`assets/press/iiio-epk-de.pdf` and `-ko.pdf` (German and Korean, text in the script). The
+Korean one sets in IBM Plex Sans KR from `tools/fonts/` (SIL Open Font License), since
+Helvetica has no Hangul; any character that font lacks, such as ü, falls back to Helvetica. Rerun it after changing
 either, and copy the results to the booking folder if they are attached to mail. A
 version that no longer fits on one page steps down a type size, and stops with an
 error if even the smallest size overflows.

@@ -1,10 +1,10 @@
-"""Build the i!i!o press-kit PDFs, English and German, from one layout.
+"""Build the i!i!o press-kit PDFs, English, German and Korean, from one layout.
 
     python3 tools/iiio_pdf.py
 
-Writes assets/press/iiio-epk.pdf and assets/press/iiio-epk-de.pdf. The English
+Writes assets/press/iiio-epk.pdf, -de.pdf and -ko.pdf. The English
 member bios and lead paragraph are read from assets/js/data.js, so the PDF says
-what the i!i!o page says; the German text lives below in DE. Needs Pillow and
+what the i!i!o page says; the German and Korean text lives below in DE and KO. Needs Pillow and
 reportlab, and node for reading data.js.
 """
 import json, subprocess, sys
@@ -17,6 +17,16 @@ from reportlab.platypus import Paragraph
 from reportlab.pdfbase.pdfmetrics import stringWidth
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Helvetica has no Hangul, so the Korean kit sets in IBM Plex Sans KR (OFL,
+# tools/fonts). Its Latin is a grotesque too, so names and URLs sit close to the
+# other two versions. The "i!i!o" title stays Helvetica in all three.
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+for _w in ("Regular", "Bold"):
+    pdfmetrics.registerFont(TTFont(f"PlexKR-{_w}", str(ROOT / f"tools/fonts/IBMPlexSansKR-{_w}.ttf")))
+REG, BOLD = "Helvetica", "Helvetica-Bold"
+TRACK = 1   # letter-spacing factor for labels and the tagline
 W, H = 595.2756, 841.8898
 L, R = 52, 543.2756
 COLS = [52, 221.7585, 391.5171]
@@ -87,20 +97,72 @@ DE = dict(
 )
 
 
+KO = dict(
+    fonts=("PlexKR-Regular", "PlexKR-Bold"), track=0.35,
+    tagline="자유즉흥 트리오", place="스위스 베른", credit="사진: Juliette Milone",
+    lead="i!i!o의 작업에서 중심에 있는 것은 즉흥연주의 근본을 탐구하는 일입니다. 우리처럼 비선형적인 "
+         "셋업에서는 끊임없이 탐색하고 다시 배우는 상태에 놓이게 됩니다. 이는 통제와 전문성에 대한 전통적인 "
+         "관념에 질문을 던집니다. 그럼에도 우리는 함께 연주하며 그룹으로서 어떤 식으로든 나아가고 있음을 "
+         "느낍니다. 우리는 이러한 대안적인 형태의 예술적 지식이 탐구하고, 관객에게 보여주고, 다양한 형식으로 "
+         "기록할 가치가 있다고 생각합니다.",
+    members=[
+        ("Gideok Moon", "드럼",
+         "서울 출신의 드러머이자 즉흥연주자. 베른을 기반으로 활동하며 한국 자유즉흥 씬에서도 활동하고 있다. "
+         "솔로 앨범 《Alla\u00a0Prima》(2022, Mung Music)와 듀오 앨범 《Mealworm》(2025)을 발표했다. "
+         "경희대학교에서 음악학사(포스트모던음악)를 마쳤고, 현재 베른 예술대학 HKB에서 음악 퍼포먼스 "
+         "석사(재즈·현대음악) 과정을 밟고 있다."),
+        ("Jessie Chen", "보컬",
+         "보컬리스트이자 사운드 아티스트. 현재 유럽에 머물며 자신의 예술적 실천을 연구하고 확장하고 있다. "
+         "형식의 경계를 넘어 목소리와 몸을 통해 다양한 표현의 가능성을 찾는다. 2024년 현대 보컬 "
+         "퍼포먼스에 집중하기 위해 유럽으로 옮겨왔다. 드레스덴 음악대학에서 석사과정을 마쳤고, 현재 베른과 "
+         "프라이부르크에서 음악 분야 예술연구 박사과정을 밟고 있다."),
+        ("Tobias Rüetschi", "노인풋 믹싱 보드",
+         "베른과 빈터투어를 기반으로 활동하는 음악가이자 아티스트. 노인풋 믹싱과 DIY 사운드 기법을 다루며, "
+         "노이즈를 재료로, 기술의 창의적 오용을 방법으로 삼는다. 취리히에서 순수미술을 공부했고, 현재 베른과 "
+         "프라이부르크에서 음악 분야 예술연구 박사과정을 밟고 있다."),
+    ],
+    titles=[],
+    h_trio="트리오", h_perf="최근 공연", h_tech="기술 사항", h_contact="듣기 · 연락처",
+    perfs=[("PROGR 369, Bern", "졸업 연주회", "2026년 5월"),
+           ("Offy, Bern", "OFFKULTURWOCHE", "2026년 4월"),
+           ("BeJazz, Bern", "Chrut u Rüebe", "2026년 3월")],
+    tech="트리오는 노인풋 악기로 쓰는 믹싱 보드, 패치 케이블, 리미터, 스탠드를 포함한 마이크 3대를 직접 "
+         "가져갑니다. 공연장에는 공간에 맞는 PA와 모니터, 드럼 세트(하우스 키트 가능, 셋업 유연)를 요청합니다. "
+         "공연 시간은 30–60분으로 조정할 수 있습니다.",
+    footer="자유즉흥 트리오",
+)
+
+
+def ds(c, x, y, text, font, size):
+    """drawString that falls back to Helvetica for any character the current
+    font lacks — IBM Plex Sans KR has no ü, and the names need it."""
+    if font.startswith("Helvetica"):
+        c.setFont(font, size); c.drawString(x, y, text); return
+    have = pdfmetrics.getFont(font).face.charToGlyph
+    alt = "Helvetica-Bold" if font.endswith("Bold") else "Helvetica"
+    run, rf = "", None
+    for ch in text + "\0":
+        f = font if (ch == "\0" or ord(ch) in have) else alt
+        if (f != rf or ch == "\0") and run:
+            c.setFont(rf, size); c.drawString(x, y, run); x += stringWidth(run, rf, size); run = ""
+        if ch != "\0":
+            run += ch; rf = f
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def para(text, size, lead, color=INK, font="Helvetica", titles=()):
+def para(text, size, lead, color=INK, font=None, titles=()):
     t = esc(text)
     for ti in titles:
         t = t.replace(ti, f"<i>{ti}</i>")
-    return Paragraph(t, ParagraphStyle("p", fontName=font, fontSize=size, leading=lead, textColor=color))
+    return Paragraph(t, ParagraphStyle("p", fontName=font or REG, fontSize=size, leading=lead, textColor=color))
 
 
 def label(c, x, y, text):
-    c.setFont("Helvetica-Bold", 7); c.setFillColor(GREY)
-    t = c.beginText(x, y); t.setCharSpace(1.3); t.textOut(text); t.setCharSpace(0); c.drawText(t)
+    c.setFont(BOLD, 7); c.setFillColor(GREY)
+    t = c.beginText(x, y); t.setCharSpace(TRACK * 1.3); t.textOut(text); t.setCharSpace(0); c.drawText(t)
 
 
 def rule(c, y):
@@ -124,6 +186,9 @@ def header_image():
 
 
 def render(T, path, head, sz):
+    global REG, BOLD, TRACK
+    REG, BOLD = T.get("fonts", ("Helvetica", "Helvetica-Bold"))
+    TRACK = T.get("track", 1)
     bsz, blead, lsz, llead = sz
     c = canvas.Canvas(str(path), pagesize=(W, H))
     c.setTitle("i!i!o — " + T["tagline"].title()); c.setAuthor("i!i!o")
@@ -133,10 +198,10 @@ def render(T, path, head, sz):
     # header
     c.drawImage(head, 0, H - 174, W, 174)
     c.setFillColor(Color(1, 1, 1)); c.setFont("Helvetica-Bold", 53); c.drawString(L, 731.89, "i!i!o")
-    c.setFont("Helvetica", 9.5)
-    t = c.beginText(55, 707.89); t.setCharSpace(1.9); t.textOut(T["tagline"]); t.setCharSpace(0); c.drawText(t)
+    c.setFont(REG, 9.5)
+    t = c.beginText(55, 707.89); t.setCharSpace(TRACK * 1.9); t.textOut(T["tagline"]); t.setCharSpace(0); c.drawText(t)
     c.setFillColor(Color(.725, .725, .725)); c.drawString(55, 692.89, T["place"])
-    c.setFont("Helvetica", 6.5); c.setFillColor(Color(.55, .55, .55))
+    c.setFont(REG, 6.5); c.setFillColor(Color(.55, .55, .55))
     c.drawRightString(R, 658.5, T["credit"])
 
     # Everything below the header flows top-down from the text above it, so a
@@ -152,8 +217,8 @@ def render(T, path, head, sz):
     label(c, L, y, T["h_trio"]); rule(c, y - 16)
     bottom = y
     for x, (name, role, bio) in zip(COLS, T["members"]):
-        c.setFillColor(INK); c.setFont("Helvetica-Bold", 10.6); c.drawString(x, y - 46.6, name)
-        c.setFillColor(GREY); c.setFont("Helvetica", 8.6); c.drawString(x, y - 59.6, role)
+        c.setFillColor(INK); ds(c, x, y - 46.6, name, BOLD, 10.6)
+        c.setFillColor(GREY); ds(c, x, y - 59.6, role, REG, 8.6)
         b = para(bio, bsz, blead, titles=T["titles"])
         _, bh = b.wrap(COL_W, 600)
         b.drawOn(c, x, y - 69.8 - bh)
@@ -162,8 +227,8 @@ def render(T, path, head, sz):
     y = bottom - 24
     label(c, L, y, T["h_perf"]); rule(c, y - 14)
     for x, (venue, what, when) in zip(COLS, T["perfs"]):
-        c.setFillColor(INK); c.setFont("Helvetica-Bold", 9.2); c.drawString(x, y - 34, venue)
-        c.setFillColor(GREY); c.setFont("Helvetica", 8.3); c.drawString(x, y - 46.5, f"{what} · {when}")
+        c.setFillColor(INK); ds(c, x, y - 34, venue, BOLD, 9.2)
+        c.setFillColor(GREY); ds(c, x, y - 46.5, f"{what} · {when}", REG, 8.3)
     y -= 64
     rule(c, y)
 
@@ -174,24 +239,24 @@ def render(T, path, head, sz):
     tp.drawOn(c, L, y - 16 - th)
 
     cy = y - 24.8
-    c.setFont("Helvetica", 8.8); c.setFillColor(INK)
-    for k, (text, url) in (("Audio", ("youtube.com/@tttober", "https://www.youtube.com/@tttober")),
+    c.setFont(REG, 8.8); c.setFillColor(INK)
+    for k, (text, url) in ((T.get("k_audio", "Audio"), ("youtube.com/@tttober", "https://www.youtube.com/@tttober")),
                            ("Instagram", ("@iiiio.trio", "https://www.instagram.com/iiiio.trio/"))):
-        c.setFont("Helvetica", 8.8); c.drawString(COLS[2], cy, k + "  ")
-        x = COLS[2] + stringWidth(k + "  ", "Helvetica", 8.8)
-        c.setFont("Helvetica-Bold", 8.8); c.drawString(x, cy, text)
-        link(c, x, cy, text, "Helvetica-Bold", 8.8, url)
+        c.setFont(REG, 8.8); c.drawString(COLS[2], cy, k + "  ")
+        x = COLS[2] + stringWidth(k + "  ", REG, 8.8)
+        c.setFont(BOLD, 8.8); c.drawString(x, cy, text)
+        link(c, x, cy, text, BOLD, 8.8, url)
         cy -= 13
     cy -= 6
-    c.setFont("Helvetica", 8.8); c.drawString(COLS[2], cy, A["name"]); cy -= 13
-    c.setFont("Helvetica-Bold", 8.8)
-    c.drawString(COLS[2], cy, A["email"]); link(c, COLS[2], cy, A["email"], "Helvetica-Bold", 8.8, "mailto:" + A["email"]); cy -= 13
-    c.drawString(COLS[2], cy, "gideokmoon.com"); link(c, COLS[2], cy, "gideokmoon.com", "Helvetica-Bold", 8.8, "https://gideokmoon.com")
+    c.setFont(REG, 8.8); c.drawString(COLS[2], cy, A["name"]); cy -= 13
+    c.setFont(BOLD, 8.8)
+    c.drawString(COLS[2], cy, A["email"]); link(c, COLS[2], cy, A["email"], BOLD, 8.8, "mailto:" + A["email"]); cy -= 13
+    c.drawString(COLS[2], cy, "gideokmoon.com"); link(c, COLS[2], cy, "gideokmoon.com", BOLD, 8.8, "https://gideokmoon.com")
     assert cy > 82, f"{path.name}: contact runs into the footer ({cy:.1f})"
 
     # footer
     rule(c, 72)
-    c.setFont("Helvetica", 7.5); c.setFillColor(GREY)
+    c.setFont(REG, 7.5); c.setFillColor(GREY)
     t = c.beginText(L, 58); t.setCharSpace(.5)
     t.textOut("  ·  ".join(["i!i!o", T["footer"], T["place"], A["email"], "gideokmoon.com"])); t.setCharSpace(0); c.drawText(t)
     c.showPage(); c.save()
@@ -216,3 +281,4 @@ if __name__ == "__main__":
     head = header_image()
     build(EN, ROOT / "assets/press/iiio-epk.pdf", head)
     build(DE, ROOT / "assets/press/iiio-epk-de.pdf", head)
+    build(KO, ROOT / "assets/press/iiio-epk-ko.pdf", head)
