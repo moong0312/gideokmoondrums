@@ -11,6 +11,11 @@
   var dates   = S.live.dates;
   var vidOnly = false;
 
+  /* First and last year come from the data, so a new date never leaves the
+     count line out of step. */
+  var years = dates.map(function (d) { return +d.date.slice(0, 4); });
+  var span  = Math.min.apply(null, years) + " – " + Math.max.apply(null, years);
+
   function render() {
     var list = vidOnly ? dates.filter(function (d) { return d.video; }) : dates;
     var host = $("#years");
@@ -36,7 +41,7 @@
     $("#empty").hidden = list.length > 0;
     $("#count").textContent =
       list.length + (list.length === 1 ? " date" : " dates") +
-      (vidOnly ? " with video" : ", 2021 – 2026");
+      (vidOnly ? " with video" : ", " + span);
 
     reveal();
   }
