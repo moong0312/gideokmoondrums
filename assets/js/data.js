@@ -289,9 +289,25 @@ window.SITE = {
         venue: "ONO, Bern",
         players: "Tobias Rüetschi, Jessie Chen" },
 
-      { date: "2026-12-23", label: "Dec 23, 2026", project: "i!i!o", work: "iio",
+      { date: "2027-01-07", label: "Jan 7, 2027", project: "i!i!o", work: "iio",
+        venue: "Black Bird Coffee, Taipei",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2027-01-06", label: "Jan 6, 2027", project: "i!i!o", work: "iio",
+        venue: "Absence Space, Tainan",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-12-27", label: "Dec 27, 2026", project: "i!i!o — with 산맥 (opening), led by Sunjae Lee", work: "iio",
+        venue: "Mudaeruk, Seoul",
+        players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-12-23", label: "Dec 23, 2026", project: "i!i!o — with Jena Jang (separate set)", work: "iio",
         venue: "Dotolim, Seoul",
         players: "Tobias Rüetschi, Jessie Chen" },
+
+      { date: "2026-11-05", label: "Nov 5, 2026", project: "Grapes of Wrath — Chrut u Rüebe",
+        venue: "BeJazz, Bern",
+        players: "Lukas Mohl, Louis Waeber" },
 
       { date: "2026-10-10", label: "Oct 10, 2026", project: "Kolotoč — sub drums",
         venue: "Bern",
