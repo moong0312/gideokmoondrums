@@ -290,7 +290,7 @@ window.SITE = {
         players: "Tobias Rüetschi, Jessie Chen" },
 
       { date: "2027-01-07", label: "Jan 7, 2027", project: "i!i!o", work: "iio",
-        venue: "Black Bird Coffee, Taipei",
+        venue: "Blackbird Coffee, Taipei",
         players: "Tobias Rüetschi, Jessie Chen" },
 
       { date: "2027-01-06", label: "Jan 6, 2027", project: "i!i!o", work: "iio",
