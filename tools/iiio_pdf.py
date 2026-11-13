@@ -69,8 +69,7 @@ DE = dict(
          "Schlagzeuger und Improvisator aus Seoul, lebt in Bern und ist in der koreanischen "
          "Free-Improvisationsszene aktiv. Zu seinen Veröffentlichungen zählen das Soloalbum „Alla Prima“ "
          "(2022, Mung Music) und das Duo-Album „Mealworm“ (2025). Absolvierte einen Bachelor of Music "
-         "(Postmoderne Musik) an der Kyung Hee University; studiert derzeit für einen Master of Arts in "
-         "Musikperformance (Jazz und zeitgenössische Musik) an der HKB Bern."),
+         "(Postmoderne Musik) an der Kyung Hee University; studiert derzeit für einen Master of Music Performance (Jazz und zeitgenössische Musik) an der HKB Bern."),
         ("Jessie Chen", "Gesang",
          "Sängerin und Klangkünstlerin, die derzeit in Europa lebt und dort ihre künstlerische Praxis "
          "erforscht und weiterentwickelt. In ihrer Arbeit strebt sie danach, formale Grenzen zu überschreiten "
