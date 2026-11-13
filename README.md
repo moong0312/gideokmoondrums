@@ -105,16 +105,18 @@ photo **Download** links, which browsers block on that protocol.
 Everything editable is in **`assets/js/data.js`** — bios, releases, live dates, press
 quotes, links, the player tracklist. Edit, save, reload. No rebuild.
 
-The biography is assembled, not written three times. At the top of that file:
+The biography lives at the top of that file:
 
 | piece | used as |
 | --- | --- |
 | `INTRO` | the front-page sentences, and the Short bio on its own |
-| `INTRO` + `BIO_MID` | the Medium bio |
+| `BIO_MEDIUM` | the Medium bio — the ~100-word version sent with applications |
 | `INTRO` + `BIO_LONG` | the Long bio (EPK page, and the Solo page) |
 
-Editing `INTRO` changes all four places at once; the three lengths cannot drift apart
-or contradict each other. Word counts are counted at render, not written down.
+Medium is written separately on purpose: it names roles and scenes (founding member of
+MoIM, the Mung Music circle, Jarasum) instead of listing bands, which tell a European
+reader nothing. Editing `INTRO` changes the front page, Short and Long together. Word
+counts are counted at render, not written down.
 
 ### Adding a live date
 

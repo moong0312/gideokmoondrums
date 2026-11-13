@@ -4,16 +4,17 @@
    No build step, no dependencies.
 --------------------------------------------------------------------------- */
 
-/* The biography is built from one base and two additions, so the three lengths
-   cannot contradict each other: Short is the base, Medium is the base plus
-   BIO_MID, Long is the base plus BIO_LONG. The base is also the two sentences
-   on the front page. Edit a piece here and every place that uses it follows. */
+/* The biography comes in three lengths. Short is INTRO — also the two
+   sentences on the front page — and Long is INTRO plus BIO_LONG. Medium is
+   written on its own: it is the ~100-word bio used in applications, and says
+   who he has worked with by role and scene rather than by listing bands.
+   Edit a piece here and every place that uses it follows. */
 var INTRO = [
   "Gideok Moon is a drummer who explores the space between acoustic and electronic sound, the familiar and the unfamiliar, certainty and uncertainty.",
   "Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal."
 ];
 
-var BIO_MID = "Originally from Seoul and now based in Bern, he performs solo and with the duo Life and Sound, the trio i!i!o and the quartet EDGE. His solo debut, Alla Prima, came out on Mung Music in 2022, and he has appeared at festivals and concert series including the Jarasum Jazz Festival and the Bern Jazz Festival.";
+var BIO_MEDIUM = "Gideok Moon is a drummer and improviser from Seoul, based in Bern, completing a Master of Music Performance at the HKB in 2027. Rooted in jazz and expanded through free improvisation, he is a founding member of MoIM, an improvisation collective formed in Seoul in 2023, and has worked with improvisers around the Mung Music label. He has played at the Jarasum Jazz Festival, and in Bern with the trio i!i!o and the quartet EDGE. His solo project Ieum explores electroacoustic improvisation, and his solo debut Alla Prima came out on Mung Music in 2022.";
 
 var BIO_LONG = [
   "Originally from Seoul, South Korea, and now based in Bern, Switzerland, he plays in several formats: solo, combining acoustic drums with electronics; the duo Life and Sound; the trio i!i!o; and the quartet EDGE.",
@@ -483,7 +484,7 @@ window.SITE = {
   /* -- Press materials --------------------------------------------------- */
   bios: [
     { id: "short",  label: "Short",  text: INTRO.join("\n\n") },
-    { id: "medium", label: "Medium", text: INTRO.join(" ") + " " + BIO_MID },
+    { id: "medium", label: "Medium", text: BIO_MEDIUM },
     { id: "long",   label: "Long",   text: [INTRO.join(" ")].concat(BIO_LONG).join("\n\n") }
   ],
 
