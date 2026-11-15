@@ -30,7 +30,13 @@
     var li  = el("li", "date rv");
     var box = (!all && d.video) ? ext(el("a", "date__in"), d.video) : el("div", "date__in");
 
-    box.appendChild(el("span", "date__when", esc(d.label)));
+    /* A date still to come says so: on a press page the next shows are what a
+       promoter is looking for, and the list alone doesn't tell them apart. */
+    var when = el("span", "date__when", esc(d.label));
+    if (String(d.date) >= new Date().toISOString().slice(0, 10)) {
+      when.appendChild(el("span", "date__soon", "Upcoming"));
+    }
+    box.appendChild(when);
 
     var mid = el("div", "date__mid");
     mid.appendChild(el("p", "date__what", esc(d.project)));

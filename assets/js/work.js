@@ -68,16 +68,25 @@
       .forEach(function (p) { intro.appendChild(el("p", "pj__p", esc(p))); });
 
     var acts = el("div", "wp__acts");
-    /* With the kit on the page itself, the PDFs are just the file versions —
-       one per language where there is one. */
-    [[w.more, (w.moreDe || w.moreKo) ? "PDF — English" : (w.members ? "PDF version" : "Press kit")],
-     [w.moreDe, "PDF — Deutsch"],
-     [w.moreKo, "PDF — 한국어"]].forEach(function (p) {
-      if (!p[0]) return;
-      var pk = el("a", "btn btn--ghost", p[1] + " ↗");
-      pk.href = p[0]; pk.target = "_blank"; pk.rel = "noopener";
+    /* With the kit on the page itself, the PDFs are just the file versions:
+       one quiet line, one link per language, rather than a row of buttons
+       that wraps onto a second line. */
+    var pdfs = [[w.more, "English"], [w.moreDe, "Deutsch"], [w.moreKo, "한국어"]]
+      .filter(function (p) { return p[0]; });
+    if (pdfs.length > 1 || (pdfs.length && w.members)) {
+      var line = el("p", "pj__pdfs");
+      line.appendChild(el("span", "pj__pdfs-k", "Press kit PDF"));
+      pdfs.forEach(function (p) {
+        var a = el("a", "link", p[1] + " ↗");
+        a.href = p[0]; a.target = "_blank"; a.rel = "noopener";
+        line.appendChild(a);
+      });
+      acts.appendChild(line);
+    } else if (pdfs.length) {
+      var pk = el("a", "btn btn--ghost", "Press kit ↗");
+      pk.href = pdfs[0][0]; pk.target = "_blank"; pk.rel = "noopener";
       acts.appendChild(pk);
-    });
+    }
     if (w.status) acts.appendChild(el("p", "work__status", esc(w.status)));
     if (acts.childNodes.length) intro.appendChild(acts);
 
@@ -153,7 +162,7 @@
          into a third they broke every title into a column of single words. */
       if (dates.length) {
         var lv = el("div", "pj__part--rule");
-        part(lv, "Recent performances", liveInto);
+        part(lv, "Performances", liveInto);
         lv.firstChild.style.marginTop = "0";
         b.appendChild(lv);
       }
