@@ -1090,3 +1090,15 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   .foot p{ white-space:nowrap; }
   .foot__in{ flex-wrap:wrap; gap:10px 28px; }
 }
+
+/* Long bio, folded. */
+.bio__more summary{
+  list-style:none; cursor:pointer; display:inline-block; margin-top:4px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink); border-bottom:1px solid var(--line-2); padding-bottom:3px;
+}
+.bio__more summary::-webkit-details-marker{ display:none; }
+.bio__more summary:hover{ color:var(--accent); border-color:var(--accent); }
+.bio__more .bio__close, .bio__more[open] .bio__open{ display:none; }
+.bio__more[open] .bio__close{ display:inline; }
+.bio__more[open] summary{ margin-bottom:12px; }

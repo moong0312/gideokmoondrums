@@ -138,7 +138,20 @@
       card.appendChild(top);
 
       var body = el("div", "bio__text");
-      b.text.split("\n\n").forEach(function (p) { body.appendChild(el("p", null, esc(p))); });
+      var paras = b.text.split("\n\n");
+      /* The long bio opens on its first paragraph and folds the rest away, so
+         it no longer runs far past the photographs beside it. A native
+         <details>: no script, keyboard and screen reader work as they are.
+         Copy still takes the whole text. */
+      var fold = b.id === "long" && paras.length > 1;
+      (fold ? paras.slice(0, 1) : paras).forEach(function (p) { body.appendChild(el("p", null, esc(p))); });
+      if (fold) {
+        var more = el("details", "bio__more");
+        more.appendChild(el("summary", null,
+          '<span class="bio__open">Read more</span><span class="bio__close">Show less</span>'));
+        paras.slice(1).forEach(function (p) { more.appendChild(el("p", null, esc(p))); });
+        body.appendChild(more);
+      }
       card.appendChild(body);
 
       host.appendChild(card);
