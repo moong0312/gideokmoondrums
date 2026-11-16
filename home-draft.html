@@ -76,11 +76,13 @@
 .pl li{ border-bottom:1px solid var(--line); }
 .pl a{
   display:flex; align-items:baseline; justify-content:space-between; gap:16px;
-  padding:9px 0 11px; text-decoration:none; color:var(--ink);
+  padding:14px 0 15px; text-decoration:none; color:var(--ink);
   transition:padding-left .35s var(--ease), color .25s var(--ease);
 }
-.pl__n{ font-family:var(--serif); font-weight:300; font-size:clamp(30px, 5.2vw, 46px); line-height:1.08; letter-spacing:-.02em; }
-.pl__n small{ font-size:.42em; color:var(--ink-3); margin-left:.5em; letter-spacing:0; }
+/* Two steps above the date titles beside them, not five: at 46px light the
+   project names outweighed everything under the name and fought it. */
+.pl__n{ font-family:var(--serif); font-weight:400; font-size:clamp(21px, 2.6vw, 25px); line-height:1.25; letter-spacing:-.01em; }
+.pl__n small{ font-size:.6em; color:var(--ink-3); margin-left:.5em; letter-spacing:0; }
 .pl__k{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); white-space:nowrap; }
 .pl a:hover{ padding-left:12px; color:var(--accent); }
 
