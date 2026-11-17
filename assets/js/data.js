@@ -14,7 +14,7 @@ var INTRO = [
   "Rooted in jazz and expanded through free improvisation, he works inside familiar forms to expose what they were built to conceal."
 ];
 
-var BIO_MEDIUM = "Gideok Moon is a drummer and improviser from Seoul, based in Bern, completing a Master of Music Performance at the HKB in 2027. Rooted in jazz and expanded through free improvisation, he is a founding member of MoIM, an improvisation collective formed in Seoul in 2023, and has worked with improvisers around the Mung Music label. He has played at the Jarasum Jazz Festival, and in Bern with the trio i!i!o and the quartet EDGE. His solo project Ieum explores electroacoustic improvisation, and his solo debut Alla Prima came out on Mung Music in 2022.";
+var BIO_MEDIUM = "Gideok Moon is a drummer and improviser from Seoul, based in Bern, completing a Master of Music Performance at the HKB in 2027. Rooted in jazz and expanded through free improvisation, he is a founding member of MoIM, an improvisation collective formed in Seoul in 2023, and has worked with improvisers around the Mung Music label. He has played at the Jarasum Jazz Festival, and in Bern with the trio i!i!o and the quartet EDGE. His solo project ieum explores electroacoustic improvisation, and his solo debut Alla Prima came out on Mung Music in 2022.";
 
 var BIO_LONG = [
   "Originally from Seoul, South Korea, and now based in Bern, Switzerland, he plays in several formats: solo, combining acoustic drums with electronics; the duo Life and Sound; the trio i!i!o; and the quartet EDGE.",
@@ -65,20 +65,20 @@ window.SITE = {
     {
       id: "solo",
       page: "solo.html",
-      name: "Ieum",
+      name: "ieum",
       nameSub: "이음",
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "QkKhPn7cosU",
       lineup: ["Gideok Moon — drums, Pure Data, resonance speaker"],
       about: [],
-      text: "In Korean, Ieum (이음) can mean both \"different sounds\" and \"connection\". For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. Ieum is an ongoing project exploring electroacoustic improvisation, bringing electronic sound built in Pure Data together with the acoustic drums.",
+      text: "In Korean, ieum (이음) can mean both \"different sounds\" and \"connection\". For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. ieum is an ongoing project exploring electroacoustic improvisation, bringing electronic sound built in Pure Data together with the acoustic drums.",
 
       /* Not shown on the site. The longer account, kept here with the project for
          proposals and applications (the application-format skill reads this
          file as the master record). */
       proposal: [
-        "In performance, a resonance speaker set on the drumhead sends the electronic sound through the head, the shell and the snare wires, so it comes from the instrument itself rather than from a PA beside it. When electronics are added to a drum kit, the sound usually goes out through a mixer and loudspeakers, and what comes back never quite blends with the acoustic drums. Ieum turns this around. The electronic sounds come from Pure Data patches Gideok Moon builds himself and runs as phone apps, played like one more small percussion instrument. The kit needs no microphones, no mixer and no external speakers.",
+        "In performance, a resonance speaker set on the drumhead sends the electronic sound through the head, the shell and the snare wires, so it comes from the instrument itself rather than from a PA beside it. When electronics are added to a drum kit, the sound usually goes out through a mixer and loudspeakers, and what comes back never quite blends with the acoustic drums. ieum turns this around. The electronic sounds come from Pure Data patches Gideok Moon builds himself and runs as phone apps, played like one more small percussion instrument. The kit needs no microphones, no mixer and no external speakers.",
         "Playing this way changes the playing itself: a sound can be set on one drum, moved from surface to surface, and shaped by touch. He first performed this way at Mudaeruk in Seoul in August 2026, with a Bluetooth resonance speaker placed on the drum. The next step is to build transducers into the kit himself, DIY, and the work continues as research into more volume, several speakers at once, and sensors that let the electronics be controlled entirely from the kit, without touching a computer."
       ],
       proposalKo: [
@@ -500,7 +500,7 @@ window.SITE = {
 
   /* -- Bottom player ----------------------------------------------------- */
   player: [
-    { title: "Ieum",                project: "Solo",                    videoId: "qGxmenckIXY" },
+    { title: "ieum",                project: "Solo",                    videoId: "qGxmenckIXY" },
     { title: "rolls",               project: "Solo — improvisation",    videoId: "HHCQX0VbYiA" },
     { title: "Live at PROGR",       project: "i!i!o",                   videoId: "pu-4o3zFFOM" },
     { title: "MoIM × LIQUID SOUND", project: "Life and Sound",          videoId: "5WSILESP-bE" },

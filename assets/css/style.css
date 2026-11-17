@@ -1,6 +1,6 @@
 /* ===========================================================================
    Gideok Moon — EPK
-   Paper base · one restrained accent · Fraunces + Space Mono + Inter
+   Paper base · one restrained accent · the system face (San Francisco on Apple)
    Light only. The ground behind the page is a photograph, and a photograph
    does not invert — a dark mode would have to dim the picture until it was
    not the picture any more, so the site commits to one light palette.
@@ -40,9 +40,17 @@
   --bg-veil:  rgba(247,245,239,.40);
   --bg-tone:  saturate(.82) brightness(1.02);
 
-  --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --mono:  "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* One face for the whole site: the platform's own — San Francisco on a Mac
+     or iPhone, Segoe UI on Windows, Roboto on Android, with Apple SD Gothic
+     Neo / Noto Sans KR for Hangul. The three tokens stay so every rule still
+     reads "heading", "label" or "text"; they simply share a family now, and
+     weight and tracking do the work the families used to. Nothing is
+     downloaded for it. */
+  --sys:   -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+           "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --serif: var(--sys);
+  --mono:  var(--sys);
+  --sans:  var(--sys);
 
   --pad: 24px;
   --max: 1180px;
@@ -148,10 +156,10 @@ body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/ass
 
 /* --- shared type ---------------------------------------------------------- */
 
-/* section labels read as quiet italic serif caps, not technical mono tags */
+/* section labels: small tracked caps */
 .eyebrow{
-  font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+  font-family:var(--serif); font-weight:600;
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-3); margin:0 0 16px;
 }
 
@@ -163,8 +171,8 @@ body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/ass
 }
 
 .grp{
-  font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:12px; letter-spacing:.02em;
+  font-family:var(--serif); font-weight:600;
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-3);
   margin:0 0 18px; padding-bottom:10px;
   border-bottom:1px solid var(--line-2);
@@ -226,8 +234,8 @@ body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/ass
   border-bottom-color:var(--line-2);
 }
 .nav__id{
-  font-family:var(--serif); font-weight:500; font-size:17px; text-transform:uppercase;
-  text-decoration:none; letter-spacing:.05em; white-space:nowrap;
+  font-family:var(--serif); font-weight:600; font-size:14px; text-transform:uppercase;
+  text-decoration:none; letter-spacing:.08em; white-space:nowrap;
 }
 .nav__right{ display:flex; align-items:center; gap:16px 24px; flex-wrap:wrap; }
 
@@ -501,7 +509,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 .yr{ margin:0 0 36px; }
 .yr__h{
-  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-family:var(--serif); font-weight:300; font-variant-numeric:tabular-nums;
   font-size:clamp(24px, 5vw, 34px); line-height:1;
   letter-spacing:0; color:var(--ink-3);
   margin:0 0 10px;
@@ -844,7 +852,7 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
   font-weight:700; color:var(--ink-3);
 }
 .cx__v{
-  font-family:var(--serif); font-style:italic; font-size:clamp(19px,3.2vw,27px);
+  font-family:var(--serif); font-weight:500; font-size:clamp(19px,3.2vw,27px); letter-spacing:-.01em;
   color:var(--accent); text-decoration:none;
   border-bottom:2px solid var(--accent); padding-bottom:6px;
   justify-self:start; word-break:break-word;

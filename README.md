@@ -9,7 +9,7 @@ everything else lives behind the nav.
 
 ```
 index.html              the photograph beside the two sentences. Nothing else
-solo.html               long biography · the Ieum project · records as leader
+solo.html               long biography · the ieum project · records as leader
 iio.html                ┐ one project each
 life-and-sound.html     ┘
 projects.html           the other groups (EDGE, and whatever comes next)
@@ -163,7 +163,7 @@ project gets its own heading — which is what More projects needs, and how a se
 group is added there: `data-works="edge,newband"`.
 
 `solo.html` is its own script (`solo.js`) because it leads with the biography before
-the projects: Ieum (`id: "solo"`), then Alla Prima (`id: "alla-prima"`), the first solo
+the projects: ieum (`id: "solo"`), then Alla Prima (`id: "alla-prima"`), the first solo
 album told as a project of its own, with its music video (Maybe Tomorrow). A solo
 project with no `videoId` shows its record in the video's place; one with a video sends
 its record down to the Records row instead, so each record appears on the page once.
@@ -263,11 +263,14 @@ a spammer tries.
 
 ## Design
 
-Paper base, one restrained accent (a muted sage green), quiet Fraunces serif for
-headings with italic carrying emphasis instead of bold caps — reference point is
-colinvallon.com: buttons are thin-bordered text, nothing shouts. Images stay bounded
-with one deliberate exception: the front-page photograph runs edge to edge, because
-there it is the whole introduction. Space Mono for small functional labels (dates, tags), Inter for body copy.
+Paper base, one restrained accent (a muted sage green), and one typeface: the
+platform's own — San Francisco on a Mac or iPhone, Segoe UI on Windows, Roboto on
+Android, Apple SD Gothic Neo / Noto Sans KR for Hangul. Nothing is downloaded for it.
+The `--serif`, `--mono` and `--sans` tokens all point at it; they are kept so each rule
+still says whether it is a heading, a label or text, and weight and tracking now carry
+the difference the three families used to. Small labels are tracked caps, headings are
+light-to-medium weight, nothing is italic except press quotes. Buttons are
+thin-bordered text, nothing shouts.
 Mobile-first, with a persistent bottom player on `--paper-3`, the elevated-surface
 tone, so it still reads as a raised bar.
 
