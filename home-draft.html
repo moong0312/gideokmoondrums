@@ -13,23 +13,26 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
 /* ---- type -------------------------------------------------------------
-   A grotesk instead of the serif: Inter Tight for display, the tight-set
-   sibling of the Inter the body already uses, so the page reads as one
-   family. No italics, no swashes — weight does the contrast. Scoped to this
-   page; the rest of the site keeps Fraunces until this is decided. */
-:root{ --disp:"Inter Tight", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif; }
-.nav__id{ font-family:var(--disp); font-weight:600; font-size:15px; letter-spacing:.06em; }
-/* Inter's capital I is a bare stroke, so "Ieum" read as "leum". Inter's
-   cv08 alternate gives it serifs; Inter Tight, as Google serves it, lacks
-   the alternate — so running text is set in Inter, and Inter Tight is kept
-   for the masthead name, which has no capital I. */
-.px__lead, .nx__w, .pl__n{ font-feature-settings:"cv08" 1; }
-.px .eyebrow{ font-family:var(--mono); font-style:normal; font-weight:400; font-size:10px; letter-spacing:.16em; }
+   One family for everything but the masthead name: the system face, which on
+   a Mac or iPhone is San Francisco, and on Windows and Android the platform's
+   own equivalent. The site's three tokens — serif headings, mono labels, sans
+   body — all point at it here, so the nav, the labels, the footer and the
+   text read as one voice. Hangul falls to Apple SD Gothic Neo / Noto Sans KR.
+   The name keeps Inter Tight: it is the one place type is the image. */
+:root{
+  --sys:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --serif:var(--sys); --sans:var(--sys); --mono:var(--sys);
+  --disp:"Inter Tight", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+}
+.nav__id{ font-weight:600; font-size:14px; letter-spacing:.08em; }
+.eyebrow{ font-style:normal; font-weight:600; font-size:10px; letter-spacing:.14em; }
+.px__lead, .nx__w, .pl__n{ font-weight:500; }
 
 /* ---- the poster ---------------------------------------------------------
    The front page as a poster rather than a profile card: the name set large
