@@ -1072,15 +1072,18 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* collage */
 .px__stage{ position:relative; margin-top:26px; isolation:isolate; }
-/* Behind the prints: the cords of one of his Pure Data patches, inked faintly
-   on the paper, so the drums sit on the other half of the work. */
-.px__stage::before{
-  content:""; position:absolute; inset:-22px -26px -22px -20px; z-index:-1; pointer-events:none;
-  background:url("/assets/img/home/pd-lines.png") left top / cover no-repeat;
-  opacity:.75;
-  /* fade the edges so the lines dissolve into the paper rather than stop at a box */
-  -webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 50%, #000 55%, transparent 100%);
-          mask-image:radial-gradient(ellipse 70% 72% at 50% 50%, #000 55%, transparent 100%);
+/* Behind the prints: a datamoshed loop of one of his Pure Data patches,
+   multiplied onto the paper so its greys take the page's colour, and faded
+   hard toward the edges so it dissolves into the background rather than
+   ending at a frame. */
+.px__bg{
+  position:absolute; inset:-34px -40px -34px -32px; z-index:-1; pointer-events:none;
+  width:calc(100% + 72px); height:calc(100% + 68px);
+  object-fit:cover; object-position:left top;
+  mix-blend-mode:multiply; opacity:.8;
+  filter:blur(.3px);
+  -webkit-mask-image:radial-gradient(ellipse 62% 64% at 48% 50%, #000 30%, rgba(0,0,0,.45) 62%, transparent 100%);
+          mask-image:radial-gradient(ellipse 62% 64% at 48% 50%, #000 30%, rgba(0,0,0,.45) 62%, transparent 100%);
 }
 .px__pic{
   display:block; background:var(--paper-2) center / cover no-repeat;

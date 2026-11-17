@@ -47,6 +47,12 @@
     /* The three prints drift at different depths under the pointer, so the
        stack reads as layered rather than flat. Mouse only, and not at all for
        anyone who asked for less motion. */
+    /* The looping background holds still for anyone who asked for less motion. */
+    var bg = document.querySelector(".px__bg");
+    if (bg && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      bg.removeAttribute("autoplay"); bg.pause();
+    }
+
     var stage = $("#pxStage");
     if (stage && window.matchMedia &&
         matchMedia("(hover:hover) and (pointer:fine)").matches &&
