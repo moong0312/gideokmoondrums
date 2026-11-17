@@ -256,19 +256,6 @@ body[data-bg="valley"]{ --bg:url("/assets/img/bg/valley.jpg"); --bg-sm:url("/ass
   .nav__links a{ font-size:11px; letter-spacing:.14em; }
 }
 
-/* --- the roles/base line, under the front-page bio ------------------------- */
-
-.hero__meta{
-  display:grid; gap:4px;
-  font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--ink-3); margin-bottom:34px;
-  font-family:var(--mono);
-}
-.dot{ display:none; width:4px; height:4px; background:var(--accent); }
-@media (min-width:560px){
-  .hero__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
-  .dot{ display:inline-block; }
-}
 
 /* --- statement ------------------------------------------------------------ */
 
@@ -642,48 +629,6 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 
 /* --- home ----------------------------------------------------------------- */
 
-/* Photograph left, the two sentences right — tony-buck.com opens the same way,
-   and the reason is that the first screen has one job: show the face and say
-   who this is. Stacked, the second half of that fell below the fold. */
-.intro{ padding-top:38px; }
-
-.intro__shot{
-  background:var(--paper-2) center 24% / cover no-repeat;
-  border:1px solid var(--img-edge);
-  /* Square on a phone: stacked, a letterbox crop of a face is a squat strip,
-     and the photograph is the first thing anyone sees. */
-  aspect-ratio:1/1; width:100%;
-}
-
-/* Stacked, nothing separates the photograph from the name but this. */
-.intro__text{ margin-top:26px; }
-
-/* Body size, like every other page. The front page used to run two steps
-   larger, which made it read as a different site from the one behind it. */
-.home__bio{ max-width:none; margin:0; }
-.home__bio p{ margin:0 0 12px; color:var(--ink-2); font-size:15px; line-height:1.62; }
-.intro .hero__meta{ margin-top:24px; margin-bottom:0; }
-.intro .social{ margin-top:26px; }
-
-/* Stacked until there is width for two readable columns: a 300px-wide measure
-   beside a shrunken photograph helps nobody. */
-@media (min-width:820px){
-  .intro__grid{
-    display:grid;
-    grid-template-columns:1.12fr .88fr;
-    gap:38px;
-    align-items:center;
-  }
-  .intro__text{ margin-top:0; }   /* the gap does it from here */
-  /* Capped against the viewport, not just the column, so the whole
-     introduction still clears the fold on a laptop screen. */
-  .intro__shot{ aspect-ratio:auto; height:min(58vh,470px); }
-}
-
-@media (min-width:1120px){
-  .intro__shot{ height:min(62vh,520px); }
-}
-
 /* --- project page --------------------------------------------------------- */
 
 /* Credits under a record's text — small and quiet, like the line-up above it. */
@@ -949,20 +894,6 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .nav{ animation:gm-in .5s var(--ease) both; }
 .banner__img{ animation:gm-settle 1.1s var(--ease) both .05s; }
 .sec--head .wrap{ animation:gm-rise .7s var(--ease) both .14s; }
-/* The front page arrives in parts rather than all at once: the photograph
-   settles first, then the name, then each sentence, then the small print.
-   Same curve as everything else, so it reads as composed, not animated. */
-.intro__shot{ animation:gm-settle 1.2s var(--ease) both .05s; }
-.intro__text .sec__h{ animation:gm-rise .8s var(--ease) both .24s; }
-.home__bio p:nth-child(1){ animation:gm-rise .8s var(--ease) both .36s; }
-.home__bio p:nth-child(2){ animation:gm-rise .8s var(--ease) both .46s; }
-.intro .hero__meta{ animation:gm-in .9s var(--ease) both .62s; }
-.intro .social{ animation:gm-rise .8s var(--ease) both .7s; }
-
-/* The picture drifts a little under the pointer — the frame holds still and
-   the image moves inside it. Transition does the smoothing, so the handler
-   only writes a position. */
-.intro__shot{ transition:background-position .5s var(--ease); }
 
 /* Hover: small, and only where something is actually clickable. */
 .release__img{ transition:transform .5s var(--ease); }
@@ -1110,3 +1041,105 @@ a.date__in:hover{ background:var(--paper-3); padding-left:16px; }
 .bio__more .bio__close, .bio__more[open] .bio__open{ display:none; }
 .bio__more[open] .bio__close{ display:inline; }
 .bio__more[open] summary{ margin-bottom:12px; }
+
+/* ---- front page -------------------------------------------------------
+   The masthead name is the one place the site steps out of the system face:
+   Inter Tight, the only font fetched from Google, and only on this page. */
+:root{ --disp:"Inter Tight", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+.px__lead, .nx__w, .pl__n{ font-weight:500; }
+
+/* ---- the poster ---------------------------------------------------------
+   The front page as a poster rather than a profile card: the name set large
+   enough to be the image, three photographs overlapping the way prints are
+   pinned up in a rehearsal room, and under them the two things a visitor
+   came for — when he plays next, and what he plays in. */
+.px{ padding:34px 0 0; }
+
+.px__name{
+  margin:0; font-family:var(--disp); font-weight:600;
+  font-size:clamp(54px, 15.5vw, 148px); line-height:.88; letter-spacing:-.055em;
+  color:var(--ink);
+}
+.px__name em{ font-style:normal; font-weight:300; }   /* contrast by weight, not italics */
+.px__name span{ display:block; }
+.px__name span + span{ padding-left:.9em; }      /* the second word steps in */
+
+.px__roles{
+  margin:18px 0 0; display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+}
+.px__roles i{ width:5px; height:5px; background:var(--accent); display:inline-block; }
+
+/* collage */
+.px__stage{ position:relative; margin-top:26px; }
+.px__pic{
+  display:block; background:var(--paper-2) center / cover no-repeat;
+  border:1px solid var(--line); box-shadow:0 14px 40px rgba(0,0,0,.14);
+  transition:transform .6s var(--ease);
+  will-change:transform;
+}
+.px__pic--a{ aspect-ratio:4/5; width:100%; background-position:center 22%; }
+.px__pic--b{ aspect-ratio:3/1; width:74%; margin:-13% 0 0 26%; position:relative; z-index:2; }
+.px__pic--c{ display:none; }
+
+.px__say{ margin-top:30px; }
+.px__say p{ margin:0; }
+.px__lead{
+  font-family:var(--sans); font-weight:400; font-size:clamp(19px, 2.4vw, 24px); letter-spacing:-.012em;
+  line-height:1.36; letter-spacing:-.008em; color:var(--ink); text-wrap:balance;
+}
+.px__lead + p{ margin-top:14px; font-size:15px; line-height:1.62; color:var(--ink-2); max-width:44ch; }
+.px__say .social{ margin-top:24px; }
+
+/* next + projects */
+.px__lower{ display:grid; gap:44px; margin-top:58px; padding:38px 0 62px; border-top:1px solid var(--line); }
+.px__k{ margin:0 0 14px; }
+
+.nx{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.nx li{ border-bottom:1px solid var(--line); }
+.nx a, .nx div{ display:grid; grid-template-columns:92px 1fr; gap:4px 18px; padding:13px 0; text-decoration:none; color:inherit; }
+.nx__d{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-top:4px; }
+.nx__w{ font-family:var(--sans); font-weight:500; font-size:15.5px; line-height:1.3; letter-spacing:-.005em; }
+.nx__v{ grid-column:2; font-size:12.5px; color:var(--ink-3); }
+.px__all{ margin:16px 0 0; }
+
+.pl{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.pl li{ border-bottom:1px solid var(--line); }
+.pl a{
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+  padding:14px 0 15px; text-decoration:none; color:var(--ink);
+  transition:padding-left .35s var(--ease), color .25s var(--ease);
+}
+/* Two steps above the date titles beside them, not five: at 46px light the
+   project names outweighed everything under the name and fought it. */
+.pl__n{ font-family:var(--sans); font-weight:500; font-size:clamp(20px, 2.4vw, 23px); line-height:1.25; letter-spacing:-.01em; }
+.pl__n small{ font-size:.6em; color:var(--ink-3); margin-left:.5em; letter-spacing:0; }
+.pl__k{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); white-space:nowrap; }
+.pl a:hover{ padding-left:12px; color:var(--accent); }
+
+/* arrival — same curve and keyframes as the rest of the site */
+.px__name span{ animation:gm-rise .9s var(--ease) both; }
+.px__name span + span{ animation-delay:.1s; }
+.px__roles{ animation:gm-in .9s var(--ease) both .3s; }
+.px__pic{ animation:gm-in 1.1s var(--ease) both .2s; }
+.px__pic--b{ animation-delay:.38s; }
+.px__pic--c{ animation-delay:.5s; }
+.px__say{ animation:gm-rise .8s var(--ease) both .5s; }
+
+@media (min-width:860px){
+  .px{ padding-top:44px; }
+  .px__top{ display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr); gap:0 46px; align-items:start; }
+  .px__head{ grid-column:1 / -1; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+  .px__name{ font-size:clamp(96px, 10.6vw, 148px); }
+  .px__name span + span{ padding-left:.34em; }    /* two lines on purpose: one line would need a smaller name */
+  .px__roles{ margin:0 0 14px; justify-content:flex-end; text-align:right; max-width:210px; }
+  .px__stage{ margin-top:30px; min-height:470px; }
+  .px__pic--a{ aspect-ratio:auto; height:430px; width:68%; }
+  .px__pic--b{ position:absolute; left:34%; top:292px; width:76%; margin:0; }
+  .px__pic--c{ display:block; position:absolute; right:2%; top:22px; width:36%; aspect-ratio:4/3; z-index:1; background-position:left top; }
+  .px__say{ margin-top:74px; padding-left:20px; }
+  .px__lower{ grid-template-columns:minmax(0,1fr) minmax(0,1.08fr); gap:56px; margin-top:74px; }
+}
+
+/* A sub-group under a solo project (ieum › Pure Data). */
+.pj__subrow{ margin-top:34px; padding-top:28px; border-top:1px solid var(--line); }

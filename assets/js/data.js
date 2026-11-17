@@ -70,6 +70,11 @@ window.SITE = {
       kind: "Solo",
       image: "assets/img/work-solo.jpg",
       videoId: "QkKhPn7cosU",
+      /* Strands of the project shown under it on the Solo page, each with its
+         own video. */
+      subs: [
+        { title: "Pure Data", videoId: "aT-ix8pIMXw" }
+      ],
       lineup: ["Gideok Moon — drums, Pure Data, resonance speaker"],
       about: [],
       text: "In Korean, ieum (이음) can mean both \"different sounds\" and \"connection\". For improviser Gideok Moon, moving forward means relentlessly pursuing connection with the unfamiliar. ieum is an ongoing project exploring electroacoustic improvisation, bringing electronic sound built in Pure Data together with the acoustic drums.",

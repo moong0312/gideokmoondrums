@@ -93,6 +93,26 @@
           top.appendChild(media);
         }
         host.appendChild(top);
+
+        /* Sub-groups under the project: a label and its video, laid out like
+           the block above so they read as part of it. */
+        (w.subs || []).forEach(function (sub) {
+          var row = el("div", "pj__top pj__top--split pj__subrow");
+          var lab = el("div", "pj__intro");
+          lab.appendChild(el("p", "eyebrow", esc(sub.title)));
+          var yt = el("a", "link", "Watch on YouTube ↗");
+          yt.href = "https://youtu.be/" + sub.videoId; yt.target = "_blank"; yt.rel = "noopener";
+          lab.appendChild(yt);
+          row.appendChild(lab);
+          var m = el("div", "pj__media"), b = el("div", "wp__video"), f = el("iframe");
+          f.src = "https://www.youtube-nocookie.com/embed/" + sub.videoId;
+          f.title = w.name + " — " + sub.title;
+          f.loading = "lazy";
+          f.allow = "accelerometer; clipboard-write; encrypted-media; picture-in-picture";
+          f.allowFullscreen = true;
+          b.appendChild(f); m.appendChild(b); row.appendChild(m);
+          host.appendChild(row);
+        });
         return 1;
       };
     }
