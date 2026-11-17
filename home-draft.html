@@ -13,10 +13,24 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
+/* ---- type -------------------------------------------------------------
+   A grotesk instead of the serif: Inter Tight for display, the tight-set
+   sibling of the Inter the body already uses, so the page reads as one
+   family. No italics, no swashes — weight does the contrast. Scoped to this
+   page; the rest of the site keeps Fraunces until this is decided. */
+:root{ --disp:"Inter Tight", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif; }
+.nav__id{ font-family:var(--disp); font-weight:600; font-size:15px; letter-spacing:.06em; }
+/* Inter's capital I is a bare stroke, so "Ieum" read as "leum". Inter's
+   cv08 alternate gives it serifs; Inter Tight, as Google serves it, lacks
+   the alternate — so running text is set in Inter, and Inter Tight is kept
+   for the masthead name, which has no capital I. */
+.px__lead, .nx__w, .pl__n{ font-feature-settings:"cv08" 1; }
+.px .eyebrow{ font-family:var(--mono); font-style:normal; font-weight:400; font-size:10px; letter-spacing:.16em; }
+
 /* ---- the poster ---------------------------------------------------------
    The front page as a poster rather than a profile card: the name set large
    enough to be the image, three photographs overlapping the way prints are
@@ -25,11 +39,11 @@
 .px{ padding:34px 0 0; }
 
 .px__name{
-  margin:0; font-family:var(--serif); font-weight:300;
-  font-size:clamp(54px, 15.5vw, 148px); line-height:.86; letter-spacing:-.035em;
+  margin:0; font-family:var(--disp); font-weight:600;
+  font-size:clamp(54px, 15.5vw, 148px); line-height:.88; letter-spacing:-.055em;
   color:var(--ink);
 }
-.px__name em{ font-style:italic; font-weight:300; }
+.px__name em{ font-style:normal; font-weight:300; }   /* contrast by weight, not italics */
 .px__name span{ display:block; }
 .px__name span + span{ padding-left:.9em; }      /* the second word steps in */
 
@@ -54,7 +68,7 @@
 .px__say{ margin-top:30px; }
 .px__say p{ margin:0; }
 .px__lead{
-  font-family:var(--serif); font-weight:400; font-size:clamp(19px, 2.5vw, 25px);
+  font-family:var(--sans); font-weight:400; font-size:clamp(19px, 2.4vw, 24px); letter-spacing:-.012em;
   line-height:1.36; letter-spacing:-.008em; color:var(--ink); text-wrap:balance;
 }
 .px__lead + p{ margin-top:14px; font-size:15px; line-height:1.62; color:var(--ink-2); max-width:44ch; }
@@ -68,7 +82,7 @@
 .nx li{ border-bottom:1px solid var(--line); }
 .nx a, .nx div{ display:grid; grid-template-columns:92px 1fr; gap:4px 18px; padding:13px 0; text-decoration:none; color:inherit; }
 .nx__d{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-top:4px; }
-.nx__w{ font-family:var(--serif); font-size:16px; line-height:1.3; }
+.nx__w{ font-family:var(--sans); font-weight:500; font-size:15.5px; line-height:1.3; letter-spacing:-.005em; }
 .nx__v{ grid-column:2; font-size:12.5px; color:var(--ink-3); }
 .px__all{ margin:16px 0 0; }
 
@@ -81,7 +95,7 @@
 }
 /* Two steps above the date titles beside them, not five: at 46px light the
    project names outweighed everything under the name and fought it. */
-.pl__n{ font-family:var(--serif); font-weight:400; font-size:clamp(21px, 2.6vw, 25px); line-height:1.25; letter-spacing:-.01em; }
+.pl__n{ font-family:var(--sans); font-weight:500; font-size:clamp(20px, 2.4vw, 23px); line-height:1.25; letter-spacing:-.01em; }
 .pl__n small{ font-size:.6em; color:var(--ink-3); margin-left:.5em; letter-spacing:0; }
 .pl__k{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); white-space:nowrap; }
 .pl a:hover{ padding-left:12px; color:var(--accent); }
